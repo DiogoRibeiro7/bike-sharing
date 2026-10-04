@@ -80,9 +80,17 @@ The historical `bike.csv` contains **17,379 observations** from 2011-01-01 to
 The maintained loader validates count totals and timestamps, sorts records and
 rejects duplicates. Its field contract is documented in [data](docs/data.md).
 
-The exact upstream source, derivative transformations, timezone and data
-redistribution terms still require the [provenance audit](https://github.com/DiogoRibeiro7/bike-sharing/issues/2).
-The software license does not establish a separate data license.
+A [reproducible audit](docs/data.md) matches every timestamp and rental count
+to UCI’s hourly Bike Sharing dataset and explains every local field numerically.
+It records upstream CC BY 4.0 attribution, month-based season coding and a
+legacy temperature rescaling. The intermediary history, physical temperature
+interpretation, wind-speed unit and timezone remain unresolved.
+
+Verify the committed local evidence without network access:
+
+```bash
+poetry run python -m bike_sharing.audit --check benchmarks/data-audit.json
+```
 
 Observed rentals do not identify unconstrained demand, lost rentals or station
 inventory. Future planning studies will label cost assumptions explicitly.
@@ -118,3 +126,5 @@ notebook is outside the maintained package, lint and execution checks.
 ## License
 
 Software: Apache License 2.0; see [LICENSE](LICENSE).
+Data: UCI source attribution, CC BY 4.0 terms and derivative qualifications are
+recorded in [DATA_LICENSE.md](DATA_LICENSE.md).

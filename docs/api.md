@@ -87,3 +87,18 @@ boundary or diagnostic overrides are rejected in this mode.
 It returns status 2 with a concise diagnostic for invalid inputs or file errors.
 The output path cannot equal the input data or saved selection path. Parent output directories are
 created as needed. Use `bike-sharing --help` for the supported flags.
+
+## Data audit
+
+`bike_sharing.audit.audit_dataset(path, upstream=None)` validates the historical
+14-column schema and returns deterministic coverage and identity evidence. With
+a separately supplied UCI `hour.csv`, it reconciles all rows by timestamp and
+checks every recovered field relationship. A mismatch raises `ValueError`;
+invalid decimal text may raise `decimal.InvalidOperation`.
+
+`python -m bike_sharing.audit --check benchmarks/data-audit.json` verifies the
+local evidence offline. Add `--upstream PATH` for the full comparison. The audit
+CLI prints JSON and returns status 2 on invalid data or differing evidence.
+It never downloads data or computes forecasting metrics. See the
+[data audit](data.md) for the distinction between numeric correspondence and
+verified historical lineage.

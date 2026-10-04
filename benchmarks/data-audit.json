@@ -1,0 +1,80 @@
+{
+  "local": {
+    "absent_hours_by_month": {
+      "2011-01": 56,
+      "2011-02": 23,
+      "2011-03": 14,
+      "2011-04": 1,
+      "2011-08": 13,
+      "2011-09": 3,
+      "2011-10": 1,
+      "2011-11": 1,
+      "2011-12": 3,
+      "2012-01": 3,
+      "2012-02": 4,
+      "2012-03": 1,
+      "2012-04": 2,
+      "2012-10": 36,
+      "2012-11": 2,
+      "2012-12": 2
+    },
+    "bytes": 818902,
+    "calendar_fields_consistent": true,
+    "columns": [
+      "Date",
+      "Season",
+      "Hour",
+      "Holiday",
+      "Day of the Week",
+      "Working Day",
+      "Weather Type",
+      "Temperature F",
+      "Temperature Feels F",
+      "Humidity",
+      "Wind Speed",
+      "Casual Users",
+      "Registered Users",
+      "Total Users"
+    ],
+    "count_totals_consistent": true,
+    "coverage": {
+      "absent_calendar_hours": 165,
+      "calendar_hours": 17544,
+      "first_timestamp": "2011-01-01T00:00:00",
+      "last_timestamp": "2012-12-31T23:00:00",
+      "observations": 17379
+    },
+    "duplicate_timestamps": 0,
+    "missing_cells": 0,
+    "observations_by_year": {
+      "2011": 8645,
+      "2012": 8734
+    },
+    "sha256": "77b9643b9a646c229fe8fcd972ab8689885235b6d31eb3e469661f2b5523fd97",
+    "zero_rental_rows": 0
+  },
+  "schema_version": 1,
+  "uci_comparison": {
+    "bytes": 1156736,
+    "matched_rows_by_field": {
+      "Casual Users": 17379,
+      "Day of the Week": 17379,
+      "Holiday": 17379,
+      "Hour": 17379,
+      "Humidity": 17379,
+      "Registered Users": 17379,
+      "Season": 17379,
+      "Temperature F": 17379,
+      "Temperature Feels F": 17379,
+      "Total Users": 17379,
+      "Weather Type": 17379,
+      "Wind Speed": 17379,
+      "Working Day": 17379
+    },
+    "numeric_reconciliation_complete": true,
+    "observations": 17379,
+    "sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f",
+    "simple_season_recode_disagreements": 3922,
+    "timestamp_sets_identical": true
+  }
+}
