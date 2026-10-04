@@ -1,12 +1,12 @@
 [project]
 name = "bike-sharing-forecast"
-version = "0.2.0"
+version = "0.3.0"
 description = "Reproducible aggregate bike-rental forecasting and evaluation."
 authors = [{name = "Diogo Ribeiro"}]
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 license = "Apache-2.0"
-dependencies = []
+dependencies = ["numpy (>=2.3,<3)", "scikit-learn (>=1.9,<2)", "threadpoolctl (>=3.6,<4)"]
 
 [project.scripts]
 bike-sharing = "bike_sharing.cli:main"
@@ -53,3 +53,8 @@ source = ["bike_sharing"]
 [tool.coverage.report]
 show_missing = true
 fail_under = 90
+
+# Third-party estimators do not ship complete type information. Our boundary is typed.
+[[tool.mypy.overrides]]
+module = ["sklearn.*", "threadpoolctl"]
+ignore_missing_imports = true

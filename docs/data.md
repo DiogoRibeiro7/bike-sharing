@@ -81,8 +81,8 @@ established by the inspected primary artifacts.
 Neither date/hour table encodes a timezone, UTC offset or daylight-saving fold.
 The location does not by itself establish how timestamps were aggregated.
 All current evaluation therefore uses the recorded **naive calendar**, with no
-UTC conversion or daylight-saving repair. The current baselines use calendar
-fields only; these unit conflicts do not change their forecasts.
+UTC conversion or daylight-saving repair. The maintained candidates do not use weather
+columns; these unit conflicts do not change their forecasts.
 
 ## Coverage and missingness
 

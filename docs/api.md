@@ -1,16 +1,15 @@
 # Python API
 
-Install the package through Poetry before importing it. It has no third-party
-runtime dependencies and includes a `py.typed` marker.
+Install the package and its locked numerical dependencies through Poetry before
+importing it. The package includes a `py.typed` marker and uses strict mypy.
 
 ```python
-from datetime import datetime
 from pathlib import Path
 
-from bike_sharing import evaluate, load_dataset
+from bike_sharing import load_dataset, select_rolling_on_validation
 
 dataset = load_dataset(Path("bike.csv"))
-report = evaluate(dataset, cutoff=datetime(2012, 7, 1), horizon_hours=168)
+report = select_rolling_on_validation(dataset)
 print(report["metrics"])
 ```
 
@@ -65,25 +64,59 @@ Fit on training, compare both frozen baselines across validation and return a
 report with `stage="validation"`, `test_scored=false` and a `selection` artifact.
 The lowest validation MAE wins; ties prefer `training_mean`.
 
+## `select_rolling_on_validation(dataset, split=StudySplit(), *, horizon_hours=168)`
+
+Compare the four fixed candidates across expanding training prefixes. Disjoint
+calendar horizons cover validation exactly, with a shortened final fold. Return
+per-fold and pooled MAE/RMSE/deviance, runtime, coefficient diagnostics and the
+selection. Outcomes in test never enter any fitting prefix or metric.
+The selection minimizes pooled MAE with the documented candidate tie order.
+
+## `forecast_model(model, training, timestamps, *, origin) -> Forecast`
+
+Available from `bike_sharing.models`. Require strictly ordered, nonempty training
+observations before the origin and nonempty prediction timestamps at or after it.
+Return `Forecast.values` and JSON-compatible fit `details`. Unknown candidates,
+invalid boundaries, nonconvergence and nonfinite forecasts raise `ValueError`.
+Seasonal-naive repeats the week preceding the origin, never later actuals.
+
+`calendar_features(timestamps)` returns a NumPy float64 matrix with 57 fixed
+calendar features in `FEATURE_NAMES` order. Its definition is independent of
+the data's outcomes. See the [model specification](models.md).
+
+## `calendar_folds(start, end, horizon_hours=168)` and `count_metrics(actual, predicted)`
+
+Available from `bike_sharing.rolling`. Folds tile an ordered interval of naive
+whole hours without overlap, including its partial tail. Count metrics extend
+MAE/RMSE with mean Poisson deviance, applying the documented `1e-9` prediction
+floor only to deviance. Invalid lengths, negative counts or nonfinite forecasts
+are rejected.
+
 ## `read_selection(path: Path) -> FrozenSelection`
 
 Parse the selection embedded in a full validation report. Reject diagnostics,
 final-test reports, invalid fields, unknown models and unsupported schemas.
-The selection records model, dataset SHA-256, boundaries and package version.
+Schema 2 records model, dataset SHA-256, boundaries, package version, protocol,
+horizon and configuration hash. Schema 1 is read as a historical fixed-origin
+selection; the package-version check still applies before final testing.
 
 ## `evaluate_test(dataset, selection)`
 
-Require matching dataset and package versions, refit on training plus validation,
-and return only the chosen model's errors across the test partition. The model
-stays frozen throughout test. This API is exercised on synthetic data in CI;
-the real test period remains unscored until development is complete.
+Require matching dataset, package and model-configuration identities. Return
+only the selected model's errors, using its frozen procedure: either one
+whole-quarter fit or expanding fits at the saved cadence. A rolling test may
+use earlier test observations at later scheduled origins, without reselecting
+model or settings. CI exercises this API on synthetic data; the real test
+period remains unscored until development is complete.
 
 ## Command line
 
-`bike-sharing` defaults to full validation selection, printing JSON to standard
-output unless `--output` is provided. `--cutoff` selects a diagnostic instead.
-`--stage test --selection REPORT` enables final testing with saved boundaries;
-boundary or diagnostic overrides are rejected in this mode.
+`bike-sharing` defaults to rolling validation selection, printing JSON to
+standard output unless `--output` is provided. `--fold-hours` changes the rolling
+cadence; `--protocol fixed` retains the two-mean fixed-origin comparison.
+`--cutoff` selects a diagnostic instead and cannot be combined with protocol or
+fold options. `--stage test --selection REPORT` enables final testing with saved
+settings; protocol, cadence, boundary and diagnostic overrides are rejected.
 It returns status 2 with a concise diagnostic for invalid inputs or file errors.
 The output path cannot equal the input data or saved selection path. Parent output directories are
 created as needed. Use `bike-sharing --help` for the supported flags.

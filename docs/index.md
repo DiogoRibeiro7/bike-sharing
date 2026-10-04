@@ -3,9 +3,10 @@
 This case study develops a reproducible workflow for forecasting aggregate
 hourly rentals and evaluating the decisions those forecasts might support.
 
-The maintained implementation provides two calendar baselines, validated CSV
-loading, a three-way temporal split and validation-only selection. Everything needed for that
-run is local to the repository after installation.
+The maintained implementation compares four interpretable candidates using weekly
+expanding-window validation, while reserving a final temporal test. Data provenance,
+per-fold errors, coefficient diagnostics and source identities are recorded.
+Everything needed for the run is local after installation.
 
 ```bash
 poetry install --with dev,docs
@@ -16,6 +17,7 @@ poetry run mkdocs serve
 Read the [three-way workflow](splits.md) and [forecasting protocol](methodology.md) before interpreting the
 [baseline results](results.md). The [data contract](data.md) describes verified
 properties, row-level UCI reconciliation and remaining provenance limitations.
+The [candidate specification](models.md) explains the statistical models.
 The [API](api.md) documents the Python interfaces. The [legacy audit](legacy-audit.md) explains the original notebook's
 evaluation limitations.
 
