@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install Poetry
+        run: python -m pip install poetry==2.5.1
+      - name: Validate and install locked dependencies
+        run: |
+          poetry check --lock
+          poetry install --with dev,docs --no-interaction
+      - name: Lint and check types
+        run: |
+          poetry run ruff check .
+          poetry run ruff format --check .
+          poetry run mypy
+      - name: Verify forecasting contracts
+        run: poetry run pytest --cov=bike_sharing --cov-report=term-missing
+      - name: Run the bundled-data baseline
+        run: poetry run bike-sharing --output results/baseline.json
+      - name: Build documentation and distributions
+        run: |
+          poetry run mkdocs build --strict
+          poetry build

@@ -1,0 +1,55 @@
+[project]
+name = "bike-sharing-forecast"
+version = "0.1.0"
+description = "Reproducible aggregate bike-rental forecasting and evaluation."
+authors = [{name = "Diogo Ribeiro"}]
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "Apache-2.0"
+dependencies = []
+
+[project.scripts]
+bike-sharing = "bike_sharing.cli:main"
+
+[tool.poetry]
+packages = [{include = "bike_sharing", from = "src"}]
+
+[tool.poetry.group.dev.dependencies]
+ruff = ">=0.16,<0.17"
+mypy = ">=2.4,<3"
+pytest = ">=9,<10"
+pytest-cov = ">=7,<8"
+pre-commit = ">=4,<5"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = ">=1.6,<2"
+mkdocs-material = ">=9.7,<10"
+
+[build-system]
+requires = ["poetry-core>=2.5,<3"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = ["bike_sharing.ipynb"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-config --strict-markers"
+
+[tool.coverage.run]
+branch = true
+source = ["bike_sharing"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
