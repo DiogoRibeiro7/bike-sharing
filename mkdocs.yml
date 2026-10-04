@@ -10,7 +10,7 @@ nav:
   - Overview: index.md
   - Forecasting protocol: methodology.md
   - Training, validation and test: splits.md
-  - Data contract: data.md
+  - Data contract and provenance: data.md
   - Python API: api.md
   - Historical notebook audit: legacy-audit.md
   - Baseline results: results.md

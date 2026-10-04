@@ -15,8 +15,8 @@ poetry run mkdocs serve
 
 Read the [three-way workflow](splits.md) and [forecasting protocol](methodology.md) before interpreting the
 [baseline results](results.md). The [data contract](data.md) describes verified
-properties and unresolved provenance. The [API](api.md) documents the Python
-interfaces. The [legacy audit](legacy-audit.md) explains the original notebook's
+properties, row-level UCI reconciliation and remaining provenance limitations.
+The [API](api.md) documents the Python interfaces. The [legacy audit](legacy-audit.md) explains the original notebook's
 evaluation limitations.
 
 The [six-issue roadmap](https://github.com/DiogoRibeiro7/bike-sharing/issues)
