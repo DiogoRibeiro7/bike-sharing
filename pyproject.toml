@@ -1,6 +1,6 @@
 [project]
 name = "bike-sharing-forecast"
-version = "0.3.0"
+version = "0.4.0"
 description = "Reproducible aggregate bike-rental forecasting and evaluation."
 authors = [{name = "Diogo Ribeiro"}]
 readme = "README.md"
@@ -10,6 +10,7 @@ dependencies = ["numpy (>=2.3,<3)", "scikit-learn (>=1.9,<2)", "threadpoolctl (>
 
 [project.scripts]
 bike-sharing = "bike_sharing.cli:main"
+bike-sharing-intervals = "bike_sharing.interval_cli:main"
 
 [tool.poetry]
 packages = [{include = "bike_sharing", from = "src"}]

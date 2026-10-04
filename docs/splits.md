@@ -57,13 +57,25 @@ A fixed-origin selection instead freezes one refit for the complete quarter.
 The command rejects missing/invalid selection artifacts, different data or
 package/configuration identities, and overrides to boundaries, horizon or
 protocol. Schema 1 historical selections can be read as fixed-origin selections,
-but their old package version prevents execution under 0.3.0 until revalidated.
+but their old package version prevents execution under the current package until
+revalidated.
 
 **The real October–December outcomes have not been scored in this modernization.**
 CI uses synthetic data for final-test checks. Once real test errors are inspected,
 do not use them for further tuning while still calling them untouched holdout
 results. The current report is provisional model selection, not final evidence
 for deployment.
+
+## Interval calibration within the three-way workflow
+
+`bike-sharing-intervals` retains these training/validation/test boundaries. Before
+each forecast, it calibrates from four preceding horizons of out-of-sample errors.
+The initial calibration period is June 3–July 1, before validation begins. Earlier
+calibration counts can subsequently enter expanding point-model fits, but their
+stored errors always come from forecasts made before those counts were known.
+The [interval protocol](intervals.md) describes this distinction and its separate
+saved selection. Its explicit final-test command freezes the point model, refit
+cadence and calibration rule and is currently exercised only on synthetic data.
 
 ## Custom studies
 

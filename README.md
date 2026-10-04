@@ -6,7 +6,8 @@ forecast-time information and chronological evaluation.
 This project is being modernized from a 2020 exploratory notebook into a small
 statistical case study. It provides a typed CSV loader, four interpretable
 forecasting candidates, a verified data audit and chronological model selection.
-Uncertainty and planning-cost evaluation remain in the [roadmap](ROADMAP.md).
+Empirical forecast intervals include temporal calibration and coverage diagnostics.
+Planning-cost evaluation is next in the [roadmap](ROADMAP.md).
 
 ## Run the validation study
 
@@ -65,6 +66,25 @@ The current rolling comparison selects **Poisson calendar**, with MAE **53.268**
 and RMSE **83.215** rentals/hour. Seasonal-naive gives MAE **55.998** and wins in
 8 of the 14 individual folds. These are validation results, not deployment or
 final-test evidence. See [per-fold results and limitations](docs/results.md).
+
+## Evaluate forecast intervals
+
+```bash
+poetry run bike-sharing-intervals --output results/interval-validation.json
+```
+
+Intervals at 80%, 90% and 95% use the preceding four weeks of out-of-sample
+forecast errors. Calibration updates only after each forecast horizon ends.
+The report includes coverage, width and interval score by forecast lead and
+predicted rental level, with nonnegative integer bounds.
+
+Poisson's nominal 90% intervals cover **90.4%** of validation observations with
+mean width **204.6 rentals**, but only **86.4%** in the high predicted-demand
+group. Aggregate coverage hides meaningful weaknesses. These are empirical,
+post-selection diagnostics with no guaranteed coverage under temporal dependence
+or demand shifts. See the [interval method](docs/intervals.md) and
+[complete validation evidence](docs/results.md#empirical-forecast-intervals).
+This command also leaves the real test period unscored.
 
 ## Forecasting candidates
 

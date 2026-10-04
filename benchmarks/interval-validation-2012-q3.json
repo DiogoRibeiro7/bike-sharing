@@ -1,0 +1,3927 @@
+{
+  "absent_hours": 0,
+  "coverage_is_post_selection_diagnostic": true,
+  "dataset": {
+    "sha256": "77b9643b9a646c229fe8fcd972ab8689885235b6d31eb3e469661f2b5523fd97",
+    "source_name": "bike.csv"
+  },
+  "environment": {
+    "dependencies": {
+      "numpy": "2.5.3",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "threadpoolctl": "3.7.0"
+    },
+    "python": "3.12.14"
+  },
+  "folds": [
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-07-01T00:00:00",
+      "calibration_start": "2012-06-03T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-06-30T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 14.113876681186992,
+            "0.9": 16.48197215759671,
+            "0.95": 18.220540219313573
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-06-30T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.748078734401397,
+            "0.9": 6.154806871245424,
+            "0.95": 8.217252327149374
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-06-30T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.919349550499537,
+            "0.9": 7.297453678419566,
+            "0.95": 10.862877189784305
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-06-30T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 25.715438162275092,
+            "0.9": 34.56610270695692,
+            "0.95": 41.293483982918495
+          }
+        }
+      },
+      "end_exclusive": "2012-07-08T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 17,
+            "below_lower": 0,
+            "empirical_coverage": 0.8988095238095238,
+            "mean_interval_score": 426.07738095238096,
+            "mean_width": 308.9940476190476,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 14,
+            "below_lower": 0,
+            "empirical_coverage": 0.9166666666666666,
+            "mean_interval_score": 534.672619047619,
+            "mean_width": 348.48214285714283,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 13,
+            "below_lower": 0,
+            "empirical_coverage": 0.9226190476190477,
+            "mean_interval_score": 688.1249999999998,
+            "mean_width": 374.55357142857144,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 11,
+            "below_lower": 39,
+            "empirical_coverage": 0.7023809523809523,
+            "mean_interval_score": 459.5833333333334,
+            "mean_width": 154.52380952380952,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 11,
+            "below_lower": 28,
+            "empirical_coverage": 0.7678571428571428,
+            "mean_interval_score": 647.4583333333334,
+            "mean_width": 199.36309523809524,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 10,
+            "below_lower": 16,
+            "empirical_coverage": 0.8452380952380952,
+            "mean_interval_score": 840.4226190476186,
+            "mean_width": 263.9940476190476,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 18,
+            "below_lower": 21,
+            "empirical_coverage": 0.7678571428571428,
+            "mean_interval_score": 356.8392857142858,
+            "mean_width": 148.08928571428572,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 15,
+            "below_lower": 6,
+            "empirical_coverage": 0.875,
+            "mean_interval_score": 483.1904761904762,
+            "mean_width": 218.07142857142858,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 10,
+            "below_lower": 5,
+            "empirical_coverage": 0.9107142857142857,
+            "mean_interval_score": 606.8154761904759,
+            "mean_width": 320.625,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 19,
+            "below_lower": 0,
+            "empirical_coverage": 0.8869047619047619,
+            "mean_interval_score": 613.0833333333334,
+            "mean_width": 501.0,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 6,
+            "below_lower": 0,
+            "empirical_coverage": 0.9642857142857143,
+            "mean_interval_score": 671.3571428571429,
+            "mean_width": 616.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 3,
+            "below_lower": 0,
+            "empirical_coverage": 0.9821428571428571,
+            "mean_interval_score": 724.4285714285714,
+            "mean_width": 703.0,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-07-01T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 13128,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-06-30T23:00:00",
+        "observations": 13003
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-07-08T00:00:00",
+      "calibration_start": "2012-06-10T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-07-07T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 13.047007735650537,
+            "0.9": 15.694886510447791,
+            "0.95": 17.939014182966574
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-07-07T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 5.299089833061627,
+            "0.9": 7.816276195710221,
+            "0.95": 10.035120313886098
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-07-07T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.816989706290483,
+            "0.9": 6.83604881651886,
+            "0.95": 9.751254099947305
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-07-07T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 23.27772758988989,
+            "0.9": 32.221847552645244,
+            "0.95": 38.312703209789625
+          }
+        }
+      },
+      "end_exclusive": "2012-07-15T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 31,
+            "below_lower": 0,
+            "empirical_coverage": 0.8154761904761905,
+            "mean_interval_score": 395.875,
+            "mean_width": 290.9345238095238,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 15,
+            "below_lower": 0,
+            "empirical_coverage": 0.9107142857142857,
+            "mean_interval_score": 416.19642857142856,
+            "mean_width": 337.625,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 8,
+            "below_lower": 0,
+            "empirical_coverage": 0.9523809523809523,
+            "mean_interval_score": 410.01785714285717,
+            "mean_width": 372.3988095238095,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 5,
+            "below_lower": 21,
+            "empirical_coverage": 0.8452380952380952,
+            "mean_interval_score": 267.9702380952381,
+            "mean_width": 170.4702380952381,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 0,
+            "below_lower": 11,
+            "empirical_coverage": 0.9345238095238095,
+            "mean_interval_score": 345.67857142857144,
+            "mean_width": 249.01190476190476,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 8,
+            "empirical_coverage": 0.9523809523809523,
+            "mean_interval_score": 396.57738095238085,
+            "mean_width": 317.5297619047619,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 33,
+            "below_lower": 20,
+            "empirical_coverage": 0.6845238095238095,
+            "mean_interval_score": 439.00595238095246,
+            "mean_width": 140.9702380952381,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 19,
+            "below_lower": 15,
+            "empirical_coverage": 0.7976190476190477,
+            "mean_interval_score": 604.9761904761906,
+            "mean_width": 198.54761904761904,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 12,
+            "below_lower": 6,
+            "empirical_coverage": 0.8928571428571429,
+            "mean_interval_score": 754.6071428571424,
+            "mean_width": 280.5595238095238,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 29,
+            "below_lower": 0,
+            "empirical_coverage": 0.8273809523809523,
+            "mean_interval_score": 795.75,
+            "mean_width": 472.0,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 19,
+            "below_lower": 0,
+            "empirical_coverage": 0.8869047619047619,
+            "mean_interval_score": 924.1904761904761,
+            "mean_width": 588.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 12,
+            "below_lower": 0,
+            "empirical_coverage": 0.9285714285714286,
+            "mean_interval_score": 1046.9999999999995,
+            "mean_width": 667.0,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-07-08T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 13296,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-07-07T23:00:00",
+        "observations": 13171
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-07-15T00:00:00",
+      "calibration_start": "2012-06-17T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-07-14T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 12.328910461229482,
+            "0.9": 15.13724137633982,
+            "0.95": 17.690255884479168
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-07-14T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 5.493944620925487,
+            "0.9": 7.832184063818071,
+            "0.95": 10.412414482150426
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-07-14T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 5.63825809429646,
+            "0.9": 8.104408984731077,
+            "0.95": 11.89530649030602
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-07-14T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 21.61355534367047,
+            "0.9": 31.526889547194166,
+            "0.95": 37.446584633380915
+          }
+        }
+      },
+      "end_exclusive": "2012-07-22T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 23,
+            "below_lower": 0,
+            "empirical_coverage": 0.8630952380952381,
+            "mean_interval_score": 328.23809523809524,
+            "mean_width": 278.17857142857144,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 9,
+            "below_lower": 0,
+            "empirical_coverage": 0.9464285714285714,
+            "mean_interval_score": 352.38690476190476,
+            "mean_width": 330.125,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 1,
+            "below_lower": 0,
+            "empirical_coverage": 0.9940476190476191,
+            "mean_interval_score": 373.2797619047619,
+            "mean_width": 370.6607142857143,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 1,
+            "below_lower": 34,
+            "empirical_coverage": 0.7916666666666666,
+            "mean_interval_score": 297.85714285714283,
+            "mean_width": 176.07142857142858,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 0,
+            "below_lower": 14,
+            "empirical_coverage": 0.9166666666666666,
+            "mean_interval_score": 366.54761904761904,
+            "mean_width": 248.6904761904762,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 7,
+            "empirical_coverage": 0.9583333333333334,
+            "mean_interval_score": 408.70833333333326,
+            "mean_width": 327.9940476190476,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 14,
+            "below_lower": 25,
+            "empirical_coverage": 0.7678571428571428,
+            "mean_interval_score": 336.83333333333337,
+            "mean_width": 168.5595238095238,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 10,
+            "below_lower": 12,
+            "empirical_coverage": 0.8690476190476191,
+            "mean_interval_score": 421.4166666666667,
+            "mean_width": 240.46428571428572,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 4,
+            "below_lower": 2,
+            "empirical_coverage": 0.9642857142857143,
+            "mean_interval_score": 489.2619047619046,
+            "mean_width": 348.7857142857143,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 30,
+            "below_lower": 0,
+            "empirical_coverage": 0.8214285714285714,
+            "mean_interval_score": 714.7261904761905,
+            "mean_width": 453.0,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 15,
+            "below_lower": 0,
+            "empirical_coverage": 0.9107142857142857,
+            "mean_interval_score": 800.9285714285714,
+            "mean_width": 582.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 11,
+            "below_lower": 0,
+            "empirical_coverage": 0.9345238095238095,
+            "mean_interval_score": 850.190476190476,
+            "mean_width": 659.0,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-07-15T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 13464,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-07-14T23:00:00",
+        "observations": 13339
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-07-22T00:00:00",
+      "calibration_start": "2012-06-24T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-07-21T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 11.992553154767073,
+            "0.9": 14.898009034096836,
+            "0.95": 17.681563102407196
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-07-21T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 5.4009455234807575,
+            "0.9": 7.57108663157783,
+            "0.95": 10.729775403001437
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-07-21T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 5.8275300413621824,
+            "0.9": 9.120093235758658,
+            "0.95": 11.89530649030602
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-07-21T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 20.407561459976947,
+            "0.9": 30.221371435648123,
+            "0.95": 38.99596953004503
+          }
+        }
+      },
+      "end_exclusive": "2012-07-29T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 52,
+            "below_lower": 0,
+            "empirical_coverage": 0.6904761904761905,
+            "mean_interval_score": 459.17261904761904,
+            "mean_width": 272.32738095238096,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 26,
+            "below_lower": 0,
+            "empirical_coverage": 0.8452380952380952,
+            "mean_interval_score": 485.76190476190476,
+            "mean_width": 327.1904761904762,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 11,
+            "below_lower": 0,
+            "empirical_coverage": 0.9345238095238095,
+            "mean_interval_score": 491.27380952380946,
+            "mean_width": 371.98809523809524,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 9,
+            "below_lower": 2,
+            "empirical_coverage": 0.9345238095238095,
+            "mean_interval_score": 191.38690476190476,
+            "mean_width": 171.625,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 3,
+            "below_lower": 0,
+            "empirical_coverage": 0.9821428571428571,
+            "mean_interval_score": 246.23809523809524,
+            "mean_width": 238.5,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 334.5654761904762,
+            "mean_width": 334.5654761904762,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 43,
+            "below_lower": 0,
+            "empirical_coverage": 0.7440476190476191,
+            "mean_interval_score": 312.4166666666667,
+            "mean_width": 165.86904761904762,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 16,
+            "below_lower": 0,
+            "empirical_coverage": 0.9047619047619048,
+            "mean_interval_score": 389.86309523809524,
+            "mean_width": 256.5297619047619,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 8,
+            "below_lower": 0,
+            "empirical_coverage": 0.9523809523809523,
+            "mean_interval_score": 492.83333333333314,
+            "mean_width": 331.4047619047619,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 47,
+            "below_lower": 0,
+            "empirical_coverage": 0.7202380952380952,
+            "mean_interval_score": 908.8214285714286,
+            "mean_width": 439.0,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 23,
+            "below_lower": 0,
+            "empirical_coverage": 0.8630952380952381,
+            "mean_interval_score": 988.1904761904761,
+            "mean_width": 567.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 14,
+            "below_lower": 0,
+            "empirical_coverage": 0.9166666666666666,
+            "mean_interval_score": 1017.9523809523806,
+            "mean_width": 682.0,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-07-22T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 13632,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-07-21T23:00:00",
+        "observations": 13507
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-07-29T00:00:00",
+      "calibration_start": "2012-07-01T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-07-28T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 12.321152012463575,
+            "0.9": 15.240630696737416,
+            "0.95": 18.007894469456197
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-07-28T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 5.06400448492297,
+            "0.9": 7.219146055935175,
+            "0.95": 10.50380118315221
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-07-28T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 6.481301777210557,
+            "0.9": 9.751254099947305,
+            "0.95": 12.964987816843836
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-07-28T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 21.520592714758738,
+            "0.9": 31.526889547194166,
+            "0.95": 40.331424816634815
+          }
+        }
+      },
+      "end_exclusive": "2012-08-05T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 32,
+            "below_lower": 0,
+            "empirical_coverage": 0.8095238095238095,
+            "mean_interval_score": 399.45238095238096,
+            "mean_width": 280.4642857142857,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 16,
+            "below_lower": 0,
+            "empirical_coverage": 0.9047619047619048,
+            "mean_interval_score": 417.7738095238095,
+            "mean_width": 335.0357142857143,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 5,
+            "below_lower": 0,
+            "empirical_coverage": 0.9702380952380952,
+            "mean_interval_score": 415.4047619047619,
+            "mean_width": 379.2142857142857,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 7,
+            "below_lower": 8,
+            "empirical_coverage": 0.9107142857142857,
+            "mean_interval_score": 178.92857142857142,
+            "mean_width": 161.72619047619048,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 0,
+            "below_lower": 2,
+            "empirical_coverage": 0.9880952380952381,
+            "mean_interval_score": 235.0595238095238,
+            "mean_width": 228.63095238095238,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 329.14285714285717,
+            "mean_width": 329.14285714285717,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 1,
+            "below_lower": 1,
+            "empirical_coverage": 0.9880952380952381,
+            "mean_interval_score": 205.20833333333334,
+            "mean_width": 203.00595238095238,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 302.3452380952381,
+            "mean_width": 302.3452380952381,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 398.0952380952381,
+            "mean_width": 398.0952380952381,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 42,
+            "below_lower": 0,
+            "empirical_coverage": 0.75,
+            "mean_interval_score": 842.6071428571429,
+            "mean_width": 456.0,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 19,
+            "below_lower": 0,
+            "empirical_coverage": 0.8869047619047619,
+            "mean_interval_score": 951.452380952381,
+            "mean_width": 588.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 12,
+            "below_lower": 0,
+            "empirical_coverage": 0.9285714285714286,
+            "mean_interval_score": 994.2380952380951,
+            "mean_width": 704.0,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-07-29T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 13800,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-07-28T23:00:00",
+        "observations": 13675
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-08-05T00:00:00",
+      "calibration_start": "2012-07-08T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-08-04T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 12.403650544256005,
+            "0.9": 15.276105110965231,
+            "0.95": 17.332725002765084
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-08-04T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.52968314880403,
+            "0.9": 5.898460078712249,
+            "0.95": 7.57108663157783
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-08-04T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 5.618062322053143,
+            "0.9": 8.830885350998178,
+            "0.95": 11.064332925542702
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-08-04T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 23.436752453276974,
+            "0.9": 34.62712532622346,
+            "0.95": 43.54103704172007
+          }
+        }
+      },
+      "end_exclusive": "2012-08-12T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 25,
+            "below_lower": 1,
+            "empirical_coverage": 0.8452380952380952,
+            "mean_interval_score": 373.92857142857144,
+            "mean_width": 283.51190476190476,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 10,
+            "below_lower": 0,
+            "empirical_coverage": 0.9404761904761905,
+            "mean_interval_score": 398.4404761904762,
+            "mean_width": 337.48809523809524,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 5,
+            "below_lower": 0,
+            "empirical_coverage": 0.9702380952380952,
+            "mean_interval_score": 414.07142857142856,
+            "mean_width": 370.9761904761905,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 4,
+            "below_lower": 21,
+            "empirical_coverage": 0.8511904761904762,
+            "mean_interval_score": 244.42261904761904,
+            "mean_width": 145.3154761904762,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 1,
+            "below_lower": 15,
+            "empirical_coverage": 0.9047619047619048,
+            "mean_interval_score": 323.10714285714283,
+            "mean_width": 188.3452380952381,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 9,
+            "empirical_coverage": 0.9464285714285714,
+            "mean_interval_score": 419.642857142857,
+            "mean_width": 240.11904761904762,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 1,
+            "below_lower": 13,
+            "empirical_coverage": 0.9166666666666666,
+            "mean_interval_score": 247.4702380952381,
+            "mean_width": 174.55357142857142,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 1,
+            "below_lower": 6,
+            "empirical_coverage": 0.9583333333333334,
+            "mean_interval_score": 340.54761904761904,
+            "mean_width": 271.6190476190476,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 1,
+            "below_lower": 3,
+            "empirical_coverage": 0.9761904761904762,
+            "mean_interval_score": 427.9999999999999,
+            "mean_width": 338.23809523809524,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 31,
+            "below_lower": 0,
+            "empirical_coverage": 0.8154761904761905,
+            "mean_interval_score": 792.6309523809524,
+            "mean_width": 484.0,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 15,
+            "below_lower": 0,
+            "empirical_coverage": 0.9107142857142857,
+            "mean_interval_score": 879.6190476190476,
+            "mean_width": 632.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 8,
+            "below_lower": 0,
+            "empirical_coverage": 0.9523809523809523,
+            "mean_interval_score": 922.3809523809522,
+            "mean_width": 750.0,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-08-05T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 13968,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-08-04T23:00:00",
+        "observations": 13843
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-08-12T00:00:00",
+      "calibration_start": "2012-07-15T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-08-11T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 12.320775014992075,
+            "0.9": 14.908679299584092,
+            "0.95": 16.89258222797732
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-08-11T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.421587277688453,
+            "0.9": 5.8469639412031755,
+            "0.95": 7.333237368284845
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-08-11T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.450431218226949,
+            "0.9": 7.525984948045156,
+            "0.95": 9.922778767136677
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-08-11T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 23.593206620080288,
+            "0.9": 33.988619705156815,
+            "0.95": 43.311779025642544
+          }
+        }
+      },
+      "end_exclusive": "2012-08-19T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 38,
+            "below_lower": 0,
+            "empirical_coverage": 0.7738095238095238,
+            "mean_interval_score": 409.95238095238096,
+            "mean_width": 282.8690476190476,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 22,
+            "below_lower": 0,
+            "empirical_coverage": 0.8690476190476191,
+            "mean_interval_score": 429.76785714285717,
+            "mean_width": 332.38690476190476,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 9,
+            "below_lower": 0,
+            "empirical_coverage": 0.9464285714285714,
+            "mean_interval_score": 410.98809523809524,
+            "mean_width": 365.75,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 6,
+            "below_lower": 7,
+            "empirical_coverage": 0.9226190476190477,
+            "mean_interval_score": 165.17261904761904,
+            "mean_width": 141.7202380952381,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 2,
+            "below_lower": 4,
+            "empirical_coverage": 0.9642857142857143,
+            "mean_interval_score": 208.35119047619048,
+            "mean_width": 186.44642857142858,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 1,
+            "empirical_coverage": 0.9940476190476191,
+            "mean_interval_score": 256.4404761904762,
+            "mean_width": 232.39285714285714,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 19,
+            "below_lower": 4,
+            "empirical_coverage": 0.8630952380952381,
+            "mean_interval_score": 275.6964285714286,
+            "mean_width": 133.375,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 11,
+            "below_lower": 2,
+            "empirical_coverage": 0.9226190476190477,
+            "mean_interval_score": 419.48809523809524,
+            "mean_width": 223.17857142857142,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 10,
+            "below_lower": 1,
+            "empirical_coverage": 0.9345238095238095,
+            "mean_interval_score": 593.4702380952378,
+            "mean_width": 292.0416666666667,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 37,
+            "below_lower": 0,
+            "empirical_coverage": 0.7797619047619048,
+            "mean_interval_score": 845.547619047619,
+            "mean_width": 489.0,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 21,
+            "below_lower": 0,
+            "empirical_coverage": 0.875,
+            "mean_interval_score": 896.2380952380952,
+            "mean_width": 626.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 9,
+            "below_lower": 0,
+            "empirical_coverage": 0.9464285714285714,
+            "mean_interval_score": 932.142857142857,
+            "mean_width": 750.0,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-08-12T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 14136,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-08-11T23:00:00",
+        "observations": 14011
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-08-19T00:00:00",
+      "calibration_start": "2012-07-22T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-08-18T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 12.832594908052622,
+            "0.9": 15.6020213966052,
+            "0.95": 17.332725002765084
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-08-18T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 3.8484358049982834,
+            "0.9": 4.987677934085439,
+            "0.95": 6.238320633792843
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-08-18T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 3.7790326914306465,
+            "0.9": 6.319334885835686,
+            "0.95": 9.320799354856693
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-08-18T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 24.13052501382355,
+            "0.9": 35.12643386859323,
+            "0.95": 43.97881562081356
+          }
+        }
+      },
+      "end_exclusive": "2012-08-26T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 20,
+            "below_lower": 0,
+            "empirical_coverage": 0.8809523809523809,
+            "mean_interval_score": 360.1904761904762,
+            "mean_width": 294.7142857142857,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 8,
+            "below_lower": 0,
+            "empirical_coverage": 0.9523809523809523,
+            "mean_interval_score": 385.1011904761905,
+            "mean_width": 346.2916666666667,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 2,
+            "below_lower": 0,
+            "empirical_coverage": 0.9880952380952381,
+            "mean_interval_score": 408.9107142857143,
+            "mean_width": 374.625,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 6,
+            "below_lower": 27,
+            "empirical_coverage": 0.8035714285714286,
+            "mean_interval_score": 273.87500000000006,
+            "mean_width": 123.81547619047619,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 2,
+            "below_lower": 20,
+            "empirical_coverage": 0.8690476190476191,
+            "mean_interval_score": 389.6309523809524,
+            "mean_width": 159.86904761904762,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 1,
+            "below_lower": 15,
+            "empirical_coverage": 0.9047619047619048,
+            "mean_interval_score": 541.5297619047617,
+            "mean_width": 199.14880952380952,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 11,
+            "below_lower": 28,
+            "empirical_coverage": 0.7678571428571428,
+            "mean_interval_score": 307.09523809523813,
+            "mean_width": 117.80952380952381,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 2,
+            "below_lower": 16,
+            "empirical_coverage": 0.8928571428571429,
+            "mean_interval_score": 397.6309523809524,
+            "mean_width": 195.48809523809524,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 2,
+            "below_lower": 5,
+            "empirical_coverage": 0.9583333333333334,
+            "mean_interval_score": 490.5059523809522,
+            "mean_width": 285.5059523809524,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 23,
+            "below_lower": 0,
+            "empirical_coverage": 0.8630952380952381,
+            "mean_interval_score": 767.75,
+            "mean_width": 499.0,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 14,
+            "below_lower": 0,
+            "empirical_coverage": 0.9166666666666666,
+            "mean_interval_score": 871.1904761904761,
+            "mean_width": 645.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 7,
+            "below_lower": 0,
+            "empirical_coverage": 0.9583333333333334,
+            "mean_interval_score": 906.095238095238,
+            "mean_width": 763.0,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-08-19T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 14304,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-08-18T23:00:00",
+        "observations": 14179
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-08-26T00:00:00",
+      "calibration_start": "2012-07-29T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-08-25T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 12.260370759251526,
+            "0.9": 14.625242938885373,
+            "0.95": 16.794829137390924
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-08-25T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 3.765411123289891,
+            "0.9": 5.118634983984656,
+            "0.95": 6.744232874288468
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-08-25T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 3.25,
+            "0.9": 5.327615665732435,
+            "0.95": 8.353146453839253
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-08-25T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 22.84636423302022,
+            "0.9": 34.270534935242694,
+            "0.95": 44.66340696785311
+          }
+        }
+      },
+      "end_exclusive": "2012-09-02T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 31,
+            "below_lower": 0,
+            "empirical_coverage": 0.8154761904761905,
+            "mean_interval_score": 380.5833333333333,
+            "mean_width": 284.0952380952381,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 16,
+            "below_lower": 0,
+            "empirical_coverage": 0.9047619047619048,
+            "mean_interval_score": 402.17261904761904,
+            "mean_width": 330.26785714285717,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 6,
+            "below_lower": 0,
+            "empirical_coverage": 0.9642857142857143,
+            "mean_interval_score": 394.5892857142857,
+            "mean_width": 367.6845238095238,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 9,
+            "below_lower": 29,
+            "empirical_coverage": 0.7738095238095238,
+            "mean_interval_score": 240.50595238095238,
+            "mean_width": 120.86309523809524,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 3,
+            "below_lower": 20,
+            "empirical_coverage": 0.8630952380952381,
+            "mean_interval_score": 316.0892857142858,
+            "mean_width": 163.58928571428572,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 2,
+            "below_lower": 13,
+            "empirical_coverage": 0.9107142857142857,
+            "mean_interval_score": 391.36309523809507,
+            "mean_width": 214.2202380952381,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 18,
+            "below_lower": 15,
+            "empirical_coverage": 0.8035714285714286,
+            "mean_interval_score": 269.1309523809524,
+            "mean_width": 98.6547619047619,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 13,
+            "below_lower": 8,
+            "empirical_coverage": 0.875,
+            "mean_interval_score": 387.41071428571433,
+            "mean_width": 160.50595238095238,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 8,
+            "below_lower": 2,
+            "empirical_coverage": 0.9404761904761905,
+            "mean_interval_score": 512.5892857142854,
+            "mean_width": 249.01785714285714,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 30,
+            "below_lower": 0,
+            "empirical_coverage": 0.8214285714285714,
+            "mean_interval_score": 800.8452380952381,
+            "mean_width": 484.0,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 14,
+            "below_lower": 0,
+            "empirical_coverage": 0.9166666666666666,
+            "mean_interval_score": 888.7380952380952,
+            "mean_width": 636.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 9,
+            "below_lower": 0,
+            "empirical_coverage": 0.9464285714285714,
+            "mean_interval_score": 911.4285714285712,
+            "mean_width": 775.0,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-08-26T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 14472,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-08-25T23:00:00",
+        "observations": 14347
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-09-02T00:00:00",
+      "calibration_start": "2012-08-05T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-09-01T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 12.222343967602866,
+            "0.9": 14.512793033028439,
+            "0.95": 16.500497078987646
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-09-01T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 3.8477629691616673,
+            "0.9": 5.536871476480238,
+            "0.95": 7.970962191459158
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-09-01T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 3.4992903727159854,
+            "0.9": 6.102160571171791,
+            "0.95": 9.407595715317338
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-09-01T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 22.320251108575768,
+            "0.9": 33.66926279302046,
+            "0.95": 45.544387601909605
+          }
+        }
+      },
+      "end_exclusive": "2012-09-09T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 31,
+            "below_lower": 3,
+            "empirical_coverage": 0.7976190476190477,
+            "mean_interval_score": 420.7440476190476,
+            "mean_width": 284.375,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 17,
+            "below_lower": 0,
+            "empirical_coverage": 0.8988095238095238,
+            "mean_interval_score": 478.7083333333333,
+            "mean_width": 329.5416666666667,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 13,
+            "below_lower": 0,
+            "empirical_coverage": 0.9226190476190477,
+            "mean_interval_score": 540.0059523809522,
+            "mean_width": 364.5297619047619,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 11,
+            "below_lower": 40,
+            "empirical_coverage": 0.6964285714285714,
+            "mean_interval_score": 390.6607142857143,
+            "mean_width": 123.16071428571429,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 7,
+            "below_lower": 26,
+            "empirical_coverage": 0.8035714285714286,
+            "mean_interval_score": 571.1666666666667,
+            "mean_width": 176.28571428571428,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 7,
+            "below_lower": 16,
+            "empirical_coverage": 0.8630952380952381,
+            "mean_interval_score": 753.9999999999995,
+            "mean_width": 251.38095238095238,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 31,
+            "below_lower": 33,
+            "empirical_coverage": 0.6190476190476191,
+            "mean_interval_score": 483.2678571428572,
+            "mean_width": 106.95833333333333,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 21,
+            "below_lower": 18,
+            "empirical_coverage": 0.7678571428571428,
+            "mean_interval_score": 672.6785714285716,
+            "mean_width": 184.82142857142858,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 17,
+            "below_lower": 11,
+            "empirical_coverage": 0.8333333333333334,
+            "mean_interval_score": 808.4642857142852,
+            "mean_width": 281.79761904761904,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 36,
+            "below_lower": 0,
+            "empirical_coverage": 0.7857142857142857,
+            "mean_interval_score": 782.0952380952381,
+            "mean_width": 479.0,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 15,
+            "below_lower": 0,
+            "empirical_coverage": 0.9107142857142857,
+            "mean_interval_score": 855.4047619047619,
+            "mean_width": 631.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 7,
+            "below_lower": 0,
+            "empirical_coverage": 0.9583333333333334,
+            "mean_interval_score": 861.9047619047619,
+            "mean_width": 790.0,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-09-02T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 14640,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-01T23:00:00",
+        "observations": 14515
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-09-09T00:00:00",
+      "calibration_start": "2012-08-12T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-09-08T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 12.298096113854992,
+            "0.9": 14.52991467240671,
+            "0.95": 16.794829137390924
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-09-08T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.056502877933404,
+            "0.9": 6.246199098287006,
+            "0.95": 9.097918184809705
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-09-08T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.7435927566352785,
+            "0.9": 8.227241335952167,
+            "0.95": 13.134413596077309
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-09-08T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 22.58232730249793,
+            "0.9": 33.54188297285026,
+            "0.95": 44.22945704755855
+          }
+        }
+      },
+      "end_exclusive": "2012-09-16T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 60,
+            "below_lower": 0,
+            "empirical_coverage": 0.6428571428571428,
+            "mean_interval_score": 586.4940476190476,
+            "mean_width": 286.9107142857143,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 42,
+            "below_lower": 0,
+            "empirical_coverage": 0.75,
+            "mean_interval_score": 684.4761904761906,
+            "mean_width": 331.0238095238095,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 27,
+            "below_lower": 0,
+            "empirical_coverage": 0.8392857142857143,
+            "mean_interval_score": 708.3869047619045,
+            "mean_width": 370.76785714285717,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 41,
+            "below_lower": 6,
+            "empirical_coverage": 0.7202380952380952,
+            "mean_interval_score": 233.17857142857142,
+            "mean_width": 128.89285714285714,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 15,
+            "below_lower": 3,
+            "empirical_coverage": 0.8928571428571429,
+            "mean_interval_score": 251.85714285714286,
+            "mean_width": 196.97619047619048,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 283.8511904761905,
+            "mean_width": 283.8511904761905,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 42,
+            "below_lower": 8,
+            "empirical_coverage": 0.7023809523809523,
+            "mean_interval_score": 510.529761904762,
+            "mean_width": 139.63690476190476,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 27,
+            "below_lower": 3,
+            "empirical_coverage": 0.8214285714285714,
+            "mean_interval_score": 744.154761904762,
+            "mean_width": 238.91666666666666,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 17,
+            "below_lower": 0,
+            "empirical_coverage": 0.8988095238095238,
+            "mean_interval_score": 1059.4999999999995,
+            "mean_width": 373.7857142857143,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 46,
+            "below_lower": 0,
+            "empirical_coverage": 0.7261904761904762,
+            "mean_interval_score": 1069.2976190476193,
+            "mean_width": 484.0,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 30,
+            "below_lower": 0,
+            "empirical_coverage": 0.8214285714285714,
+            "mean_interval_score": 1140.8095238095239,
+            "mean_width": 632.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 11,
+            "below_lower": 0,
+            "empirical_coverage": 0.9345238095238095,
+            "mean_interval_score": 1080.7142857142853,
+            "mean_width": 775.0,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-09-09T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 14808,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-08T23:00:00",
+        "observations": 14683
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-09-16T00:00:00",
+      "calibration_start": "2012-08-19T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-09-15T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 12.827634750060975,
+            "0.9": 16.040263591480297,
+            "0.95": 17.909484246164094
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-09-15T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.6000032820153,
+            "0.9": 6.726242930224382,
+            "0.95": 8.984881050689147
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-09-15T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 5.432101983464863,
+            "0.9": 9.698980602058194,
+            "0.95": 15.198827810467064
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-09-15T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 22.8809084024298,
+            "0.9": 35.24076707342003,
+            "0.95": 45.544387601909605
+          }
+        }
+      },
+      "end_exclusive": "2012-09-23T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 39,
+            "below_lower": 0,
+            "empirical_coverage": 0.7678571428571428,
+            "mean_interval_score": 452.8392857142857,
+            "mean_width": 299.38690476190476,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 18,
+            "below_lower": 0,
+            "empirical_coverage": 0.8928571428571429,
+            "mean_interval_score": 450.5416666666667,
+            "mean_width": 360.1845238095238,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 9,
+            "below_lower": 0,
+            "empirical_coverage": 0.9464285714285714,
+            "mean_interval_score": 444.97619047619037,
+            "mean_width": 390.92857142857144,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 15,
+            "below_lower": 21,
+            "empirical_coverage": 0.7857142857142857,
+            "mean_interval_score": 271.75,
+            "mean_width": 146.57142857142858,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 1,
+            "below_lower": 11,
+            "empirical_coverage": 0.9285714285714286,
+            "mean_interval_score": 363.89285714285717,
+            "mean_width": 212.58333333333334,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 8,
+            "empirical_coverage": 0.9523809523809523,
+            "mean_interval_score": 480.8214285714284,
+            "mean_width": 281.7738095238095,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 0,
+            "below_lower": 15,
+            "empirical_coverage": 0.9107142857142857,
+            "mean_interval_score": 295.80357142857144,
+            "mean_width": 177.94642857142858,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 0,
+            "below_lower": 8,
+            "empirical_coverage": 0.9523809523809523,
+            "mean_interval_score": 438.9107142857143,
+            "mean_width": 313.67261904761904,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 4,
+            "empirical_coverage": 0.9761904761904762,
+            "mean_interval_score": 568.3869047619047,
+            "mean_width": 482.4345238095238,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 35,
+            "below_lower": 0,
+            "empirical_coverage": 0.7916666666666666,
+            "mean_interval_score": 906.702380952381,
+            "mean_width": 492.0,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 18,
+            "below_lower": 0,
+            "empirical_coverage": 0.8928571428571429,
+            "mean_interval_score": 931.2142857142857,
+            "mean_width": 658.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 7,
+            "below_lower": 0,
+            "empirical_coverage": 0.9583333333333334,
+            "mean_interval_score": 931.5714285714284,
+            "mean_width": 798.0,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-09-16T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 14976,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-15T23:00:00",
+        "observations": 14851
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-09-23T00:00:00",
+      "calibration_start": "2012-08-26T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-09-22T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 13.553437404204587,
+            "0.9": 16.579673734590592,
+            "0.95": 18.303461347826467
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-09-22T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.746112392488886,
+            "0.9": 6.726242930224382,
+            "0.95": 8.984881050689147
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-09-22T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 5.013026509266503,
+            "0.9": 9.764230957201239,
+            "0.95": 15.455395755221865
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-09-22T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 23.77665170222541,
+            "0.9": 36.50605649391211,
+            "0.95": 45.7223625472179
+          }
+        }
+      },
+      "end_exclusive": "2012-09-30T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 37,
+            "below_lower": 0,
+            "empirical_coverage": 0.7797619047619048,
+            "mean_interval_score": 483.63690476190476,
+            "mean_width": 315.48214285714283,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 23,
+            "below_lower": 0,
+            "empirical_coverage": 0.8630952380952381,
+            "mean_interval_score": 494.9345238095238,
+            "mean_width": 371.0059523809524,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 15,
+            "below_lower": 0,
+            "empirical_coverage": 0.9107142857142857,
+            "mean_interval_score": 499.5892857142856,
+            "mean_width": 398.875,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 21,
+            "below_lower": 7,
+            "empirical_coverage": 0.8333333333333334,
+            "mean_interval_score": 210.50595238095238,
+            "mean_width": 150.32738095238096,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 5,
+            "below_lower": 4,
+            "empirical_coverage": 0.9464285714285714,
+            "mean_interval_score": 243.60714285714286,
+            "mean_width": 211.46428571428572,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 1,
+            "below_lower": 2,
+            "empirical_coverage": 0.9821428571428571,
+            "mean_interval_score": 293.0595238095238,
+            "mean_width": 280.20238095238096,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 17,
+            "below_lower": 3,
+            "empirical_coverage": 0.8809523809523809,
+            "mean_interval_score": 304.9821428571429,
+            "mean_width": 154.5654761904762,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 10,
+            "below_lower": 1,
+            "empirical_coverage": 0.9345238095238095,
+            "mean_interval_score": 493.67857142857144,
+            "mean_width": 296.5357142857143,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 6,
+            "below_lower": 0,
+            "empirical_coverage": 0.9642857142857143,
+            "mean_interval_score": 710.3869047619045,
+            "mean_width": 457.2916666666667,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 41,
+            "below_lower": 0,
+            "empirical_coverage": 0.7559523809523809,
+            "mean_interval_score": 991.7738095238095,
+            "mean_width": 506.0,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 24,
+            "below_lower": 0,
+            "empirical_coverage": 0.8571428571428572,
+            "mean_interval_score": 1007.0952380952381,
+            "mean_width": 679.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 11,
+            "below_lower": 0,
+            "empirical_coverage": 0.9345238095238095,
+            "mean_interval_score": 993.2380952380951,
+            "mean_width": 803.0,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-09-23T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15144,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-22T23:00:00",
+        "observations": 15019
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-09-30T00:00:00",
+      "calibration_start": "2012-09-02T00:00:00",
+      "calibrators": {
+        "hour_of_week_mean": {
+          "last_residual_timestamp": "2012-09-29T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 14.292855995400473,
+            "0.9": 17.41161869396306,
+            "0.95": 19.220151442848696
+          }
+        },
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-09-29T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.83419472651671,
+            "0.9": 6.587195142919207,
+            "0.95": 8.829538891632275
+          }
+        },
+        "seasonal_naive": {
+          "last_residual_timestamp": "2012-09-29T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.990361079491514,
+            "0.9": 10.275297610125238,
+            "0.95": 16.061614493029627
+          }
+        },
+        "training_mean": {
+          "last_residual_timestamp": "2012-09-29T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 26.237601612183898,
+            "0.9": 38.40712559888707,
+            "0.95": 46.093352094048015
+          }
+        }
+      },
+      "end_exclusive": "2012-10-01T00:00:00",
+      "horizon_hours": 24,
+      "metrics": {
+        "hour_of_week_mean": {
+          "0.8": {
+            "above_upper": 4,
+            "below_lower": 0,
+            "empirical_coverage": 0.8333333333333334,
+            "mean_interval_score": 379.5,
+            "mean_width": 320.75,
+            "nominal_coverage": 0.8,
+            "observations": 24
+          },
+          "0.9": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 378.375,
+            "mean_width": 378.375,
+            "nominal_coverage": 0.9,
+            "observations": 24
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 406.375,
+            "mean_width": 406.375,
+            "nominal_coverage": 0.95,
+            "observations": 24
+          }
+        },
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 1,
+            "below_lower": 5,
+            "empirical_coverage": 0.75,
+            "mean_interval_score": 198.70833333333334,
+            "mean_width": 149.95833333333334,
+            "nominal_coverage": 0.8,
+            "observations": 24
+          },
+          "0.9": {
+            "above_upper": 0,
+            "below_lower": 3,
+            "empirical_coverage": 0.875,
+            "mean_interval_score": 213.83333333333334,
+            "mean_width": 203.0,
+            "nominal_coverage": 0.9,
+            "observations": 24
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 270.125,
+            "mean_width": 270.125,
+            "nominal_coverage": 0.95,
+            "observations": 24
+          }
+        },
+        "seasonal_naive": {
+          "0.8": {
+            "above_upper": 0,
+            "below_lower": 4,
+            "empirical_coverage": 0.8333333333333334,
+            "mean_interval_score": 200.875,
+            "mean_width": 162.125,
+            "nominal_coverage": 0.8,
+            "observations": 24
+          },
+          "0.9": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 329.2916666666667,
+            "mean_width": 329.2916666666667,
+            "nominal_coverage": 0.9,
+            "observations": 24
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 497.6666666666667,
+            "mean_width": 497.6666666666667,
+            "nominal_coverage": 0.95,
+            "observations": 24
+          }
+        },
+        "training_mean": {
+          "0.8": {
+            "above_upper": 7,
+            "below_lower": 0,
+            "empirical_coverage": 0.7083333333333333,
+            "mean_interval_score": 773.25,
+            "mean_width": 542.0,
+            "nominal_coverage": 0.8,
+            "observations": 24
+          },
+          "0.9": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 708.0,
+            "mean_width": 708.0,
+            "nominal_coverage": 0.9,
+            "observations": 24
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 813.0,
+            "mean_width": 813.0,
+            "nominal_coverage": 0.95,
+            "observations": 24
+          }
+        }
+      },
+      "observations": 24,
+      "origin": "2012-09-30T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15312,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-29T23:00:00",
+        "observations": 15187
+      }
+    }
+  ],
+  "interval_selection": {
+    "interval_sha256": "b7f74c0b69edffd62b608c0e373298426712358c66da92195d562bd154769d2b",
+    "interval_specification": {
+      "bounds": "floor(max(0,mean-radius)),ceil(mean+radius)",
+      "calibration_folds": 4,
+      "coverage_guarantee": false,
+      "lead_group_hours": 24,
+      "levels": [
+        0.8,
+        0.9,
+        0.95
+      ],
+      "method": "rolling_scaled_absolute_residual_v1",
+      "minimum_observations": 30,
+      "predicted_demand_thresholds": [
+        100,
+        300
+      ],
+      "quantile_rank": "ceil((n+1)*level)",
+      "scale": "sqrt(max(prediction, 1))",
+      "update": "after_complete_forecast_horizon"
+    },
+    "point_selection": {
+      "configuration_sha256": "58e445e924459e6c8fe5d896c272cf5fe0e304a49addb4871a3bcb6c2d7c2331",
+      "dataset_sha256": "77b9643b9a646c229fe8fcd972ab8689885235b6d31eb3e469661f2b5523fd97",
+      "horizon_hours": "168",
+      "model": "poisson_calendar",
+      "package_version": "0.4.0",
+      "protocol": "rolling_origin",
+      "schema_version": "2.0",
+      "selection_metric": "validation_mae",
+      "test_end": "2013-01-01T00:00:00",
+      "test_start": "2012-10-01T00:00:00",
+      "validation_start": "2012-07-01T00:00:00"
+    },
+    "schema_version": "1.0"
+  },
+  "metrics": {
+    "hour_of_week_mean": {
+      "by_lead_day": {
+        "1": {
+          "0.8": {
+            "above_upper": 53,
+            "below_lower": 0,
+            "empirical_coverage": 0.8422619047619048,
+            "mean_interval_score": 380.0357142857143,
+            "mean_width": 283.3988095238095,
+            "nominal_coverage": 0.8,
+            "observations": 336
+          },
+          "0.9": {
+            "above_upper": 27,
+            "below_lower": 0,
+            "empirical_coverage": 0.9196428571428571,
+            "mean_interval_score": 411.83035714285717,
+            "mean_width": 334.5684523809524,
+            "nominal_coverage": 0.9,
+            "observations": 336
+          },
+          "0.95": {
+            "above_upper": 12,
+            "below_lower": 0,
+            "empirical_coverage": 0.9642857142857143,
+            "mean_interval_score": 439.52083333333326,
+            "mean_width": 370.5922619047619,
+            "nominal_coverage": 0.95,
+            "observations": 336
+          }
+        },
+        "2": {
+          "0.8": {
+            "above_upper": 70,
+            "below_lower": 2,
+            "empirical_coverage": 0.7692307692307692,
+            "mean_interval_score": 458.0897435897436,
+            "mean_width": 283.4102564102564,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 44,
+            "below_lower": 0,
+            "empirical_coverage": 0.858974358974359,
+            "mean_interval_score": 497.9583333333333,
+            "mean_width": 331.5480769230769,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 25,
+            "below_lower": 0,
+            "empirical_coverage": 0.9198717948717948,
+            "mean_interval_score": 508.60256410256403,
+            "mean_width": 364.37179487179486,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "3": {
+          "0.8": {
+            "above_upper": 58,
+            "below_lower": 0,
+            "empirical_coverage": 0.8141025641025641,
+            "mean_interval_score": 377.89102564102564,
+            "mean_width": 288.3397435897436,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 26,
+            "below_lower": 0,
+            "empirical_coverage": 0.9166666666666666,
+            "mean_interval_score": 383.2852564102564,
+            "mean_width": 337.51602564102564,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 6,
+            "below_lower": 0,
+            "empirical_coverage": 0.9807692307692307,
+            "mean_interval_score": 388.5224358974359,
+            "mean_width": 372.24038461538464,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "4": {
+          "0.8": {
+            "above_upper": 88,
+            "below_lower": 0,
+            "empirical_coverage": 0.717948717948718,
+            "mean_interval_score": 530.2628205128206,
+            "mean_width": 286.5128205128205,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 58,
+            "below_lower": 0,
+            "empirical_coverage": 0.8141025641025641,
+            "mean_interval_score": 613.4198717948718,
+            "mean_width": 334.76602564102564,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 40,
+            "below_lower": 0,
+            "empirical_coverage": 0.8717948717948718,
+            "mean_interval_score": 677.1057692307689,
+            "mean_width": 368.51602564102564,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "5": {
+          "0.8": {
+            "above_upper": 60,
+            "below_lower": 0,
+            "empirical_coverage": 0.8076923076923077,
+            "mean_interval_score": 407.6121794871795,
+            "mean_width": 294.9519230769231,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 28,
+            "below_lower": 0,
+            "empirical_coverage": 0.9102564102564102,
+            "mean_interval_score": 420.79487179487177,
+            "mean_width": 345.6666666666667,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 12,
+            "below_lower": 0,
+            "empirical_coverage": 0.9615384615384616,
+            "mean_interval_score": 418.48717948717945,
+            "mean_width": 380.9230769230769,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "6": {
+          "0.8": {
+            "above_upper": 55,
+            "below_lower": 1,
+            "empirical_coverage": 0.8205128205128205,
+            "mean_interval_score": 377.63461538461536,
+            "mean_width": 299.10897435897436,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 17,
+            "below_lower": 0,
+            "empirical_coverage": 0.9455128205128205,
+            "mean_interval_score": 403.2564102564103,
+            "mean_width": 352.03846153846155,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 8,
+            "below_lower": 0,
+            "empirical_coverage": 0.9743589743589743,
+            "mean_interval_score": 424.5544871794872,
+            "mean_width": 386.4775641025641,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "7": {
+          "0.8": {
+            "above_upper": 56,
+            "below_lower": 1,
+            "empirical_coverage": 0.8173076923076923,
+            "mean_interval_score": 417.68589743589746,
+            "mean_width": 292.97435897435895,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 36,
+            "below_lower": 0,
+            "empirical_coverage": 0.8846153846153846,
+            "mean_interval_score": 460.46153846153845,
+            "mean_width": 345.46153846153845,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 21,
+            "below_lower": 0,
+            "empirical_coverage": 0.9326923076923077,
+            "mean_interval_score": 478.91346153846143,
+            "mean_width": 383.52884615384613,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        }
+      },
+      "by_predicted_demand": {
+        "high": {
+          "0.8": {
+            "above_upper": 248,
+            "below_lower": 3,
+            "empirical_coverage": 0.4023809523809524,
+            "mean_interval_score": 975.5095238095238,
+            "mean_width": 499.3904761904762,
+            "nominal_coverage": 0.8,
+            "observations": 420
+          },
+          "0.9": {
+            "above_upper": 159,
+            "below_lower": 0,
+            "empirical_coverage": 0.6214285714285714,
+            "mean_interval_score": 1018.8928571428571,
+            "mean_width": 605.5595238095239,
+            "nominal_coverage": 0.9,
+            "observations": 420
+          },
+          "0.95": {
+            "above_upper": 87,
+            "below_lower": 0,
+            "empirical_coverage": 0.7928571428571428,
+            "mean_interval_score": 1001.8690476190474,
+            "mean_width": 688.5357142857143,
+            "nominal_coverage": 0.95,
+            "observations": 420
+          }
+        },
+        "low": {
+          "0.8": {
+            "above_upper": 10,
+            "below_lower": 0,
+            "empirical_coverage": 0.9866844207723036,
+            "mean_interval_score": 105.48601864181092,
+            "mean_width": 101.4513981358189,
+            "nominal_coverage": 0.8,
+            "observations": 751
+          },
+          "0.9": {
+            "above_upper": 6,
+            "below_lower": 0,
+            "empirical_coverage": 0.9920106524633822,
+            "mean_interval_score": 120.64980026631159,
+            "mean_width": 115.64314247669773,
+            "nominal_coverage": 0.9,
+            "observations": 751
+          },
+          "0.95": {
+            "above_upper": 4,
+            "below_lower": 0,
+            "empirical_coverage": 0.9946737683089214,
+            "mean_interval_score": 134.10785619174433,
+            "mean_width": 126.91744340878829,
+            "nominal_coverage": 0.95,
+            "observations": 751
+          }
+        },
+        "medium": {
+          "0.8": {
+            "above_upper": 182,
+            "below_lower": 1,
+            "empirical_coverage": 0.8235294117647058,
+            "mean_interval_score": 424.62970106075215,
+            "mean_width": 341.1967213114754,
+            "nominal_coverage": 0.8,
+            "observations": 1037
+          },
+          "0.9": {
+            "above_upper": 71,
+            "below_lower": 0,
+            "empirical_coverage": 0.9315332690453231,
+            "mean_interval_score": 469.5612343297975,
+            "mean_width": 395.27000964320155,
+            "nominal_coverage": 0.9,
+            "observations": 1037
+          },
+          "0.95": {
+            "above_upper": 33,
+            "below_lower": 0,
+            "empirical_coverage": 0.9681774349083896,
+            "mean_interval_score": 510.88621022179353,
+            "mean_width": 428.07039537126326,
+            "nominal_coverage": 0.95,
+            "observations": 1037
+          }
+        }
+      },
+      "intervals": {
+        "0.8": {
+          "above_upper": 440,
+          "below_lower": 4,
+          "empirical_coverage": 0.7989130434782609,
+          "mean_interval_score": 420.8673007246377,
+          "mean_width": 289.74411231884056,
+          "nominal_coverage": 0.8,
+          "observations": 2208
+        },
+        "0.9": {
+          "above_upper": 236,
+          "below_lower": 0,
+          "empirical_coverage": 0.8931159420289855,
+          "mean_interval_score": 455.37952898550725,
+          "mean_width": 340.16213768115944,
+          "nominal_coverage": 0.9,
+          "observations": 2208
+        },
+        "0.95": {
+          "above_upper": 124,
+          "below_lower": 0,
+          "empirical_coverage": 0.9438405797101449,
+          "mean_interval_score": 476.1272644927535,
+          "mean_width": 375.1852355072464,
+          "nominal_coverage": 0.95,
+          "observations": 2208
+        }
+      },
+      "point": {
+        "mae": 119.39682377447062,
+        "mean_poisson_deviance": 77.29069929607927,
+        "rmse": 160.39591275158125
+      }
+    },
+    "poisson_calendar": {
+      "by_lead_day": {
+        "1": {
+          "0.8": {
+            "above_upper": 27,
+            "below_lower": 60,
+            "empirical_coverage": 0.7410714285714286,
+            "mean_interval_score": 312.0267857142858,
+            "mean_width": 144.76488095238096,
+            "nominal_coverage": 0.8,
+            "observations": 336
+          },
+          "0.9": {
+            "above_upper": 7,
+            "below_lower": 38,
+            "empirical_coverage": 0.8660714285714286,
+            "mean_interval_score": 403.05059523809524,
+            "mean_width": 200.84821428571428,
+            "nominal_coverage": 0.9,
+            "observations": 336
+          },
+          "0.95": {
+            "above_upper": 1,
+            "below_lower": 26,
+            "empirical_coverage": 0.9196428571428571,
+            "mean_interval_score": 514.2142857142856,
+            "mean_width": 268.3809523809524,
+            "nominal_coverage": 0.95,
+            "observations": 336
+          }
+        },
+        "2": {
+          "0.8": {
+            "above_upper": 11,
+            "below_lower": 34,
+            "empirical_coverage": 0.8557692307692308,
+            "mean_interval_score": 249.21794871794873,
+            "mean_width": 145.14743589743588,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 7,
+            "below_lower": 22,
+            "empirical_coverage": 0.907051282051282,
+            "mean_interval_score": 338.2179487179488,
+            "mean_width": 201.48717948717947,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 6,
+            "below_lower": 9,
+            "empirical_coverage": 0.9519230769230769,
+            "mean_interval_score": 431.2628205128203,
+            "mean_width": 269.3397435897436,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "3": {
+          "0.8": {
+            "above_upper": 8,
+            "below_lower": 45,
+            "empirical_coverage": 0.8301282051282051,
+            "mean_interval_score": 248.36217948717947,
+            "mean_width": 148.52243589743588,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 1,
+            "below_lower": 25,
+            "empirical_coverage": 0.9166666666666666,
+            "mean_interval_score": 329.27884615384613,
+            "mean_width": 206.13782051282053,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 14,
+            "empirical_coverage": 0.9551282051282052,
+            "mean_interval_score": 420.67628205128193,
+            "mean_width": 275.67628205128204,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "4": {
+          "0.8": {
+            "above_upper": 43,
+            "below_lower": 28,
+            "empirical_coverage": 0.7724358974358975,
+            "mean_interval_score": 281.6794871794872,
+            "mean_width": 146.26282051282053,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 19,
+            "below_lower": 14,
+            "empirical_coverage": 0.8942307692307693,
+            "mean_interval_score": 375.2179487179488,
+            "mean_width": 203.03846153846155,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 11,
+            "below_lower": 8,
+            "empirical_coverage": 0.9391025641025641,
+            "mean_interval_score": 487.11858974358955,
+            "mean_width": 271.4775641025641,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "5": {
+          "0.8": {
+            "above_upper": 14,
+            "below_lower": 28,
+            "empirical_coverage": 0.8653846153846154,
+            "mean_interval_score": 198.03205128205127,
+            "mean_width": 149.50641025641025,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 3,
+            "below_lower": 13,
+            "empirical_coverage": 0.9487179487179487,
+            "mean_interval_score": 253.64743589743588,
+            "mean_width": 207.62179487179486,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 6,
+            "empirical_coverage": 0.9807692307692307,
+            "mean_interval_score": 317.60256410256403,
+            "mean_width": 277.6025641025641,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "6": {
+          "0.8": {
+            "above_upper": 19,
+            "below_lower": 26,
+            "empirical_coverage": 0.8557692307692308,
+            "mean_interval_score": 223.97435897435898,
+            "mean_width": 149.39102564102564,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 3,
+            "below_lower": 14,
+            "empirical_coverage": 0.9455128205128205,
+            "mean_interval_score": 295.6474358974359,
+            "mean_width": 207.44230769230768,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 3,
+            "below_lower": 9,
+            "empirical_coverage": 0.9615384615384616,
+            "mean_interval_score": 382.77564102564094,
+            "mean_width": 277.39102564102564,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "7": {
+          "0.8": {
+            "above_upper": 25,
+            "below_lower": 46,
+            "empirical_coverage": 0.7724358974358975,
+            "mean_interval_score": 322.65064102564105,
+            "mean_width": 148.00320512820514,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 10,
+            "below_lower": 35,
+            "empirical_coverage": 0.8557692307692308,
+            "mean_interval_score": 418.13782051282055,
+            "mean_width": 205.76602564102564,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 23,
+            "empirical_coverage": 0.9262820512820513,
+            "mean_interval_score": 513.0256410256409,
+            "mean_width": 275.20512820512823,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        }
+      },
+      "by_predicted_demand": {
+        "high": {
+          "0.8": {
+            "above_upper": 98,
+            "below_lower": 152,
+            "empirical_coverage": 0.7570456754130224,
+            "mean_interval_score": 400.89795918367355,
+            "mean_width": 203.14285714285714,
+            "nominal_coverage": 0.8,
+            "observations": 1029
+          },
+          "0.9": {
+            "above_upper": 32,
+            "below_lower": 108,
+            "empirical_coverage": 0.8639455782312925,
+            "mean_interval_score": 532.8309037900875,
+            "mean_width": 283.4237123420797,
+            "nominal_coverage": 0.9,
+            "observations": 1029
+          },
+          "0.95": {
+            "above_upper": 9,
+            "below_lower": 74,
+            "empirical_coverage": 0.9193391642371234,
+            "mean_interval_score": 680.6802721088433,
+            "mean_width": 381.4382896015549,
+            "nominal_coverage": 0.95,
+            "observations": 1029
+          }
+        },
+        "low": {
+          "0.8": {
+            "above_upper": 8,
+            "below_lower": 18,
+            "empirical_coverage": 0.948,
+            "mean_interval_score": 59.49,
+            "mean_width": 54.99,
+            "nominal_coverage": 0.8,
+            "observations": 500
+          },
+          "0.9": {
+            "above_upper": 3,
+            "below_lower": 1,
+            "empirical_coverage": 0.992,
+            "mean_interval_score": 75.124,
+            "mean_width": 72.044,
+            "nominal_coverage": 0.9,
+            "observations": 500
+          },
+          "0.95": {
+            "above_upper": 2,
+            "below_lower": 0,
+            "empirical_coverage": 0.996,
+            "mean_interval_score": 92.194,
+            "mean_width": 88.434,
+            "nominal_coverage": 0.95,
+            "observations": 500
+          }
+        },
+        "medium": {
+          "0.8": {
+            "above_upper": 41,
+            "below_lower": 97,
+            "empirical_coverage": 0.796759941089838,
+            "mean_interval_score": 203.29013254786452,
+            "mean_width": 130.78645066273933,
+            "nominal_coverage": 0.8,
+            "observations": 679
+          },
+          "0.9": {
+            "above_upper": 15,
+            "below_lower": 52,
+            "empirical_coverage": 0.9013254786450663,
+            "mean_interval_score": 260.3033873343152,
+            "mean_width": 182.68924889543447,
+            "nominal_coverage": 0.9,
+            "observations": 679
+          },
+          "0.95": {
+            "above_upper": 10,
+            "below_lower": 21,
+            "empirical_coverage": 0.9543446244477173,
+            "mean_interval_score": 327.8748159057437,
+            "mean_width": 246.2842415316642,
+            "nominal_coverage": 0.95,
+            "observations": 679
+          }
+        }
+      },
+      "intervals": {
+        "0.8": {
+          "above_upper": 147,
+          "below_lower": 267,
+          "empirical_coverage": 0.8125,
+          "mean_interval_score": 262.81838768115944,
+          "mean_width": 147.34284420289856,
+          "nominal_coverage": 0.8,
+          "observations": 2208
+        },
+        "0.9": {
+          "above_upper": 50,
+          "below_lower": 161,
+          "empirical_coverage": 0.9044384057971014,
+          "mean_interval_score": 345.3763586956522,
+          "mean_width": 204.5792572463768,
+          "nominal_coverage": 0.9,
+          "observations": 2208
+        },
+        "0.95": {
+          "above_upper": 21,
+          "below_lower": 95,
+          "empirical_coverage": 0.947463768115942,
+          "mean_interval_score": 438.9239130434781,
+          "mean_width": 273.52536231884056,
+          "nominal_coverage": 0.95,
+          "observations": 2208
+        }
+      },
+      "point": {
+        "mae": 53.26755220464916,
+        "mean_poisson_deviance": 20.718304668995344,
+        "rmse": 83.21465536767712
+      }
+    },
+    "seasonal_naive": {
+      "by_lead_day": {
+        "1": {
+          "0.8": {
+            "above_upper": 48,
+            "below_lower": 38,
+            "empirical_coverage": 0.7440476190476191,
+            "mean_interval_score": 339.37202380952385,
+            "mean_width": 145.38392857142858,
+            "nominal_coverage": 0.8,
+            "observations": 336
+          },
+          "0.9": {
+            "above_upper": 26,
+            "below_lower": 15,
+            "empirical_coverage": 0.8779761904761905,
+            "mean_interval_score": 452.74107142857144,
+            "mean_width": 238.69345238095238,
+            "nominal_coverage": 0.9,
+            "observations": 336
+          },
+          "0.95": {
+            "above_upper": 12,
+            "below_lower": 5,
+            "empirical_coverage": 0.9494047619047619,
+            "mean_interval_score": 579.9226190476189,
+            "mean_width": 341.5892857142857,
+            "nominal_coverage": 0.95,
+            "observations": 336
+          }
+        },
+        "2": {
+          "0.8": {
+            "above_upper": 26,
+            "below_lower": 24,
+            "empirical_coverage": 0.8397435897435898,
+            "mean_interval_score": 348.75000000000006,
+            "mean_width": 146.12179487179486,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 22,
+            "below_lower": 13,
+            "empirical_coverage": 0.8878205128205128,
+            "mean_interval_score": 512.2692307692307,
+            "mean_width": 234.44871794871796,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 20,
+            "below_lower": 6,
+            "empirical_coverage": 0.9166666666666666,
+            "mean_interval_score": 671.1666666666664,
+            "mean_width": 335.52564102564105,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "3": {
+          "0.8": {
+            "above_upper": 32,
+            "below_lower": 27,
+            "empirical_coverage": 0.8108974358974359,
+            "mean_interval_score": 363.1634615384616,
+            "mean_width": 146.11217948717947,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 20,
+            "below_lower": 14,
+            "empirical_coverage": 0.891025641025641,
+            "mean_interval_score": 500.18589743589746,
+            "mean_width": 233.71153846153845,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 12,
+            "below_lower": 7,
+            "empirical_coverage": 0.9391025641025641,
+            "mean_interval_score": 640.0673076923074,
+            "mean_width": 333.52884615384613,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "4": {
+          "0.8": {
+            "above_upper": 37,
+            "below_lower": 25,
+            "empirical_coverage": 0.8012820512820513,
+            "mean_interval_score": 386.06089743589746,
+            "mean_width": 153.17628205128204,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 23,
+            "below_lower": 19,
+            "empirical_coverage": 0.8653846153846154,
+            "mean_interval_score": 573.6794871794873,
+            "mean_width": 245.92307692307693,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 16,
+            "below_lower": 11,
+            "empirical_coverage": 0.9134615384615384,
+            "mean_interval_score": 753.5064102564099,
+            "mean_width": 353.37820512820514,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "5": {
+          "0.8": {
+            "above_upper": 19,
+            "below_lower": 15,
+            "empirical_coverage": 0.891025641025641,
+            "mean_interval_score": 226.4903846153846,
+            "mean_width": 150.97756410256412,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 11,
+            "below_lower": 7,
+            "empirical_coverage": 0.9423076923076923,
+            "mean_interval_score": 326.4935897435897,
+            "mean_width": 242.71153846153845,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 6,
+            "below_lower": 4,
+            "empirical_coverage": 0.967948717948718,
+            "mean_interval_score": 417.2211538461538,
+            "mean_width": 348.1185897435897,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "6": {
+          "0.8": {
+            "above_upper": 30,
+            "below_lower": 21,
+            "empirical_coverage": 0.8365384615384616,
+            "mean_interval_score": 264.03846153846155,
+            "mean_width": 151.25,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 15,
+            "below_lower": 9,
+            "empirical_coverage": 0.9230769230769231,
+            "mean_interval_score": 367.70512820512823,
+            "mean_width": 243.53846153846155,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 11,
+            "below_lower": 2,
+            "empirical_coverage": 0.9583333333333334,
+            "mean_interval_score": 488.4615384615384,
+            "mean_width": 350.2564102564103,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "7": {
+          "0.8": {
+            "above_upper": 56,
+            "below_lower": 40,
+            "empirical_coverage": 0.6923076923076923,
+            "mean_interval_score": 400.698717948718,
+            "mean_width": 147.49358974358975,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 28,
+            "below_lower": 18,
+            "empirical_coverage": 0.8525641025641025,
+            "mean_interval_score": 540.048076923077,
+            "mean_width": 237.54807692307693,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 18,
+            "below_lower": 4,
+            "empirical_coverage": 0.9294871794871795,
+            "mean_interval_score": 704.1282051282049,
+            "mean_width": 340.15384615384613,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        }
+      },
+      "by_predicted_demand": {
+        "high": {
+          "0.8": {
+            "above_upper": 85,
+            "below_lower": 138,
+            "empirical_coverage": 0.7508379888268156,
+            "mean_interval_score": 462.23240223463694,
+            "mean_width": 218.83575418994414,
+            "nominal_coverage": 0.8,
+            "observations": 895
+          },
+          "0.9": {
+            "above_upper": 41,
+            "below_lower": 76,
+            "empirical_coverage": 0.8692737430167597,
+            "mean_interval_score": 623.4435754189944,
+            "mean_width": 357.03016759776534,
+            "nominal_coverage": 0.9,
+            "observations": 895
+          },
+          "0.95": {
+            "above_upper": 18,
+            "below_lower": 35,
+            "empirical_coverage": 0.9407821229050279,
+            "mean_interval_score": 768.7553072625695,
+            "mean_width": 519.5039106145251,
+            "nominal_coverage": 0.95,
+            "observations": 895
+          }
+        },
+        "low": {
+          "0.8": {
+            "above_upper": 49,
+            "below_lower": 7,
+            "empirical_coverage": 0.9032815198618307,
+            "mean_interval_score": 107.28497409326427,
+            "mean_width": 48.52849740932643,
+            "nominal_coverage": 0.8,
+            "observations": 579
+          },
+          "0.9": {
+            "above_upper": 32,
+            "below_lower": 1,
+            "empirical_coverage": 0.9430051813471503,
+            "mean_interval_score": 164.43005181347152,
+            "mean_width": 71.40759930915371,
+            "nominal_coverage": 0.9,
+            "observations": 579
+          },
+          "0.95": {
+            "above_upper": 24,
+            "below_lower": 0,
+            "empirical_coverage": 0.9585492227979274,
+            "mean_interval_score": 231.5768566493954,
+            "mean_width": 91.74956822107082,
+            "nominal_coverage": 0.95,
+            "observations": 579
+          }
+        },
+        "medium": {
+          "0.8": {
+            "above_upper": 114,
+            "below_lower": 45,
+            "empirical_coverage": 0.7833787465940054,
+            "mean_interval_score": 352.64850136239784,
+            "mean_width": 141.92643051771117,
+            "nominal_coverage": 0.8,
+            "observations": 734
+          },
+          "0.9": {
+            "above_upper": 72,
+            "below_lower": 18,
+            "empirical_coverage": 0.8773841961852861,
+            "mean_interval_score": 516.2029972752044,
+            "mean_width": 228.79155313351498,
+            "nominal_coverage": 0.9,
+            "observations": 734
+          },
+          "0.95": {
+            "above_upper": 53,
+            "below_lower": 4,
+            "empirical_coverage": 0.9223433242506812,
+            "mean_interval_score": 707.3501362397817,
+            "mean_width": 326.5871934604905,
+            "nominal_coverage": 0.95,
+            "observations": 734
+          }
+        }
+      },
+      "intervals": {
+        "0.8": {
+          "above_upper": 248,
+          "below_lower": 190,
+          "empirical_coverage": 0.8016304347826086,
+          "mean_interval_score": 332.72644927536237,
+          "mean_width": 148.60960144927537,
+          "nominal_coverage": 0.8,
+          "observations": 2208
+        },
+        "0.9": {
+          "above_upper": 145,
+          "below_lower": 95,
+          "empirical_coverage": 0.8913043478260869,
+          "mean_interval_score": 467.4275362318841,
+          "mean_width": 239.5018115942029,
+          "nominal_coverage": 0.9,
+          "observations": 2208
+        },
+        "0.95": {
+          "above_upper": 95,
+          "below_lower": 39,
+          "empirical_coverage": 0.9393115942028986,
+          "mean_interval_score": 607.4791666666664,
+          "mean_width": 343.20380434782606,
+          "nominal_coverage": 0.95,
+          "observations": 2208
+        }
+      },
+      "point": {
+        "mae": 55.997735507246375,
+        "mean_poisson_deviance": 30.522024556560332,
+        "rmse": 97.89196342715366
+      }
+    },
+    "training_mean": {
+      "by_lead_day": {
+        "1": {
+          "0.8": {
+            "above_upper": 70,
+            "below_lower": 0,
+            "empirical_coverage": 0.7916666666666666,
+            "mean_interval_score": 678.9880952380952,
+            "mean_width": 484.2857142857143,
+            "nominal_coverage": 0.8,
+            "observations": 336
+          },
+          "0.9": {
+            "above_upper": 15,
+            "below_lower": 0,
+            "empirical_coverage": 0.9553571428571429,
+            "mean_interval_score": 678.1309523809524,
+            "mean_width": 627.7142857142857,
+            "nominal_coverage": 0.9,
+            "observations": 336
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 745.1428571428571,
+            "mean_width": 745.1428571428571,
+            "nominal_coverage": 0.95,
+            "observations": 336
+          }
+        },
+        "2": {
+          "0.8": {
+            "above_upper": 59,
+            "below_lower": 0,
+            "empirical_coverage": 0.8108974358974359,
+            "mean_interval_score": 871.5769230769231,
+            "mean_width": 479.84615384615387,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 39,
+            "below_lower": 0,
+            "empirical_coverage": 0.875,
+            "mean_interval_score": 999.1025641025641,
+            "mean_width": 621.5384615384615,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 26,
+            "below_lower": 0,
+            "empirical_coverage": 0.9166666666666666,
+            "mean_interval_score": 1044.4102564102561,
+            "mean_width": 739.9230769230769,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "3": {
+          "0.8": {
+            "above_upper": 59,
+            "below_lower": 0,
+            "empirical_coverage": 0.8108974358974359,
+            "mean_interval_score": 892.7628205128206,
+            "mean_width": 479.84615384615387,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 38,
+            "below_lower": 0,
+            "empirical_coverage": 0.8782051282051282,
+            "mean_interval_score": 1013.974358974359,
+            "mean_width": 621.5384615384615,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 26,
+            "below_lower": 0,
+            "empirical_coverage": 0.9166666666666666,
+            "mean_interval_score": 1068.384615384615,
+            "mean_width": 739.9230769230769,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "4": {
+          "0.8": {
+            "above_upper": 70,
+            "below_lower": 0,
+            "empirical_coverage": 0.7756410256410257,
+            "mean_interval_score": 947.1858974358975,
+            "mean_width": 479.84615384615387,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 43,
+            "below_lower": 0,
+            "empirical_coverage": 0.8621794871794872,
+            "mean_interval_score": 1074.871794871795,
+            "mean_width": 621.5384615384615,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 27,
+            "below_lower": 0,
+            "empirical_coverage": 0.9134615384615384,
+            "mean_interval_score": 1091.8461538461536,
+            "mean_width": 739.9230769230769,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "5": {
+          "0.8": {
+            "above_upper": 66,
+            "below_lower": 0,
+            "empirical_coverage": 0.7884615384615384,
+            "mean_interval_score": 927.4102564102565,
+            "mean_width": 479.84615384615387,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 42,
+            "below_lower": 0,
+            "empirical_coverage": 0.8653846153846154,
+            "mean_interval_score": 1046.5384615384614,
+            "mean_width": 621.5384615384615,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 27,
+            "below_lower": 0,
+            "empirical_coverage": 0.9134615384615384,
+            "mean_interval_score": 1044.7948717948716,
+            "mean_width": 739.9230769230769,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "6": {
+          "0.8": {
+            "above_upper": 58,
+            "below_lower": 0,
+            "empirical_coverage": 0.8141025641025641,
+            "mean_interval_score": 786.9615384615385,
+            "mean_width": 479.84615384615387,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 32,
+            "below_lower": 0,
+            "empirical_coverage": 0.8974358974358975,
+            "mean_interval_score": 854.0384615384615,
+            "mean_width": 621.5384615384615,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 14,
+            "below_lower": 0,
+            "empirical_coverage": 0.9551282051282052,
+            "mean_interval_score": 824.5384615384614,
+            "mean_width": 739.9230769230769,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "7": {
+          "0.8": {
+            "above_upper": 71,
+            "below_lower": 0,
+            "empirical_coverage": 0.7724358974358975,
+            "mean_interval_score": 734.7820512820513,
+            "mean_width": 479.84615384615387,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 24,
+            "below_lower": 0,
+            "empirical_coverage": 0.9230769230769231,
+            "mean_interval_score": 692.9487179487179,
+            "mean_width": 621.5384615384615,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 1,
+            "below_lower": 0,
+            "empirical_coverage": 0.9967948717948718,
+            "mean_interval_score": 740.9487179487179,
+            "mean_width": 739.9230769230769,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        }
+      },
+      "by_predicted_demand": {
+        "medium": {
+          "0.8": {
+            "above_upper": 453,
+            "below_lower": 0,
+            "empirical_coverage": 0.7948369565217391,
+            "mean_interval_score": 832.5507246376811,
+            "mean_width": 480.5217391304348,
+            "nominal_coverage": 0.8,
+            "observations": 2208
+          },
+          "0.9": {
+            "above_upper": 233,
+            "below_lower": 0,
+            "empirical_coverage": 0.8944746376811594,
+            "mean_interval_score": 906.0108695652174,
+            "mean_width": 622.4782608695652,
+            "nominal_coverage": 0.9,
+            "observations": 2208
+          },
+          "0.95": {
+            "above_upper": 121,
+            "below_lower": 0,
+            "empirical_coverage": 0.9451992753623188,
+            "mean_interval_score": 935.0652173913041,
+            "mean_width": 740.7173913043479,
+            "nominal_coverage": 0.95,
+            "observations": 2208
+          }
+        }
+      },
+      "intervals": {
+        "0.8": {
+          "above_upper": 453,
+          "below_lower": 0,
+          "empirical_coverage": 0.7948369565217391,
+          "mean_interval_score": 832.5507246376811,
+          "mean_width": 480.5217391304348,
+          "nominal_coverage": 0.8,
+          "observations": 2208
+        },
+        "0.9": {
+          "above_upper": 233,
+          "below_lower": 0,
+          "empirical_coverage": 0.8944746376811594,
+          "mean_interval_score": 906.0108695652174,
+          "mean_width": 622.4782608695652,
+          "nominal_coverage": 0.9,
+          "observations": 2208
+        },
+        "0.95": {
+          "above_upper": 121,
+          "below_lower": 0,
+          "empirical_coverage": 0.9451992753623188,
+          "mean_interval_score": 935.0652173913041,
+          "mean_width": 740.7173913043479,
+          "nominal_coverage": 0.95,
+          "observations": 2208
+        }
+      },
+      "point": {
+        "mae": 195.6654983734933,
+        "mean_poisson_deviance": 257.4094368180439,
+        "rmse": 256.8636681544674
+      }
+    }
+  },
+  "observations": 2208,
+  "package_version": "0.4.0",
+  "protocol": {
+    "aggregation": "pooled_observed_hours",
+    "calibration_residuals": "out_of_sample_forecasts_only",
+    "calibration_updates": "only_after_complete_horizon",
+    "calibration_window_hours": 672,
+    "end_exclusive": "2012-10-01T00:00:00",
+    "horizon_hours": 168,
+    "initial_calibration_end_exclusive": "2012-07-01T00:00:00",
+    "initial_calibration_start": "2012-06-03T00:00:00",
+    "interval_specification": {
+      "bounds": "floor(max(0,mean-radius)),ceil(mean+radius)",
+      "calibration_folds": 4,
+      "coverage_guarantee": false,
+      "lead_group_hours": 24,
+      "levels": [
+        0.8,
+        0.9,
+        0.95
+      ],
+      "method": "rolling_scaled_absolute_residual_v1",
+      "minimum_observations": 30,
+      "predicted_demand_thresholds": [
+        100,
+        300
+      ],
+      "quantile_rank": "ceil((n+1)*level)",
+      "scale": "sqrt(max(prediction, 1))",
+      "update": "after_complete_forecast_horizon"
+    },
+    "missing_hours": "excluded_never_zero_filled",
+    "models_evaluated": [
+      "training_mean",
+      "hour_of_week_mean",
+      "seasonal_naive",
+      "poisson_calendar"
+    ],
+    "name": "rolling_empirical_residual_intervals",
+    "point_configuration": {
+      "candidate_tie_order": [
+        "training_mean",
+        "hour_of_week_mean",
+        "seasonal_naive",
+        "poisson_calendar"
+      ],
+      "poisson_calendar": {
+        "all_zero_training": "constant_zero",
+        "alpha": 0.1,
+        "annual_period_days": 365.25,
+        "constant_positive_training": "analytic_intercept",
+        "encoding": "fixed_calendar_basis_v1",
+        "epoch": "2011-01-01T00:00:00",
+        "feature_names": [
+          "hour_01",
+          "hour_02",
+          "hour_03",
+          "hour_04",
+          "hour_05",
+          "hour_06",
+          "hour_07",
+          "hour_08",
+          "hour_09",
+          "hour_10",
+          "hour_11",
+          "hour_12",
+          "hour_13",
+          "hour_14",
+          "hour_15",
+          "hour_16",
+          "hour_17",
+          "hour_18",
+          "hour_19",
+          "hour_20",
+          "hour_21",
+          "hour_22",
+          "hour_23",
+          "weekday_1",
+          "weekday_2",
+          "weekday_3",
+          "weekday_4",
+          "weekday_5",
+          "weekday_6",
+          "weekend_hour_01",
+          "weekend_hour_02",
+          "weekend_hour_03",
+          "weekend_hour_04",
+          "weekend_hour_05",
+          "weekend_hour_06",
+          "weekend_hour_07",
+          "weekend_hour_08",
+          "weekend_hour_09",
+          "weekend_hour_10",
+          "weekend_hour_11",
+          "weekend_hour_12",
+          "weekend_hour_13",
+          "weekend_hour_14",
+          "weekend_hour_15",
+          "weekend_hour_16",
+          "weekend_hour_17",
+          "weekend_hour_18",
+          "weekend_hour_19",
+          "weekend_hour_20",
+          "weekend_hour_21",
+          "weekend_hour_22",
+          "weekend_hour_23",
+          "annual_sin_1",
+          "annual_cos_1",
+          "annual_sin_2",
+          "annual_cos_2",
+          "trend_years"
+        ],
+        "fit_intercept": true,
+        "max_iter": 300,
+        "scaling": "none",
+        "solver": "newton-cholesky",
+        "threads": 1,
+        "tol": 1e-08
+      },
+      "seasonal_naive": {
+        "missing_lag": "training_mean",
+        "period_hours": 168
+      }
+    },
+    "point_fit": "expanding_prefix_before_each_origin",
+    "start": "2012-07-01T00:00:00"
+  },
+  "schema_version": "1.0",
+  "selection_rule": "minimum_pooled_validation_mae; interval_settings_prespecified",
+  "stage": "interval_validation",
+  "test_scored": false,
+  "warmup_folds": [
+    {
+      "absent_hours": 0,
+      "end_exclusive": "2012-06-10T00:00:00",
+      "observations": 168,
+      "origin": "2012-06-03T00:00:00",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 12456,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-06-02T23:00:00",
+        "observations": 12331
+      }
+    },
+    {
+      "absent_hours": 0,
+      "end_exclusive": "2012-06-17T00:00:00",
+      "observations": 168,
+      "origin": "2012-06-10T00:00:00",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 12624,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-06-09T23:00:00",
+        "observations": 12499
+      }
+    },
+    {
+      "absent_hours": 0,
+      "end_exclusive": "2012-06-24T00:00:00",
+      "observations": 168,
+      "origin": "2012-06-17T00:00:00",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 12792,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-06-16T23:00:00",
+        "observations": 12667
+      }
+    },
+    {
+      "absent_hours": 0,
+      "end_exclusive": "2012-07-01T00:00:00",
+      "observations": 168,
+      "origin": "2012-06-24T00:00:00",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 12960,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-06-23T23:00:00",
+        "observations": 12835
+      }
+    }
+  ]
+}

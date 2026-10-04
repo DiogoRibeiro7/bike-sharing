@@ -10,6 +10,7 @@ nav:
   - Overview: index.md
   - Forecasting protocol: methodology.md
   - Interpretable models: models.md
+  - Forecast intervals and calibration: intervals.md
   - Training, validation and test: splits.md
   - Data contract and provenance: data.md
   - Python API: api.md

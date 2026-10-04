@@ -121,6 +121,50 @@ It returns status 2 with a concise diagnostic for invalid inputs or file errors.
 The output path cannot equal the input data or saved selection path. Parent output directories are
 created as needed. Use `bike-sharing --help` for the supported flags.
 
+## Interval calibration API
+
+Import these interfaces from `bike_sharing.calibration` and
+`bike_sharing.intervals`:
+
+```python
+from bike_sharing.calibration import IntervalSpec
+from bike_sharing.intervals import evaluate_interval_validation
+
+report = evaluate_interval_validation(dataset, spec=IntervalSpec())
+```
+
+`IntervalSpec(levels=(0.8, 0.9, 0.95), calibration_folds=4,
+minimum_observations=30)` is frozen and validates ordered, unique levels and
+positive integer support settings. `to_dict()` records the complete fixed rule;
+`sha256` identifies it. `IntervalBand(lower, upper)` requires ordered nonnegative
+integer bounds. `residual_quantile(scores, level)` uses the documented empirical
+rank and rejects inadequate support. `make_interval(prediction, quantile)` applies
+scaling, clipping and outward rounding. `interval_metrics(actual, bands, level)`
+returns inclusive coverage, width, interval score and tail-miss counts. Invalid
+values or empty scoring inputs raise `ValueError`.
+
+`evaluate_interval_validation(dataset, split=StudySplit(), *, horizon_hours=168,
+spec=IntervalSpec())` compares all four candidates and returns
+`stage="interval_validation"`, `test_scored=false`, warmup/calibration evidence,
+pooled/fold/group scores and an `interval_selection` manifest. It requires enough
+history before the calibration window and enough past residuals at each scored
+origin. The point-model selection rule remains pooled validation MAE.
+
+`FrozenIntervalSelection(point, spec=IntervalSpec())` combines a rolling
+`FrozenSelection` with the interval policy. `read_interval_selection(path)` reads
+only interval-validation reports and rejects unsupported specifications or hash
+mismatches. `evaluate_interval_test(dataset, selection)` checks identities and
+evaluates only the saved procedure. See [temporal calibration](intervals.md) for
+update timing and the absence of theoretical coverage guarantees.
+
+`bike-sharing-intervals` defaults to validation. `--fold-hours` and
+`--calibration-folds` configure development studies; the latter counts complete
+forecast horizons. `--stage test --selection REPORT` requires a saved interval
+report and rejects cadence, calibration and boundary overrides. Point-only
+reports cannot authorize interval testing. Data/output flags, input-overwrite
+protection and exit status 2 on errors follow the point CLI's contract. Use
+`bike-sharing-intervals --help` for all flags.
+
 ## Data audit
 
 `bike_sharing.audit.audit_dataset(path, upstream=None)` validates the historical

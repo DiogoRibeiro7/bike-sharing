@@ -142,7 +142,11 @@ def read_selection(path: Path) -> FrozenSelection:
     payload: object = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict) or payload.get("stage") != "validation":
         raise ValueError("selection input must be a validation report")
-    data = payload.get("selection")
+    return parse_selection(payload.get("selection"))
+
+
+def parse_selection(data: object) -> FrozenSelection:
+    """Validate the point-selection object embedded in a study manifest."""
     expected = {
         "schema_version",
         "model",
@@ -192,12 +196,7 @@ def evaluate_test(dataset: DemandDataset, selection: FrozenSelection) -> dict[st
     rolling selections refit at the saved cadence using only then-available
     outcomes. Use this function only after the modelling approach is finalized.
     """
-    if dataset.sha256 != selection.dataset_sha256:
-        raise ValueError("dataset checksum differs from the frozen selection")
-    if version("bike-sharing-forecast") != selection.package_version:
-        raise ValueError("package version differs from the frozen selection; revalidate first")
-    if selection.configuration_sha256 != configuration_digest():
-        raise ValueError("model configuration differs from the frozen selection; revalidate first")
+    validate_selection_identity(dataset, selection)
     partitions = partition_dataset(dataset, selection.split)
     if selection.protocol == "rolling_origin":
         report = _evaluate_period(
@@ -236,3 +235,13 @@ def evaluate_test(dataset: DemandDataset, selection: FrozenSelection) -> dict[st
         },
         "metrics": {selection.model: error_metrics(actual, prediction)},
     }
+
+
+def validate_selection_identity(dataset: DemandDataset, selection: FrozenSelection) -> None:
+    """Require current data, package and point-model configuration before final testing."""
+    if dataset.sha256 != selection.dataset_sha256:
+        raise ValueError("dataset checksum differs from the frozen selection")
+    if version("bike-sharing-forecast") != selection.package_version:
+        raise ValueError("package version differs from the frozen selection; revalidate first")
+    if selection.configuration_sha256 != configuration_digest():
+        raise ValueError("model configuration differs from the frozen selection; revalidate first")

@@ -37,6 +37,8 @@ jobs:
         run: poetry run python -m bike_sharing.audit --check benchmarks/data-audit.json
       - name: Compare rolling validation candidates only
         run: poetry run bike-sharing --output results/validation.json
+      - name: Assess empirical intervals on validation only
+        run: poetry run bike-sharing-intervals --output results/interval-validation.json
       - name: Build documentation and distributions
         run: |
           poetry run mkdocs build --strict
