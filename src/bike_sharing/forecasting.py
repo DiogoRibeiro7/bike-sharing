@@ -15,6 +15,7 @@ from bike_sharing.data import (
     validate_observations,
     validate_timestamp,
 )
+from bike_sharing.splits import DEFAULT_SPLIT, StudySplit
 
 
 def forecast_baselines(
@@ -62,17 +63,19 @@ def error_metrics(actual: Sequence[int], predicted: Sequence[float]) -> dict[str
 
 
 def evaluate(
-    dataset: DemandDataset, cutoff: datetime, horizon_hours: int = 168
+    dataset: DemandDataset,
+    cutoff: datetime,
+    horizon_hours: int = 168,
+    *,
+    split: StudySplit = DEFAULT_SPLIT,
 ) -> dict[str, object]:
-    """Evaluate frozen baselines over [cutoff, cutoff + horizon_hours).
+    """Evaluate a validation-only window [cutoff, cutoff + horizon_hours).
 
     Training contains every observed timestamp strictly before cutoff. Outcomes
     during the horizon are used only for scoring. Missing timestamps are counted
     and excluded from scoring; no zero-rental observations are invented.
     """
-    validate_timestamp(cutoff)
-    if type(horizon_hours) is not int or horizon_hours <= 0:
-        raise ValueError("horizon_hours must be a positive integer")
+    split.validate_window(cutoff, horizon_hours)
     validate_observations(dataset.observations)
     end = cutoff + timedelta(hours=horizon_hours)
     data_end = dataset.observations[-1].timestamp + timedelta(hours=1)
@@ -89,6 +92,8 @@ def evaluate(
     actual = tuple(item.count for item in testing)
     return {
         "schema_version": "1.0",
+        "stage": "validation_diagnostic",
+        "study_split": split.to_dict(),
         "package_version": version("bike-sharing-forecast"),
         "python_version": platform.python_version(),
         "dataset": {

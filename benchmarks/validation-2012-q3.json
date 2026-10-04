@@ -1,0 +1,65 @@
+{
+  "dataset": {
+    "absent_calendar_hours": 165,
+    "calendar_hours": 17544,
+    "first_timestamp": "2011-01-01T00:00:00",
+    "last_timestamp": "2012-12-31T23:00:00",
+    "observations": 17379,
+    "sha256": "77b9643b9a646c229fe8fcd972ab8689885235b6d31eb3e469661f2b5523fd97",
+    "source_name": "bike.csv"
+  },
+  "metrics": {
+    "hour_of_week_mean": {
+      "mae": 126.62092888043928,
+      "rmse": 169.783212772374
+    },
+    "training_mean": {
+      "mae": 197.82937894348797,
+      "rmse": 260.65015815946236
+    }
+  },
+  "package_version": "0.2.0",
+  "protocol": {
+    "absent_evaluation_hours": 0,
+    "cutoff_inclusive": "2012-07-01T00:00:00",
+    "end_exclusive": "2012-10-01T00:00:00",
+    "evaluation_observations": 2208,
+    "features": [
+      "weekday",
+      "hour"
+    ],
+    "horizon_hours": 2208,
+    "missing_hours": "excluded_from_scoring_not_imputed",
+    "name": "fixed_origin_calendar_baselines",
+    "refit_during_horizon": false,
+    "target": "observed_aggregate_hourly_rentals",
+    "training": {
+      "absent_calendar_hours": 125,
+      "calendar_hours": 13128,
+      "first_timestamp": "2011-01-01T00:00:00",
+      "last_timestamp": "2012-06-30T23:00:00",
+      "observations": 13003
+    },
+    "unseen_weekly_bucket": "training_mean"
+  },
+  "python_version": "3.12.14",
+  "schema_version": "1.0",
+  "selection": {
+    "dataset_sha256": "77b9643b9a646c229fe8fcd972ab8689885235b6d31eb3e469661f2b5523fd97",
+    "model": "hour_of_week_mean",
+    "package_version": "0.2.0",
+    "schema_version": "1.0",
+    "selection_metric": "validation_mae",
+    "test_end": "2013-01-01T00:00:00",
+    "test_start": "2012-10-01T00:00:00",
+    "validation_start": "2012-07-01T00:00:00"
+  },
+  "selection_rule": "minimum_validation_mae; ties_prefer_training_mean",
+  "stage": "validation",
+  "study_split": {
+    "test_end": "2013-01-01T00:00:00",
+    "test_start": "2012-10-01T00:00:00",
+    "validation_start": "2012-07-01T00:00:00"
+  },
+  "test_scored": false
+}

@@ -4,9 +4,9 @@ Reproducible forecasting of aggregate hourly bike rentals, with explicit
 forecast-time information and chronological evaluation.
 
 This project is being modernized from a 2020 exploratory notebook into a small
-statistical case study. The first maintained release candidate provides a typed
-CSV loader, two transparent calendar baselines, a command-line report and
-automated checks. Model comparison, uncertainty and planning-cost evaluation
+statistical case study. The maintained implementation provides a typed
+CSV loader, two transparent calendar baselines, a three-way temporal split,
+validation-only selection and explicit final testing. Broader model comparison, uncertainty and planning-cost evaluation
 are tracked in the [roadmap](ROADMAP.md).
 
 ## Run the baseline
@@ -15,33 +15,52 @@ Use **Python 3.12** and **Poetry 2.5.1** from the repository root:
 
 ```bash
 poetry install --with dev,docs
-poetry run bike-sharing --output results/baseline.json
+poetry run bike-sharing --output results/validation.json
 ```
 
 The runtime package uses only the Python standard library. The bundled CSV is
 read locally; the analysis makes no network requests. The CSV is repository
 data and is not included in the Python wheel.
 
-The default study trains on observations before **2012-07-01 00:00**, then makes
-one frozen forecast for the next **168 calendar hours**. Only weekday and hour
-are used. The report includes MAE, RMSE, the input SHA-256, software versions,
-split boundaries and missing-hour counts.
+The default study enforces these half-open calendar partitions:
+
+| Partition | Period | Role |
+| --- | --- | --- |
+| Training | Before July 2012 | Fit the candidate baselines |
+| Validation | July through September 2012 | Select the candidate with the lowest MAE |
+| Test | October through December 2012 | Final evaluation after model choice is frozen |
+
+The default command compares both baselines on all **2,208 validation hours**.
+It saves the selected model, dataset checksum, split boundaries and package
+version in the validation report. No test performance is computed. Ties prefer
+the simpler training-mean baseline. Both candidate fits are frozen at July 1;
+rolling-origin comparisons remain planned work.
+
+For a shorter diagnostic within validation:
 
 ```bash
 poetry run bike-sharing --data bike.csv \
   --cutoff 2012-07-01 --horizon-hours 168 --output results/baseline.json
 ```
 
-The initial run is a development diagnostic. It is not a rolling day-ahead
-benchmark or a claim of deployment readiness. The final quarter of 2012 is
-reserved by the study plan for subsequent final evaluation; the general CLI
-does not enforce that research policy. See [methods](docs/methodology.md) and
-[recorded results](docs/results.md).
+Diagnostic windows cannot enter the test period and do not create model-selection
+artifacts. Once the modelling approach is finalized, a separate command refits
+the saved model on training plus validation and scores only that model on test:
 
-In this 168-observation diagnostic, the hour-of-week baseline produces MAE
-**98.371** and RMSE **134.834** rentals/hour; the constant training mean produces
-MAE **164.513** and RMSE **205.256**. These are measured results for one development
-week, with broader validation still on the roadmap.
+```bash
+poetry run bike-sharing --stage test --selection results/validation.json \
+  --output results/final-test.json
+```
+
+That command requires matching data and package versions and rejects boundary
+overrides. **The real test period has not been scored in this modernization.**
+The final-test path is checked with synthetic data in CI. See the
+[three-way workflow](docs/splits.md), [methods](docs/methodology.md) and
+[recorded validation results](docs/results.md).
+
+Across July–September, the hour-of-week baseline produces MAE **126.621** and
+RMSE **169.783** rentals/hour; the training mean produces MAE **197.829** and RMSE
+**260.650**. These validation results select a baseline, not a deployment model.
 
 ## What the models do
 

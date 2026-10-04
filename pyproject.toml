@@ -1,6 +1,6 @@
 [project]
 name = "bike-sharing-forecast"
-version = "0.1.0"
+version = "0.2.0"
 description = "Reproducible aggregate bike-rental forecasting and evaluation."
 authors = [{name = "Diogo Ribeiro"}]
 readme = "README.md"
