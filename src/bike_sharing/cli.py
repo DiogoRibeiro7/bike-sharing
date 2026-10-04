@@ -1,4 +1,4 @@
-"""Command-line entry point for a reproducible baseline report."""
+"""Command-line entry point for chronological forecasting studies."""
 
 import argparse
 import csv
@@ -11,14 +11,25 @@ from pathlib import Path
 from bike_sharing.data import load_dataset
 from bike_sharing.forecasting import evaluate
 from bike_sharing.splits import DEFAULT_SPLIT, StudySplit
-from bike_sharing.study import evaluate_test, read_selection, select_on_validation
+from bike_sharing.study import (
+    evaluate_test,
+    read_selection,
+    select_on_validation,
+    select_rolling_on_validation,
+)
 
 
 def main(argv: Sequence[str] | None = None) -> int:
-    """Run the baseline study; return 2 for invalid input or inaccessible files."""
+    """Run validation or explicit final testing; return 2 for invalid input/files."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data", type=Path, default=Path("bike.csv"), help="legacy CSV path")
     parser.add_argument("--stage", choices=("validation", "test"), default="validation")
+    parser.add_argument(
+        "--protocol", choices=("rolling", "fixed"), help="validation protocol (default: rolling)"
+    )
+    parser.add_argument(
+        "--fold-hours", type=int, help="rolling forecast/refit cadence (default: 168)"
+    )
     parser.add_argument("--selection", type=Path, help="saved validation report; required for test")
     parser.add_argument(
         "--validation-start", help="override validation boundary for a custom study"
@@ -48,6 +59,8 @@ def main(argv: Sequence[str] | None = None) -> int:
             args.test_end,
             args.cutoff,
             args.horizon_hours,
+            args.protocol,
+            args.fold_hours,
         )
         if args.stage == "test":
             if args.selection is None:
@@ -73,6 +86,8 @@ def main(argv: Sequence[str] | None = None) -> int:
             )
             dataset = load_dataset(args.data)
             if args.cutoff is not None:
+                if args.protocol is not None or args.fold_hours is not None:
+                    raise ValueError("--cutoff cannot be combined with --protocol or --fold-hours")
                 horizon = 168 if args.horizon_hours is None else args.horizon_hours
                 report = evaluate(
                     dataset, datetime.fromisoformat(args.cutoff), horizon, split=split
@@ -80,7 +95,16 @@ def main(argv: Sequence[str] | None = None) -> int:
             else:
                 if args.horizon_hours is not None:
                     raise ValueError("--horizon-hours requires --cutoff")
-                report = select_on_validation(dataset, split)
+                if args.protocol == "fixed":
+                    if args.fold_hours is not None:
+                        raise ValueError("--fold-hours is only valid with rolling validation")
+                    report = select_on_validation(dataset, split)
+                else:
+                    report = select_rolling_on_validation(
+                        dataset,
+                        split,
+                        horizon_hours=168 if args.fold_hours is None else args.fold_hours,
+                    )
         serialized = json.dumps(report, indent=2, sort_keys=True, allow_nan=False) + "\n"
         if args.output is None:
             print(serialized, end="")

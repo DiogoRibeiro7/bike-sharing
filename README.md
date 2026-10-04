@@ -4,12 +4,11 @@ Reproducible forecasting of aggregate hourly bike rentals, with explicit
 forecast-time information and chronological evaluation.
 
 This project is being modernized from a 2020 exploratory notebook into a small
-statistical case study. The maintained implementation provides a typed
-CSV loader, two transparent calendar baselines, a three-way temporal split,
-validation-only selection and explicit final testing. Broader model comparison, uncertainty and planning-cost evaluation
-are tracked in the [roadmap](ROADMAP.md).
+statistical case study. It provides a typed CSV loader, four interpretable
+forecasting candidates, a verified data audit and chronological model selection.
+Uncertainty and planning-cost evaluation remain in the [roadmap](ROADMAP.md).
 
-## Run the baseline
+## Run the validation study
 
 Use **Python 3.12** and **Poetry 2.5.1** from the repository root:
 
@@ -18,23 +17,26 @@ poetry install --with dev,docs
 poetry run bike-sharing --output results/validation.json
 ```
 
-The runtime package uses only the Python standard library. The bundled CSV is
-read locally; the analysis makes no network requests. The CSV is repository
+Poetry locks NumPy, scikit-learn and the numerical dependencies. The bundled CSV
+is read locally; the analysis makes no network requests. The CSV is repository
 data and is not included in the Python wheel.
 
 The default study enforces these half-open calendar partitions:
 
 | Partition | Period | Role |
 | --- | --- | --- |
-| Training | Before July 2012 | Fit the candidate baselines |
-| Validation | July through September 2012 | Select the candidate with the lowest MAE |
+| Training | Before July 2012 | Initial fitting history |
+| Validation | July through September 2012 | Weekly comparisons and selection by pooled MAE |
 | Test | October through December 2012 | Final evaluation after model choice is frozen |
 
-The default command compares both baselines on all **2,208 validation hours**.
-It saves the selected model, dataset checksum, split boundaries and package
-version in the validation report. No test performance is computed. Ties prefer
-the simpler training-mean baseline. Both candidate fits are frozen at July 1;
-rolling-origin comparisons remain planned work.
+The default compares four candidates on **14 expanding-window folds**, covering
+all **2,208 validation hours**. Each fit uses only observations before its origin;
+forecasts stay fixed for 168 hours, with a final 24-hour fold. Earlier validation
+observations can enter later training histories once available.
+
+The report saves the selected model, data checksum, boundaries, model-configuration
+hash, package version and refit cadence. No test performance is computed.
+The original two-mean, whole-quarter comparison is available with `--protocol fixed`.
 
 For a shorter diagnostic within validation:
 
@@ -43,35 +45,40 @@ poetry run bike-sharing --data bike.csv \
   --cutoff 2012-07-01 --horizon-hours 168 --output results/baseline.json
 ```
 
-Diagnostic windows cannot enter the test period and do not create model-selection
-artifacts. Once the modelling approach is finalized, a separate command refits
-the saved model on training plus validation and scores only that model on test:
+Diagnostics compare the original two means, remain within validation and do not
+create selections. Once development is complete, a separate command evaluates
+only the selected model using its saved forecasting and refit procedure:
 
 ```bash
 poetry run bike-sharing --stage test --selection results/validation.json \
   --output results/final-test.json
 ```
 
-That command requires matching data and package versions and rejects boundary
-overrides. **The real test period has not been scored in this modernization.**
+That command requires matching data, package and configuration identities and
+rejects protocol, cadence and boundary overrides. **The real test period has not
+been scored in this modernization.**
 The final-test path is checked with synthetic data in CI. See the
 [three-way workflow](docs/splits.md), [methods](docs/methodology.md) and
 [recorded validation results](docs/results.md).
 
-Across July–September, the hour-of-week baseline produces MAE **126.621** and
-RMSE **169.783** rentals/hour; the training mean produces MAE **197.829** and RMSE
-**260.650**. These validation results select a baseline, not a deployment model.
+The current rolling comparison selects **Poisson calendar**, with MAE **53.268**
+and RMSE **83.215** rentals/hour. Seasonal-naive gives MAE **55.998** and wins in
+8 of the 14 individual folds. These are validation results, not deployment or
+final-test evidence. See [per-fold results and limitations](docs/results.md).
 
-## What the models do
+## Forecasting candidates
 
-| Baseline | Prediction | Training information |
-| --- | --- | --- |
-| Training mean | One constant rental count | Mean of all training counts |
-| Hour-of-week mean | Mean for the forecast weekday/hour | Matching training hours; global mean for an unseen pair |
+| Model | Prediction and training information |
+| --- | --- |
+| Training mean | Mean of all available training counts |
+| Hour-of-week mean | Training mean for each weekday/hour; global fallback |
+| Seasonal-naive | Repeat the last observed calendar week; missing lag uses training mean |
+| Poisson calendar | Penalized log-link regression with hour, weekday, weekend interactions, annual harmonics and trend |
 
-Neither model uses future weather or the contemporaneous casual/registered
-counts that sum to the target. Missing timestamps are reported and excluded
-from scoring, never converted into zero rentals.
+The [model specification](docs/models.md) explains features, fixed settings and
+coefficient interpretation. No candidate uses future observed weather or the
+casual/registered counts that reveal the contemporaneous target. Missing hours
+are counted and excluded from scoring, never converted into zero rentals.
 
 ## Data and interpretation
 
@@ -115,7 +122,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the pull-request workflow.
 
 ## Documentation and history
 
-- [Documentation](docs/index.md): methodology, data, API and baseline results.
+- [Documentation](docs/index.md): methodology, data, API and validation results.
 - [Roadmap](ROADMAP.md): six issues defining the v1.0 completion boundary.
 - [Historical notebook audit](docs/legacy-audit.md): why old model scores are not
   evidence for the maintained forecasting protocol.

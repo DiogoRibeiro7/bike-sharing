@@ -7,7 +7,7 @@ aggregate rental forecasts to an explicit planning decision.
 | --- | --- | --- | --- |
 | 1 | [#1](https://github.com/DiogoRibeiro7/bike-sharing/issues/1) | Typed package, validated loader, fixed-origin baselines and CI | Completed in PR #7 |
 | 2 | [#2](https://github.com/DiogoRibeiro7/bike-sharing/issues/2) | Data lineage, units, license and calendar audit | Numeric reconciliation complete; remaining lineage and unit uncertainties documented |
-| 3 | [#3](https://github.com/DiogoRibeiro7/bike-sharing/issues/3) | Interpretable models and rolling-origin comparisons | Three-way split and validation-only selection implemented; additional models and rolling folds pending |
+| 3 | [#3](https://github.com/DiogoRibeiro7/bike-sharing/issues/3) | Interpretable models and rolling-origin comparisons | Completed: four candidates, weekly expanding folds, frozen protocol and per-fold evidence |
 | 4 | [#4](https://github.com/DiogoRibeiro7/bike-sharing/issues/4) | Forecast intervals and calibration assessment | Planned |
 | 5 | [#5](https://github.com/DiogoRibeiro7/bike-sharing/issues/5) | Asymmetric-cost planning study | Planned |
 | 6 | [#6](https://github.com/DiogoRibeiro7/bike-sharing/issues/6) | Documentation site, LaTeX brief and verified v1.0 release | Planned |
@@ -28,12 +28,13 @@ an expanding collection of algorithms are outside v1.0. The final quarter of
 
 ## Current limitations
 
-The current selection run uses a frozen forecast of July–September from two
-calendar means fitted before July. Train/validation/test boundaries are enforced
-in development evaluation. Final testing requires a saved selection, then refits
-on training plus validation. The real test period is still unscored.
+The current selection run compares four fixed candidates on weekly expanding
+folds in July–September. Poisson calendar is selected by pooled MAE, although
+seasonal-naive wins in 8 of 14 folds. Train/validation/test boundaries and the
+selected refit cadence are enforced. The real test period remains unscored.
 
-The next step is the remaining model and rolling-origin work in #3. The audit
-(#2) reconciles all rows with UCI and documents source metadata conflicts and
-remaining history/unit uncertainties. The current run does not quantify
-uncertainty or measure operational savings.
+The next step is interval estimation and calibration (#4), followed by the
+planning study (#5). Interval and decision choices must be frozen before final
+testing. The current point forecasts do not quantify uncertainty or establish
+operational savings. Upstream lineage and unit uncertainties remain documented
+in the completed data audit (#2).

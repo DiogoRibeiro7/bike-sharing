@@ -206,7 +206,7 @@ def test_cli_validation_and_explicit_final_test(
         "2012-01-22",
     ]
     common = ["--data", str(source)]
-    assert main([*common, *custom, "--output", str(artifact)]) == 0
+    assert main([*common, *custom, "--protocol", "fixed", "--output", str(artifact)]) == 0
     assert read_selection(artifact).model == "hour_of_week_mean"
     assert main([*common, "--stage", "test", "--selection", str(artifact)]) == 0
     result = json.loads(capsys.readouterr().out)
