@@ -1,0 +1,47 @@
+{
+  "dataset": {
+    "absent_calendar_hours": 165,
+    "calendar_hours": 17544,
+    "first_timestamp": "2011-01-01T00:00:00",
+    "last_timestamp": "2012-12-31T23:00:00",
+    "observations": 17379,
+    "sha256": "77b9643b9a646c229fe8fcd972ab8689885235b6d31eb3e469661f2b5523fd97",
+    "source_name": "bike.csv"
+  },
+  "metrics": {
+    "hour_of_week_mean": {
+      "mae": 98.37132534230221,
+      "rmse": 134.83404301782844
+    },
+    "training_mean": {
+      "mae": 164.51298372536743,
+      "rmse": 205.25595760112435
+    }
+  },
+  "package_version": "0.1.0",
+  "protocol": {
+    "absent_evaluation_hours": 0,
+    "cutoff_inclusive": "2012-07-01T00:00:00",
+    "end_exclusive": "2012-07-08T00:00:00",
+    "evaluation_observations": 168,
+    "features": [
+      "weekday",
+      "hour"
+    ],
+    "horizon_hours": 168,
+    "missing_hours": "excluded_from_scoring_not_imputed",
+    "name": "fixed_origin_calendar_baselines",
+    "refit_during_horizon": false,
+    "target": "observed_aggregate_hourly_rentals",
+    "training": {
+      "absent_calendar_hours": 125,
+      "calendar_hours": 13128,
+      "first_timestamp": "2011-01-01T00:00:00",
+      "last_timestamp": "2012-06-30T23:00:00",
+      "observations": 13003
+    },
+    "unseen_weekly_bucket": "training_mean"
+  },
+  "python_version": "3.12.14",
+  "schema_version": "1.0"
+}
