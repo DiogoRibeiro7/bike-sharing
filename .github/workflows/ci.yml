@@ -33,8 +33,8 @@ jobs:
           poetry run mypy
       - name: Verify forecasting contracts
         run: poetry run pytest --cov=bike_sharing --cov-report=term-missing
-      - name: Run the bundled-data baseline
-        run: poetry run bike-sharing --output results/baseline.json
+      - name: Run validation only on the bundled data
+        run: poetry run bike-sharing --output results/validation.json
       - name: Build documentation and distributions
         run: |
           poetry run mkdocs build --strict

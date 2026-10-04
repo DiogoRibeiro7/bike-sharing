@@ -42,17 +42,48 @@ in the supplied timestamp order. Every prediction time must follow the last
 training observation. Empty inputs raise `ValueError`. No evaluation outcomes
 are accepted by this interface.
 
-## `evaluate(dataset, cutoff, horizon_hours=168)`
+## `evaluate(dataset, cutoff, horizon_hours=168, *, split=StudySplit())`
 
-Return a JSON-serializable report with `schema_version`, software versions,
-`dataset`, `protocol` and `metrics`. The window is half-open; training timestamps
-are strictly before cutoff. A nonpositive/noninteger horizon, empty evaluation
-or a window beyond dataset coverage raises `ValueError`. See the
+Return a validation diagnostic with software versions, `study_split`, `dataset`,
+`protocol` and `metrics`. The half-open window must be wholly within validation;
+training timestamps are strictly before cutoff. A nonpositive/noninteger
+horizon, empty evaluation, window beyond dataset coverage or test-period
+crossing raises `ValueError`. A diagnostic does not produce a selection. See the
 [protocol](methodology.md) for feature availability and gap handling.
+
+## `StudySplit(validation_start, test_start, test_end)`
+
+Frozen, ordered, timezone-naive hourly boundaries. Defaults are July 1, October 1
+and January 1, 2013. `partition_dataset(dataset, split)` returns disjoint
+`training`, `validation` and `test` tuples, each required to contain observations.
+The source must span the requested study end; observations at or after that end
+are outside the study. No outcome metrics are computed by partitioning.
+
+## `select_on_validation(dataset, split=StudySplit())`
+
+Fit on training, compare both frozen baselines across validation and return a
+report with `stage="validation"`, `test_scored=false` and a `selection` artifact.
+The lowest validation MAE wins; ties prefer `training_mean`.
+
+## `read_selection(path: Path) -> FrozenSelection`
+
+Parse the selection embedded in a full validation report. Reject diagnostics,
+final-test reports, invalid fields, unknown models and unsupported schemas.
+The selection records model, dataset SHA-256, boundaries and package version.
+
+## `evaluate_test(dataset, selection)`
+
+Require matching dataset and package versions, refit on training plus validation,
+and return only the chosen model's errors across the test partition. The model
+stays frozen throughout test. This API is exercised on synthetic data in CI;
+the real test period remains unscored until development is complete.
 
 ## Command line
 
-`bike-sharing` prints JSON to standard output unless `--output` is provided.
+`bike-sharing` defaults to full validation selection, printing JSON to standard
+output unless `--output` is provided. `--cutoff` selects a diagnostic instead.
+`--stage test --selection REPORT` enables final testing with saved boundaries;
+boundary or diagnostic overrides are rejected in this mode.
 It returns status 2 with a concise diagnostic for invalid inputs or file errors.
-The output path cannot equal the input path. Parent output directories are
+The output path cannot equal the input data or saved selection path. Parent output directories are
 created as needed. Use `bike-sharing --help` for the supported flags.

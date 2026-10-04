@@ -29,9 +29,11 @@ are not rounded before scoring.
 
 ## Evaluation
 
-The default cutoff is 2012-07-01 00:00 and the horizon is 168 calendar hours.
-This is one fixed-origin weekly diagnostic, not seven daily refits and not
-rolling one-step evaluation. MAE is the average absolute error; RMSE is the
+The default selection run fits before 2012-07-01 00:00 and forecasts the entire
+validation partition through 2012-09-30 23:00: 2,208 calendar hours.
+This is a fixed-origin quarterly comparison, not a rolling day-ahead forecast.
+An explicit `--cutoff` requests a shorter validation diagnostic, with a default
+168-hour horizon. MAE is the average absolute error; RMSE is the
 square root of the average squared error. Both have units of rentals per hour.
 Each observed evaluation hour receives equal weight.
 
@@ -48,11 +50,21 @@ produce the same report; cross-version floating-point identity is not promised.
 
 ## Development and final evaluation
 
-The July run is a development diagnostic selected to exercise the workflow. It
-is not used to claim a universally best model. Upcoming model selection and
-calibration use earlier temporal folds, with the final quarter of 2012 reserved
-for the final study. The CLI permits other periods, so maintaining that holdout
-is a study-governance rule rather than an enforced software boundary.
+The [three-way workflow](splits.md) separates training, validation and test.
+Model selection minimizes validation MAE; ties prefer the training mean. The
+real test period is not evaluated during development or CI. Diagnostic windows
+must remain within validation, including their end boundary.
+
+Final testing is explicit and requires a saved validation selection. Its model,
+boundaries, dataset checksum and package version are frozen. The selected
+baseline is refitted on all training and validation observations and held fixed
+through the test quarter; only its test errors are reported. Later adaptive or
+rolling test protocols will need their own documented selection contract.
+
+These safeguards prevent accidental test use through the development workflow.
+They do not prevent deliberate manifest editing, custom code or repeated final
+test runs. Once test results are inspected, they must not guide further tuning
+while still being presented as an untouched final evaluation.
 
 Before interpreting broader performance, complete the data audit and
 rolling-origin comparison in issues #2 and #3. Cost and uncertainty claims

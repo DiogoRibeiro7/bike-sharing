@@ -13,6 +13,9 @@ import pytest
 from bike_sharing.cli import main
 from bike_sharing.data import DemandDataset, Observation, coverage, load_dataset
 from bike_sharing.forecasting import error_metrics, evaluate, forecast_baselines
+from bike_sharing.splits import StudySplit
+
+SPLIT = StudySplit(datetime(2012, 1, 8), datetime(2012, 1, 15), datetime(2012, 1, 22))
 
 
 @pytest.fixture
@@ -124,8 +127,8 @@ def test_changing_held_out_counts_cannot_change_predictions(dataset: DemandDatas
         for data in (dataset, altered)
     ]
     assert forecasts[0] == forecasts[1]
-    original_report = evaluate(dataset, cutoff)
-    altered_report = evaluate(altered, cutoff)
+    original_report = evaluate(dataset, cutoff, split=SPLIT)
+    altered_report = evaluate(altered, cutoff, split=SPLIT)
     assert original_report["protocol"] == altered_report["protocol"]
     assert original_report["metrics"] != altered_report["metrics"]
 
@@ -138,7 +141,7 @@ def test_evaluation_cutoff_end_and_missing_hour_accounting(dataset: DemandDatase
             item for item in dataset.observations if item.timestamp != cutoff + timedelta(hours=1)
         ),
     )
-    report = evaluate(reduced, cutoff, 24)
+    report = evaluate(reduced, cutoff, 24, split=SPLIT)
     protocol = report["protocol"]
     assert isinstance(protocol, dict)
     assert protocol["evaluation_observations"] == 23
@@ -151,17 +154,17 @@ def test_evaluation_cutoff_end_and_missing_hour_accounting(dataset: DemandDatase
 @pytest.mark.parametrize("horizon", [0, -1, True])
 def test_invalid_horizon(dataset: DemandDataset, horizon: int) -> None:
     with pytest.raises(ValueError, match="positive integer"):
-        evaluate(dataset, datetime(2012, 1, 8), horizon)
+        evaluate(dataset, datetime(2012, 1, 8), horizon, split=SPLIT)
 
 
 def test_empty_outside_or_unsorted_evaluation(dataset: DemandDataset) -> None:
-    with pytest.raises(ValueError, match="within the dataset"):
-        evaluate(dataset, datetime(2012, 1, 14), 48)
-    with pytest.raises(ValueError, match="after training"):
-        evaluate(dataset, datetime(2012, 1, 1), 24)
+    with pytest.raises(ValueError, match="validation partition"):
+        evaluate(dataset, datetime(2012, 1, 14), 48, split=SPLIT)
+    with pytest.raises(ValueError, match="validation partition"):
+        evaluate(dataset, datetime(2012, 1, 1), 24, split=SPLIT)
     sparse = replace(dataset, observations=(dataset.observations[0], dataset.observations[-1]))
     with pytest.raises(ValueError, match="no observed outcomes"):
-        evaluate(sparse, datetime(2012, 1, 8), 24)
+        evaluate(sparse, datetime(2012, 1, 8), 24, split=SPLIT)
     with pytest.raises(ValueError, match="at least one observation"):
         forecast_baselines([], [datetime(2012, 1, 8)])
     with pytest.raises(ValueError, match="strictly increasing"):
@@ -204,7 +207,18 @@ def test_cli_report_and_error_paths(
                     item.count,
                 ]
             )
-    args = ["--data", str(path), "--cutoff", "2012-01-08"]
+    args = [
+        "--data",
+        str(path),
+        "--cutoff",
+        "2012-01-08",
+        "--validation-start",
+        "2012-01-08",
+        "--test-start",
+        "2012-01-15",
+        "--test-end",
+        "2012-01-22",
+    ]
     assert main(args) == 0
     report = json.loads(capsys.readouterr().out)
     assert report["metrics"]["hour_of_week_mean"]["mae"] == 0
