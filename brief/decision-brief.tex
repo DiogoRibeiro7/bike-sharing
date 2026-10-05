@@ -1,0 +1,97 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,pdftitle={Bike Sharing: Forecasting and Planning Decision Brief},pdfauthor={Diogo Ribeiro}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{document}
+{\LARGE\bfseries Bike Sharing: Forecasts to Decisions}\par
+{\large Decision brief \hfill 5 October 2026}\par
+Diogo Ribeiro\quad\textbar\quad Reproducible case study, v1.0 preparation
+
+\section*{Decision in one paragraph}
+The study supports a transparent discussion of forecast error and planning
+preferences. It does \textbf{not support operational deployment on its own}.
+The selected calendar model has useful predictive structure, but its uncertainty
+bands under-cover the final quarter, especially at high predicted demand.
+A cost-aware target illustrates the trade-off between planning too little and too
+much. Its costs are assumptions, and the data do not identify actual savings.
+
+\section*{What was evaluated}
+The audited dataset contains aggregate hourly rentals in 2011--2012. Four
+interpretable candidates were compared in July--September 2012. Forecasts were
+issued weekly using only preceding observations. Poisson calendar was selected
+by mean absolute error (MAE); signed residual adjustments supplied the planning
+policy. October--December was reserved until all choices were frozen.
+
+The final assessment contains 2,168 observed hours and 40 absent hours. Missing
+hours were excluded, not filled with zero. Earlier test observations could enter
+later scheduled fits and calibration windows; no test outcome selected a model,
+policy, cost ratio or method setting. This is sequential evaluation of a fixed
+procedure, not one forecast frozen for a whole quarter.
+
+\section*{Point error and uncertainty}
+\begin{center}\input{point-results.tex}\end{center}
+MAE is the average absolute discrepancy in rentals per hour. Final-test error
+is higher than validation error. Only the previously selected model was tested,
+so this is not a new competition among all candidates.
+
+\begin{center}\input{interval-results.tex}\end{center}
+Coverage is the fraction of observations within the nominal prediction band;
+width is measured in rental counts. The nominal 90\% band covers only 85.19\%
+overall and 74.81\% in the high predicted-demand group. Recent forecast errors
+are therefore not a sufficiently reliable uncertainty model across these
+conditions. No method was retuned after seeing this result. The procedure has
+no universal or conditional coverage guarantee.
+
+\newpage
+\section*{Planning trade-off}
+Choose a nonnegative continuous hourly workload target, measured in
+rental-equivalent units. Underprediction incurs an assumed cost ratio $r$;
+overprediction costs one normalized unit. Loss is
+$r\max(y-a,0)+\max(a-y,0)$, for observed rentals $y$ and target $a$.
+These are proxy costs, not euros. Fractional targets are allowed because the
+quantity is a workload allowance, not a count of bikes or staff.
+
+The validation-selected policy adjusts Poisson forecasts using the
+$r/(1+r)$ quantile of past signed standardized errors. It was chosen from five
+policies in every scenario. Only those saved choices were tested.
+\begin{center}\input{planning-results.tex}\end{center}
+Compare periods cautiously: season and observations differ. Compare policies
+within one cost scenario, not losses across different cost ratios. Higher
+penalties for underprediction produce larger targets and more excess planning.
+At ratio 9, targets fall below final-test rentals in 10.10\% of hours; that is an
+observed frequency, not a guaranteed service level.
+
+At equal costs the adjusted policy has final loss 62.766, while the separately
+frozen Poisson point forecast has MAE 61.378. Thus the small validation advantage
+does not persist there. We retain the selected policy and report the adverse
+finding rather than select again on the test quarter.
+
+\section*{What would be needed for an operational decision?}
+Obtain defensible marginal costs and a mapping from rental-equivalent workload
+to actual resources. Station availability, unmet requests, trip movements and
+capacity constraints are needed for rebalancing or lost-demand analysis. A design
+that measures the effect of changing operations is needed for savings claims.
+Observed rentals alone cannot provide that evidence.
+
+The historical notebook explored the full dataset before this modernization.
+The maintained code preserves temporal separation, but cannot establish that no
+human ever inspected these outcomes. Data lineage, physical weather units and
+timezone qualifications remain documented. One two-year dataset is not evidence
+of robustness across locations or future operating regimes.
+
+\section*{Evidence and reproducibility}
+\href{https://github.com/DiogoRibeiro7/bike-sharing}{github.com/DiogoRibeiro7/bike-sharing}
+contains the source, audited provenance, frozen selections, final reports and
+exact commands. Tables are generated from committed JSON evidence, not copied
+from a spreadsheet. With Python 3.12 and the locked Poetry environment, run
+\texttt{poetry run python scripts/reproduce\_release.py} to verify the frozen
+assessment. Replays check reproducibility; they do not create another untouched
+test or justify tuning to the reported results.
+\end{document}

@@ -107,7 +107,7 @@ only the selected model's errors, using its frozen procedure: either one
 whole-quarter fit or expanding fits at the saved cadence. A rolling test may
 use earlier test observations at later scheduled origins, without reselecting
 model or settings. CI exercises this API on synthetic data; the real test
-period remains unscored until development is complete.
+period was evaluated after development choices were frozen; see [final results](final-results.md).
 
 ## Command line
 
@@ -192,7 +192,7 @@ It refits and updates calibration on the saved schedule without reselecting.
 control paths. The explicit `--stage test --selection REPORT` path requires a
 saved planning report; cost and cadence overrides are not exposed. Output cannot
 overwrite data or the selection. Invalid inputs return status 2. See the
-[planning protocol](planning.md) for assumptions and the reserved real test.
+[planning protocol](planning.md) for assumptions and the frozen real test assessment.
 
 ## Data audit
 

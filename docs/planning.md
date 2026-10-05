@@ -182,8 +182,9 @@ Data, software and configuration identities must match. If needed, initial
 calibration is replayed over four horizons aligned to the first test origin.
 Later test counts may update fits and residuals only at the saved weekly cadence;
 they never reselect a policy. Point-only selected policies require no residual
-calibration. The real test period remains unscored; synthetic tests exercise
-both paths. The final release work will report the held-out assessment.
+calibration. The frozen real test assessment is now recorded in
+[final results](final-results.md); synthetic tests exercise both paths. At equal
+costs the selected policy loses its validation advantage. It was not reselected.
 
 Package 0.5.0 preserves historical point and interval artifacts and reproduces
 their numerical results; only package-version selection metadata is refreshed.

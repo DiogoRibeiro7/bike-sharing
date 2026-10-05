@@ -1,0 +1,1462 @@
+{
+  "configuration": {
+    "action": "max(0,prediction+sqrt(max(prediction,1))*signed_quantile)",
+    "calibration_folds": 4,
+    "cost_units": "assumed_normalized_units_not_currency",
+    "decision": "continuous_nonnegative_hourly_rental_equivalent_workload",
+    "method": "aggregate_workload_asymmetric_loss_v1",
+    "minimum_residuals": 30,
+    "overprediction_cost": 1.0,
+    "policies": [
+      "training_mean",
+      "hour_of_week_mean",
+      "seasonal_naive",
+      "poisson_calendar",
+      "poisson_residual_quantile"
+    ],
+    "quantile_rank": "ceil(n*ratio/(1+ratio)); one_based",
+    "reference_model": "poisson_calendar",
+    "residual": "(actual-prediction)/sqrt(max(prediction,1))",
+    "rounding": "none_continuous_workload",
+    "selection": "minimum_pooled_validation_cost_per_ratio; ties_follow_policy_order",
+    "underprediction_costs": [
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      9.0
+    ]
+  },
+  "dataset": {
+    "sha256": "77b9643b9a646c229fe8fcd972ab8689885235b6d31eb3e469661f2b5523fd97",
+    "source_name": "bike.csv"
+  },
+  "environment": {
+    "dependencies": {
+      "numpy": "2.5.3",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "threadpoolctl": "3.7.0"
+    },
+    "python": "3.12.14"
+  },
+  "folds": [
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-10-01T00:00:00",
+      "calibration_observations": 672,
+      "calibration_start": "2012-09-03T00:00:00",
+      "end_exclusive": "2012-10-08T00:00:00",
+      "last_calibration_timestamp": "2012-09-30T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 247.28745168207556,
+            "mean_cost": 36.7110290736748,
+            "mean_overprediction": 24.126313595354954,
+            "mean_underprediction": 50.33886191327939,
+            "observations": 168,
+            "underprediction_fraction": 0.7023809523809523
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 269.0423907270674,
+            "mean_cost": 49.69817407271509,
+            "mean_overprediction": 31.64624629083253,
+            "mean_underprediction": 36.10385556376512,
+            "observations": 168,
+            "underprediction_fraction": 0.5476190476190477
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 297.0910900029859,
+            "mean_cost": 66.71064225210793,
+            "mean_overprediction": 45.1508661275469,
+            "mean_underprediction": 21.559776124561033,
+            "observations": 168,
+            "underprediction_fraction": 0.375
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 324.5615070632848,
+            "mean_cost": 84.91444467982495,
+            "mean_overprediction": 62.34581960213153,
+            "mean_underprediction": 11.28431253884671,
+            "observations": 168,
+            "underprediction_fraction": 0.23809523809523808
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 349.15187673893695,
+            "mean_cost": 102.75537816188957,
+            "mean_overprediction": 81.07257702352751,
+            "mean_underprediction": 5.420700284590513,
+            "observations": 168,
+            "underprediction_fraction": 0.125
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 372.27811963820795,
+            "mean_cost": 124.11417341068136,
+            "mean_overprediction": 101.31172501545528,
+            "mean_underprediction": 2.533605377247342,
+            "observations": 168,
+            "underprediction_fraction": 0.07142857142857142
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-10-01T00:00:00",
+      "signed_quantiles": {
+        "0.25": -2.9131103549270247,
+        "0.5": -1.5256807926109983,
+        "1.0": 0.2631357367959214,
+        "2.0": 2.015072096616854,
+        "4.0": 3.5833323324060915,
+        "9.0": 5.058217322770433
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15336,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-30T23:00:00",
+        "observations": 15211
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-10-08T00:00:00",
+      "calibration_observations": 672,
+      "calibration_start": "2012-09-10T00:00:00",
+      "end_exclusive": "2012-10-15T00:00:00",
+      "last_calibration_timestamp": "2012-10-07T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 238.77616834004388,
+            "mean_cost": 22.817581145489385,
+            "mean_overprediction": 8.674774774876479,
+            "mean_underprediction": 56.57122548245163,
+            "observations": 168,
+            "underprediction_fraction": 0.7559523809523809
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 259.7958814823042,
+            "mean_cost": 34.4056764730362,
+            "mean_overprediction": 13.978205126919176,
+            "mean_underprediction": 40.854942692234054,
+            "observations": 168,
+            "underprediction_fraction": 0.6011904761904762
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 288.0088866130458,
+            "mean_cost": 49.18414478853947,
+            "mean_overprediction": 25.26020617698311,
+            "mean_underprediction": 23.92393861155636,
+            "observations": 168,
+            "underprediction_fraction": 0.39880952380952384
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 314.2127982590556,
+            "mean_cost": 65.64553248756185,
+            "mean_overprediction": 40.24196363681164,
+            "mean_underprediction": 12.701784425375106,
+            "observations": 168,
+            "underprediction_fraction": 0.25595238095238093
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 337.84511086042664,
+            "mean_cost": 85.01066276587184,
+            "mean_overprediction": 57.940126003420445,
+            "mean_underprediction": 6.76763419061285,
+            "observations": 168,
+            "underprediction_fraction": 0.16071428571428573
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 359.9940464095332,
+            "mean_cost": 107.66850597248002,
+            "mean_overprediction": 76.75613522297074,
+            "mean_underprediction": 3.4347078610565864,
+            "observations": 168,
+            "underprediction_fraction": 0.07738095238095238
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-10-08T00:00:00",
+      "signed_quantiles": {
+        "0.25": -2.926326357836718,
+        "0.5": -1.5645982091788213,
+        "1.0": 0.2631357367959214,
+        "2.0": 1.960713808000703,
+        "4.0": 3.4916949907300716,
+        "9.0": 4.926577988223953
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15504,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-10-07T23:00:00",
+        "observations": 15379
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-10-15T00:00:00",
+      "calibration_observations": 672,
+      "calibration_start": "2012-09-17T00:00:00",
+      "end_exclusive": "2012-10-22T00:00:00",
+      "last_calibration_timestamp": "2012-10-14T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 227.2537324682938,
+            "mean_cost": 29.645765593234117,
+            "mean_overprediction": 11.170930396817482,
+            "mean_underprediction": 73.89934078566654,
+            "observations": 168,
+            "underprediction_fraction": 0.7916666666666666
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 246.35933270711675,
+            "mean_cost": 44.405347133275434,
+            "mean_overprediction": 15.062628038841597,
+            "mean_underprediction": 58.68543818886768,
+            "observations": 168,
+            "underprediction_fraction": 0.7083333333333334
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 272.8989286876827,
+            "mean_cost": 61.041302720473084,
+            "mean_overprediction": 21.979044275506475,
+            "mean_underprediction": 39.06225844496661,
+            "observations": 168,
+            "underprediction_fraction": 0.6130952380952381
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 299.42202938067396,
+            "mean_cost": 77.3754709599731,
+            "mean_overprediction": 32.08508133567846,
+            "mean_underprediction": 22.64519481214732,
+            "observations": 168,
+            "underprediction_fraction": 0.4166666666666667
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 325.0675188039319,
+            "mean_cost": 96.00235200412634,
+            "mean_overprediction": 47.268771158256484,
+            "mean_underprediction": 12.183395211467463,
+            "observations": 168,
+            "underprediction_fraction": 0.24404761904761904
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 347.38104891003394,
+            "mean_cost": 114.84765607845412,
+            "mean_overprediction": 63.14378105544738,
+            "mean_underprediction": 5.744875002556306,
+            "observations": 168,
+            "underprediction_fraction": 0.16071428571428573
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-10-15T00:00:00",
+      "signed_quantiles": {
+        "0.25": -3.2072310591491533,
+        "0.5": -1.9517986443757855,
+        "1.0": -0.20787703749073969,
+        "2.0": 1.5349606610923743,
+        "4.0": 3.2201303659029152,
+        "9.0": 4.686356427008218
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15672,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-10-14T23:00:00",
+        "observations": 15547
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-10-22T00:00:00",
+      "calibration_observations": 672,
+      "calibration_start": "2012-09-24T00:00:00",
+      "end_exclusive": "2012-10-29T00:00:00",
+      "last_calibration_timestamp": "2012-10-21T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 220.22551694008266,
+            "mean_cost": 29.29362481511265,
+            "mean_overprediction": 8.752622287725693,
+            "mean_underprediction": 82.16401010954783,
+            "observations": 168,
+            "underprediction_fraction": 0.8630952380952381
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 239.2589577089239,
+            "mean_cost": 44.202552969038294,
+            "mean_overprediction": 11.34238629503191,
+            "mean_underprediction": 65.72033334801277,
+            "observations": 168,
+            "underprediction_fraction": 0.7976190476190477
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 266.59463981002233,
+            "mean_cost": 60.22726399294858,
+            "mean_overprediction": 16.59249952053306,
+            "mean_underprediction": 43.63476447241552,
+            "observations": 168,
+            "underprediction_fraction": 0.6666666666666666
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 294.6179822508674,
+            "mean_cost": 76.00528063530516,
+            "mean_overprediction": 25.989145204410143,
+            "mean_underprediction": 25.00806771544751,
+            "observations": 168,
+            "underprediction_fraction": 0.47619047619047616
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 317.3093501346231,
+            "mean_cost": 97.03315418171175,
+            "mean_overprediction": 38.344587134517035,
+            "mean_underprediction": 14.67214176179868,
+            "observations": 168,
+            "underprediction_fraction": 0.30357142857142855
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 344.1085818902024,
+            "mean_cost": 112.25404512502394,
+            "mean_overprediction": 56.64991392797027,
+            "mean_underprediction": 6.17823679967263,
+            "observations": 168,
+            "underprediction_fraction": 0.16666666666666666
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-10-22T00:00:00",
+      "signed_quantiles": {
+        "0.25": -3.200843080953422,
+        "0.5": -1.9319179291269435,
+        "1.0": -0.10949732837035492,
+        "2.0": 1.7587683464122914,
+        "4.0": 3.271560898570381,
+        "9.0": 5.058217322770433
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15840,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-10-21T23:00:00",
+        "observations": 15715
+      }
+    },
+    {
+      "absent_hours": 36,
+      "calibration_end_exclusive": "2012-10-29T00:00:00",
+      "calibration_observations": 672,
+      "calibration_start": "2012-10-01T00:00:00",
+      "end_exclusive": "2012-11-05T00:00:00",
+      "last_calibration_timestamp": "2012-10-28T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 219.82446248770083,
+            "mean_cost": 30.963754394266957,
+            "mean_overprediction": 25.15710813416585,
+            "mean_underprediction": 23.226585040404423,
+            "observations": 132,
+            "underprediction_fraction": 0.6363636363636364
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 242.381030099269,
+            "mean_cost": 42.49212472001371,
+            "mean_overprediction": 36.49044671511901,
+            "mean_underprediction": 12.0033560097894,
+            "observations": 132,
+            "underprediction_fraction": 0.3939393939393939
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 270.27773737083345,
+            "mean_cost": 59.94585287911132,
+            "mean_overprediction": 56.16482542800269,
+            "mean_underprediction": 3.7810274511086246,
+            "observations": 132,
+            "underprediction_fraction": 0.1893939393939394
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 296.4816955161566,
+            "mean_cost": 80.80656023597545,
+            "mean_overprediction": 79.32735749346995,
+            "mean_underprediction": 0.739601371252752,
+            "observations": 132,
+            "underprediction_fraction": 0.022727272727272728
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 321.85074418607337,
+            "mean_cost": 105.73015548811537,
+            "mean_overprediction": 104.31147493133025,
+            "mean_underprediction": 0.354670139196279,
+            "observations": 132,
+            "underprediction_fraction": 0.007575757575757576
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 347.99938658098125,
+            "mean_cost": 132.43839405531406,
+            "mean_overprediction": 130.33874187386905,
+            "mean_underprediction": 0.2332946868272225,
+            "observations": 132,
+            "underprediction_fraction": 0.007575757575757576
+          }
+        }
+      },
+      "observations": 132,
+      "origin": "2012-10-29T00:00:00",
+      "signed_quantiles": {
+        "0.25": -3.1924098626923443,
+        "0.5": -1.6944515358784191,
+        "1.0": 0.15813994291995093,
+        "2.0": 1.8983177029059009,
+        "4.0": 3.5830499881034172,
+        "9.0": 5.319554286312495
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 16008,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-10-28T23:00:00",
+        "observations": 15883
+      }
+    },
+    {
+      "absent_hours": 1,
+      "calibration_end_exclusive": "2012-11-05T00:00:00",
+      "calibration_observations": 636,
+      "calibration_start": "2012-10-08T00:00:00",
+      "end_exclusive": "2012-11-12T00:00:00",
+      "last_calibration_timestamp": "2012-11-04T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 196.57814320925314,
+            "mean_cost": 18.814151734255294,
+            "mean_overprediction": 5.6543751789554575,
+            "mean_underprediction": 52.63910622119934,
+            "observations": 167,
+            "underprediction_fraction": 0.7724550898203593
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 217.95854879255182,
+            "mean_cost": 30.810401515123388,
+            "mean_overprediction": 12.005492523767211,
+            "mean_underprediction": 37.60981798271236,
+            "observations": 167,
+            "underprediction_fraction": 0.6287425149700598
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 244.68278671670248,
+            "mean_cost": 48.59848868820174,
+            "mean_overprediction": 24.859200576703614,
+            "mean_underprediction": 23.739288111498126,
+            "observations": 167,
+            "underprediction_fraction": 0.39520958083832336
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 268.82956165225215,
+            "mean_cost": 70.11715233744619,
+            "mean_overprediction": 40.21684237965214,
+            "mean_underprediction": 14.950154978897022,
+            "observations": 167,
+            "underprediction_fraction": 0.2694610778443114
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 292.07128551564153,
+            "mean_cost": 93.60890177866494,
+            "mean_overprediction": 57.52850936704862,
+            "mean_underprediction": 9.020098102904083,
+            "observations": 167,
+            "underprediction_fraction": 0.16766467065868262
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 320.045177316624,
+            "mean_cost": 126.12946039216348,
+            "mean_overprediction": 81.44701879783062,
+            "mean_underprediction": 4.964715732703651,
+            "observations": 167,
+            "underprediction_fraction": 0.08982035928143713
+          }
+        }
+      },
+      "observations": 167,
+      "origin": "2012-11-05T00:00:00",
+      "signed_quantiles": {
+        "0.25": -3.4924611003485833,
+        "0.5": -2.0088552974337395,
+        "1.0": -0.15443610466978375,
+        "2.0": 1.5211305854235142,
+        "4.0": 3.133894957882572,
+        "9.0": 5.075028770539003
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 161,
+        "calendar_hours": 16176,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-11-04T23:00:00",
+        "observations": 16015
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-11-12T00:00:00",
+      "calibration_observations": 635,
+      "calibration_start": "2012-10-15T00:00:00",
+      "end_exclusive": "2012-11-19T00:00:00",
+      "last_calibration_timestamp": "2012-11-11T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 183.9226143912486,
+            "mean_cost": 17.06746512404329,
+            "mean_overprediction": 6.034923548912926,
+            "mean_underprediction": 44.130166300521466,
+            "observations": 168,
+            "underprediction_fraction": 0.8214285714285714
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 205.88668324204843,
+            "mean_cost": 26.398908939653804,
+            "mean_overprediction": 12.222214659499633,
+            "mean_underprediction": 28.353388560308343,
+            "observations": 168,
+            "underprediction_fraction": 0.5654761904761905
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 230.58500593478684,
+            "mean_cost": 41.743307930153364,
+            "mean_overprediction": 25.15522836104153,
+            "mean_underprediction": 16.58807956911183,
+            "observations": 168,
+            "underprediction_fraction": 0.34523809523809523
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 254.90217199329726,
+            "mean_cost": 61.551944129708104,
+            "mean_overprediction": 42.44019127686279,
+            "mean_underprediction": 9.555876426422659,
+            "observations": 168,
+            "underprediction_fraction": 0.19047619047619047
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 277.10549547723235,
+            "mean_cost": 85.20896562742719,
+            "mean_overprediction": 61.11190379298563,
+            "mean_underprediction": 6.024265458610391,
+            "observations": 168,
+            "underprediction_fraction": 0.10714285714285714
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 308.7652625967283,
+            "mean_cost": 120.24323192163428,
+            "mean_overprediction": 90.09698810064745,
+            "mean_underprediction": 3.3495826467763132,
+            "observations": 168,
+            "underprediction_fraction": 0.05357142857142857
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-11-12T00:00:00",
+      "signed_quantiles": {
+        "0.25": -3.5990631769526074,
+        "0.5": -2.032164606188131,
+        "1.0": -0.27054367320313183,
+        "2.0": 1.4638910611903522,
+        "4.0": 3.0475548556000605,
+        "9.0": 5.305704495354015
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 162,
+        "calendar_hours": 16344,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-11-11T23:00:00",
+        "observations": 16182
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-11-19T00:00:00",
+      "calibration_observations": 635,
+      "calibration_start": "2012-10-22T00:00:00",
+      "end_exclusive": "2012-11-26T00:00:00",
+      "last_calibration_timestamp": "2012-11-18T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 173.0626899720438,
+            "mean_cost": 56.67624144884603,
+            "mean_overprediction": 47.43567401062844,
+            "mean_underprediction": 36.96226975287035,
+            "observations": 168,
+            "underprediction_fraction": 0.5297619047619048
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 189.59745506351575,
+            "mean_cost": 71.77119958851063,
+            "mean_overprediction": 56.85018950875043,
+            "mean_underprediction": 29.842020159520388,
+            "observations": 168,
+            "underprediction_fraction": 0.375
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 207.30247269076352,
+            "mean_cost": 90.56616163908166,
+            "mean_overprediction": 67.63967430777973,
+            "mean_underprediction": 22.926487331301924,
+            "observations": 168,
+            "underprediction_fraction": 0.34523809523809523
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 233.67733704460997,
+            "mean_cost": 114.00847248451892,
+            "mean_overprediction": 85.39485838172249,
+            "mean_underprediction": 14.306807051398215,
+            "observations": 168,
+            "underprediction_fraction": 0.23214285714285715
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 253.16943377622928,
+            "mean_cost": 141.7093331857253,
+            "mean_overprediction": 100.8059850866999,
+            "mean_underprediction": 10.225837024756354,
+            "observations": 168,
+            "underprediction_fraction": 0.1488095238095238
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 285.2712819869088,
+            "mean_cost": 180.8590382341033,
+            "mean_overprediction": 128.49970046877107,
+            "mean_underprediction": 5.817704196148027,
+            "observations": 168,
+            "underprediction_fraction": 0.08333333333333333
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-11-19T00:00:00",
+      "signed_quantiles": {
+        "0.25": -3.6326627933019116,
+        "0.5": -2.4220840772265144,
+        "1.0": -1.1265448537699774,
+        "2.0": 0.8033979456750285,
+        "4.0": 2.229704114631228,
+        "9.0": 4.578710728348354
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 162,
+        "calendar_hours": 16512,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-11-18T23:00:00",
+        "observations": 16350
+      }
+    },
+    {
+      "absent_hours": 1,
+      "calibration_end_exclusive": "2012-11-26T00:00:00",
+      "calibration_observations": 635,
+      "calibration_start": "2012-10-29T00:00:00",
+      "end_exclusive": "2012-12-03T00:00:00",
+      "last_calibration_timestamp": "2012-11-25T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 142.95638381476934,
+            "mean_cost": 19.39101733144716,
+            "mean_overprediction": 2.0238511071535084,
+            "mean_underprediction": 69.4686648971746,
+            "observations": 167,
+            "underprediction_fraction": 0.9401197604790419
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 163.2851577970567,
+            "mean_cost": 29.07653175140285,
+            "mean_overprediction": 3.679007898357334,
+            "mean_underprediction": 50.79504770609103,
+            "observations": 167,
+            "underprediction_fraction": 0.8862275449101796
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 181.89624997899838,
+            "mean_cost": 41.720014814443594,
+            "mean_overprediction": 6.607533594325787,
+            "mean_underprediction": 35.11248122011781,
+            "observations": 167,
+            "underprediction_fraction": 0.7125748502994012
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 203.40065298769903,
+            "mean_cost": 54.00525577747396,
+            "mean_overprediction": 13.334722181097064,
+            "mean_underprediction": 20.33526679818845,
+            "observations": 167,
+            "underprediction_fraction": 0.49700598802395207
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 224.23333336567057,
+            "mean_cost": 68.20146243523018,
+            "mean_overprediction": 24.706001095750164,
+            "mean_underprediction": 10.873865334870006,
+            "observations": 167,
+            "underprediction_fraction": 0.31137724550898205
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 250.94919717938677,
+            "mean_cost": 85.46563122395415,
+            "mean_overprediction": 45.03976273953211,
+            "mean_underprediction": 4.491763164935783,
+            "observations": 167,
+            "underprediction_fraction": 0.11377245508982035
+          }
+        }
+      },
+      "observations": 167,
+      "origin": "2012-11-26T00:00:00",
+      "signed_quantiles": {
+        "0.25": -4.962379272803263,
+        "0.5": -3.392865624808337,
+        "1.0": -1.9861813205974055,
+        "2.0": -0.36119254781957605,
+        "4.0": 1.2130372370005824,
+        "9.0": 3.2318321198339013
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 162,
+        "calendar_hours": 16680,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-11-25T23:00:00",
+        "observations": 16518
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-12-03T00:00:00",
+      "calibration_observations": 670,
+      "calibration_start": "2012-11-05T00:00:00",
+      "end_exclusive": "2012-12-10T00:00:00",
+      "last_calibration_timestamp": "2012-12-02T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 144.44792561902182,
+            "mean_cost": 22.534011454283753,
+            "mean_overprediction": 1.9620323824694568,
+            "mean_underprediction": 82.28791628725719,
+            "observations": 168,
+            "underprediction_fraction": 0.9226190476190477
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 162.77288825238406,
+            "mean_cost": 37.51555803798195,
+            "mean_overprediction": 4.343398268179472,
+            "mean_underprediction": 66.34431953960495,
+            "observations": 168,
+            "underprediction_fraction": 0.8452380952380952
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 180.5216877334462,
+            "mean_cost": 59.59935108785294,
+            "mean_overprediction": 7.673614648744808,
+            "mean_underprediction": 51.92573643910813,
+            "observations": 168,
+            "underprediction_fraction": 0.7023809523809523
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 202.15458432047663,
+            "mean_cost": 87.08187383879033,
+            "mean_overprediction": 13.947807810708175,
+            "mean_underprediction": 36.56703301404108,
+            "observations": 168,
+            "underprediction_fraction": 0.5773809523809523
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 223.29281407776384,
+            "mean_cost": 121.59111634987808,
+            "mean_overprediction": 23.133426913139072,
+            "mean_underprediction": 24.61442235918475,
+            "observations": 168,
+            "underprediction_fraction": 0.4226190476190476
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 246.62851073216848,
+            "mean_cost": 167.5780908159186,
+            "mean_overprediction": 36.427040169114925,
+            "mean_underprediction": 14.572338960755966,
+            "observations": 168,
+            "underprediction_fraction": 0.2857142857142857
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-12-03T00:00:00",
+      "signed_quantiles": {
+        "0.25": -4.236849182749264,
+        "0.5": -2.803241739309323,
+        "1.0": -1.429278185652031,
+        "2.0": 0.24535966815498655,
+        "4.0": 1.8817045548238307,
+        "9.0": 3.688158942714389
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 163,
+        "calendar_hours": 16848,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-12-02T23:00:00",
+        "observations": 16685
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-12-10T00:00:00",
+      "calibration_observations": 671,
+      "calibration_start": "2012-11-12T00:00:00",
+      "end_exclusive": "2012-12-17T00:00:00",
+      "last_calibration_timestamp": "2012-12-09T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 143.77423355813184,
+            "mean_cost": 19.58506260710143,
+            "mean_overprediction": 1.6062301306408417,
+            "mean_underprediction": 71.91532990584236,
+            "observations": 168,
+            "underprediction_fraction": 0.9285714285714286
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 162.3528353189188,
+            "mean_cost": 30.442696454290346,
+            "mean_overprediction": 3.0516316313887186,
+            "mean_underprediction": 54.78212964580325,
+            "observations": 168,
+            "underprediction_fraction": 0.8392857142857143
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 182.85272007822797,
+            "mean_cost": 44.63338693586462,
+            "mean_overprediction": 6.701386840379636,
+            "mean_underprediction": 37.93200009548499,
+            "observations": 168,
+            "underprediction_fraction": 0.6904761904761905
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 205.13541948273559,
+            "mean_cost": 58.73085745189442,
+            "mean_overprediction": 13.611676583566299,
+            "mean_underprediction": 22.55959043416406,
+            "observations": 168,
+            "underprediction_fraction": 0.5357142857142857
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 227.25128319958384,
+            "mean_cost": 69.70823018255464,
+            "mean_overprediction": 24.476005929511352,
+            "mean_underprediction": 11.308056063260825,
+            "observations": 168,
+            "underprediction_fraction": 0.32142857142857145
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 252.66155598849406,
+            "mean_cost": 85.12445149245272,
+            "mean_overprediction": 43.2328455388899,
+            "mean_underprediction": 4.654622883729202,
+            "observations": 168,
+            "underprediction_fraction": 0.11904761904761904
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-12-10T00:00:00",
+      "signed_quantiles": {
+        "0.25": -3.994628493960958,
+        "0.5": -2.530145437362496,
+        "1.0": -0.9256738635687792,
+        "2.0": 0.8183338809473131,
+        "4.0": 2.5492838389691608,
+        "9.0": 4.538078451760159
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 163,
+        "calendar_hours": 17016,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-12-09T23:00:00",
+        "observations": 16853
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-12-17T00:00:00",
+      "calibration_observations": 671,
+      "calibration_start": "2012-11-19T00:00:00",
+      "end_exclusive": "2012-12-24T00:00:00",
+      "last_calibration_timestamp": "2012-12-16T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 146.80318598681166,
+            "mean_cost": 37.81665795287872,
+            "mean_overprediction": 27.833011178712923,
+            "mean_underprediction": 39.93458709666319,
+            "observations": 168,
+            "underprediction_fraction": 0.625
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 165.18333911826002,
+            "mean_cost": 50.52952323744627,
+            "mean_overprediction": 35.77920789613022,
+            "mean_underprediction": 29.50063068263211,
+            "observations": 168,
+            "underprediction_fraction": 0.5178571428571429
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 188.27101587408302,
+            "mean_cost": 65.10603578547715,
+            "mean_overprediction": 47.23614487739913,
+            "mean_underprediction": 17.86989090807802,
+            "observations": 168,
+            "underprediction_fraction": 0.375
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 211.4808717329625,
+            "mean_cost": 80.17735656949135,
+            "mean_overprediction": 61.77652540863085,
+            "mean_underprediction": 9.20041558043025,
+            "observations": 168,
+            "underprediction_fraction": 0.25
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 231.29450502322635,
+            "mean_cost": 97.43586501995047,
+            "mean_overprediction": 77.39896749876166,
+            "mean_underprediction": 5.0092243802972005,
+            "observations": 168,
+            "underprediction_fraction": 0.1130952380952381
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 256.24210870778495,
+            "mean_cost": 118.6923921594629,
+            "mean_overprediction": 99.47285133866704,
+            "mean_underprediction": 2.135504535643984,
+            "observations": 168,
+            "underprediction_fraction": 0.05952380952380952
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-12-17T00:00:00",
+      "signed_quantiles": {
+        "0.25": -3.5286116589023218,
+        "0.5": -2.075904644605389,
+        "1.0": -0.25379738283820624,
+        "2.0": 1.5779524009232828,
+        "4.0": 3.1416682083648557,
+        "9.0": 5.110563143878845
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 163,
+        "calendar_hours": 17184,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-12-16T23:00:00",
+        "observations": 17021
+      }
+    },
+    {
+      "absent_hours": 2,
+      "calibration_end_exclusive": "2012-12-24T00:00:00",
+      "calibration_observations": 671,
+      "calibration_start": "2012-11-26T00:00:00",
+      "end_exclusive": "2012-12-31T00:00:00",
+      "last_calibration_timestamp": "2012-12-23T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 148.86365116823805,
+            "mean_cost": 88.05606806119663,
+            "mean_overprediction": 87.30192203200251,
+            "mean_underprediction": 3.0165841167764897,
+            "observations": 166,
+            "underprediction_fraction": 0.18674698795180722
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 164.91981655970923,
+            "mean_cost": 103.31162775584541,
+            "mean_overprediction": 102.321586272796,
+            "mean_underprediction": 1.9800829660988142,
+            "observations": 166,
+            "underprediction_fraction": 0.04819277108433735
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 187.96210891381602,
+            "mean_cost": 125.50180007688651,
+            "mean_overprediction": 124.44279786884525,
+            "mean_underprediction": 1.0590022080412682,
+            "observations": 166,
+            "underprediction_fraction": 0.03614457831325301
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 207.88965185340524,
+            "mean_cost": 144.35007159593482,
+            "mean_overprediction": 143.6575829322404,
+            "mean_underprediction": 0.3462443318472115,
+            "observations": 166,
+            "underprediction_fraction": 0.012048192771084338
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 226.83298389554355,
+            "mean_cost": 163.21596025463342,
+            "mean_overprediction": 162.4469285649519,
+            "mean_underprediction": 0.19225792242038137,
+            "observations": 166,
+            "underprediction_fraction": 0.006024096385542169
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 248.5808440320221,
+            "mean_cost": 184.50293770259282,
+            "mean_overprediction": 184.0525714713683,
+            "mean_underprediction": 0.05004069235827961,
+            "observations": 166,
+            "underprediction_fraction": 0.006024096385542169
+          }
+        }
+      },
+      "observations": 166,
+      "origin": "2012-12-24T00:00:00",
+      "signed_quantiles": {
+        "0.25": -3.0629815305231807,
+        "0.5": -1.7858178285495117,
+        "1.0": 0.04701926862340603,
+        "2.0": 1.6321020109954223,
+        "4.0": 3.13889834780639,
+        "9.0": 4.868773319866696
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 163,
+        "calendar_hours": 17352,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-12-23T23:00:00",
+        "observations": 17189
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-12-31T00:00:00",
+      "calibration_observations": 670,
+      "calibration_start": "2012-12-03T00:00:00",
+      "end_exclusive": "2013-01-01T00:00:00",
+      "last_calibration_timestamp": "2012-12-30T23:00:00",
+      "metrics": {
+        "0.25": {
+          "poisson_residual_quantile": {
+            "mean_action": 89.21612575917567,
+            "mean_cost": 32.295478072367345,
+            "mean_overprediction": 20.93794094306234,
+            "mean_underprediction": 45.43014851722001,
+            "observations": 24,
+            "underprediction_fraction": 0.75
+          }
+        },
+        "0.5": {
+          "poisson_residual_quantile": {
+            "mean_action": 125.19451976723543,
+            "mean_cost": 51.14258305476975,
+            "mean_overprediction": 37.923784181147205,
+            "mean_underprediction": 26.437597747245093,
+            "observations": 24,
+            "underprediction_fraction": 0.5833333333333334
+          }
+        },
+        "1.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 150.43944460369667,
+            "mean_cost": 71.91458820584016,
+            "mean_overprediction": 54.322849738101745,
+            "mean_underprediction": 17.591738467738416,
+            "observations": 24,
+            "underprediction_fraction": 0.3333333333333333
+          }
+        },
+        "2.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 181.2544334233877,
+            "mean_cost": 96.64666510273159,
+            "mean_overprediction": 77.24628842761345,
+            "mean_underprediction": 9.700188337559073,
+            "observations": 24,
+            "underprediction_fraction": 0.20833333333333334
+          }
+        },
+        "4.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 202.76808851474917,
+            "mean_cost": 120.0252177284249,
+            "mean_overprediction": 95.25284769081765,
+            "mean_underprediction": 6.193092509401815,
+            "observations": 24,
+            "underprediction_fraction": 0.125
+          }
+        },
+        "9.0": {
+          "poisson_residual_quantile": {
+            "mean_action": 224.1974634650841,
+            "mean_cost": 150.24327820971666,
+            "mean_overprediction": 114.46454493954737,
+            "mean_underprediction": 3.975414807796587,
+            "observations": 24,
+            "underprediction_fraction": 0.08333333333333333
+          }
+        }
+      },
+      "observations": 24,
+      "origin": "2012-12-31T00:00:00",
+      "signed_quantiles": {
+        "0.25": -6.92900218480581,
+        "0.5": -3.723058237218833,
+        "1.0": -1.5955402777810863,
+        "2.0": 0.9895755975136499,
+        "4.0": 2.794388561675923,
+        "9.0": 4.592131137728873
+      },
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 165,
+        "calendar_hours": 17520,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-12-30T23:00:00",
+        "observations": 17355
+      }
+    }
+  ],
+  "metrics": {
+    "0.25": {
+      "poisson_residual_quantile": {
+        "mean_action": 185.63867129079273,
+        "mean_cost": 33.016903770283484,
+        "mean_overprediction": 19.7019583813964,
+        "mean_underprediction": 53.25978155554834,
+        "observations": 2168,
+        "underprediction_fraction": 0.7310885608856088
+      }
+    },
+    "0.5": {
+      "poisson_residual_quantile": {
+        "mean_action": 205.38990465181922,
+        "mean_cost": 45.84932173410321,
+        "mean_overprediction": 25.964017885027012,
+        "mean_underprediction": 39.77060769815241,
+        "observations": 2168,
+        "underprediction_fraction": 0.6000922509225092
+      }
+    },
+    "1.0": {
+      "poisson_residual_quantile": {
+        "mean_action": 229.19781382782364,
+        "mean_cost": 62.76551656501273,
+        "mean_overprediction": 36.38341796394587,
+        "mean_underprediction": 26.38209860106686,
+        "observations": 2168,
+        "underprediction_fraction": 0.45295202952029523
+      }
+    },
+    "2.0": {
+      "poisson_residual_quantile": {
+        "mean_action": 253.69256832081595,
+        "mean_cost": 81.27263244352335,
+        "mean_overprediction": 50.08826005175533,
+        "mean_underprediction": 15.592186195884013,
+        "observations": 2168,
+        "underprediction_fraction": 0.3095018450184502
+      }
+    },
+    "4.0": {
+      "poisson_residual_quantile": {
+        "mean_action": 275.92147612371,
+        "mean_cost": 102.19447215516503,
+        "mean_overprediction": 65.81887975804531,
+        "mean_underprediction": 9.09389809927993,
+        "observations": 2168,
+        "underprediction_fraction": 0.1900369003690037
+      }
+    },
+    "9.0": {
+      "poisson_residual_quantile": {
+        "mean_action": 301.59440296793883,
+        "mean_cost": 127.82457609140783,
+        "mean_overprediction": 86.94057526183556,
+        "mean_underprediction": 4.5426667588413645,
+        "observations": 2168,
+        "underprediction_fraction": 0.10101476014760148
+      }
+    }
+  },
+  "observations": 2168,
+  "package_version": "1.0.0",
+  "planning_selection": {
+    "configuration": {
+      "action": "max(0,prediction+sqrt(max(prediction,1))*signed_quantile)",
+      "calibration_folds": 4,
+      "cost_units": "assumed_normalized_units_not_currency",
+      "decision": "continuous_nonnegative_hourly_rental_equivalent_workload",
+      "method": "aggregate_workload_asymmetric_loss_v1",
+      "minimum_residuals": 30,
+      "overprediction_cost": 1.0,
+      "policies": [
+        "training_mean",
+        "hour_of_week_mean",
+        "seasonal_naive",
+        "poisson_calendar",
+        "poisson_residual_quantile"
+      ],
+      "quantile_rank": "ceil(n*ratio/(1+ratio)); one_based",
+      "reference_model": "poisson_calendar",
+      "residual": "(actual-prediction)/sqrt(max(prediction,1))",
+      "rounding": "none_continuous_workload",
+      "selection": "minimum_pooled_validation_cost_per_ratio; ties_follow_policy_order",
+      "underprediction_costs": [
+        0.25,
+        0.5,
+        1.0,
+        2.0,
+        4.0,
+        9.0
+      ]
+    },
+    "configuration_sha256": "63ff40e9f47d45ab7dc58cfa265a0f76774dde8ff561f5873f97326057ab2e10",
+    "policies": {
+      "0.25": "poisson_residual_quantile",
+      "0.5": "poisson_residual_quantile",
+      "1.0": "poisson_residual_quantile",
+      "2.0": "poisson_residual_quantile",
+      "4.0": "poisson_residual_quantile",
+      "9.0": "poisson_residual_quantile"
+    },
+    "reference_point": {
+      "configuration_sha256": "58e445e924459e6c8fe5d896c272cf5fe0e304a49addb4871a3bcb6c2d7c2331",
+      "dataset_sha256": "77b9643b9a646c229fe8fcd972ab8689885235b6d31eb3e469661f2b5523fd97",
+      "horizon_hours": "168",
+      "model": "poisson_calendar",
+      "package_version": "1.0.0",
+      "protocol": "rolling_origin",
+      "schema_version": "2.0",
+      "selection_metric": "validation_mae",
+      "test_end": "2013-01-01T00:00:00",
+      "test_start": "2012-10-01T00:00:00",
+      "validation_start": "2012-07-01T00:00:00"
+    },
+    "schema_version": "1.0"
+  },
+  "protocol": {
+    "aggregation": "pooled_observed_hours",
+    "calibration": "past_out_of_sample_errors_only",
+    "end_exclusive": "2013-01-01T00:00:00",
+    "fit": "expanding_prefix_before_origin",
+    "horizon_hours": 168,
+    "missing_hours": "excluded_never_zero_filled",
+    "start": "2012-10-01T00:00:00"
+  },
+  "schema_version": "1.0",
+  "selection_frozen": true,
+  "stage": "planning_test",
+  "warmup_folds": [
+    {
+      "absent_hours": 0,
+      "end_exclusive": "2012-09-10T00:00:00",
+      "observations": 168,
+      "origin": "2012-09-03T00:00:00",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 14664,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-02T23:00:00",
+        "observations": 14539
+      }
+    },
+    {
+      "absent_hours": 0,
+      "end_exclusive": "2012-09-17T00:00:00",
+      "observations": 168,
+      "origin": "2012-09-10T00:00:00",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 14832,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-09T23:00:00",
+        "observations": 14707
+      }
+    },
+    {
+      "absent_hours": 0,
+      "end_exclusive": "2012-09-24T00:00:00",
+      "observations": 168,
+      "origin": "2012-09-17T00:00:00",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15000,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-16T23:00:00",
+        "observations": 14875
+      }
+    },
+    {
+      "absent_hours": 0,
+      "end_exclusive": "2012-10-01T00:00:00",
+      "observations": 168,
+      "origin": "2012-09-24T00:00:00",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15168,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-23T23:00:00",
+        "observations": 15043
+      }
+    }
+  ]
+}

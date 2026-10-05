@@ -69,8 +69,9 @@ set, penalty and cadence remain frozen. This is sequential out-of-sample
 assessment of a fixed forecasting procedure, not a single quarter-ahead forecast.
 Changing the procedure after seeing test errors would consume the holdout.
 
-The real test quarter remains **unscored** in modernization and CI. Synthetic
-data checks the final-test implementation. Editable JSON and public functions
+The real test quarter was scored once under the frozen release procedures; see
+the [final assessment](final-results.md). Synthetic data checks the final-test
+implementation, and CI replays the saved assessment for reproducibility. Editable JSON and public functions
 are safeguards against accidental misuse, not evidence that a human has never
 inspected those outcomes.
 

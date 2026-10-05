@@ -41,6 +41,22 @@ jobs:
         run: poetry run bike-sharing-intervals --output results/interval-validation.json
       - name: Compare planning policies on validation only
         run: poetry run bike-sharing-planning --output results/planning-validation.json
+      - name: Reproduce the frozen final assessment
+        run: poetry run python scripts/reproduce_release.py
+      - name: Build the LaTeX brief and verify generated tables
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-recommended texlive-fonts-recommended lmodern
+          poetry run python scripts/build_tables.py
+          git diff --exit-code -- brief/*-results.tex docs/assets/generated
+          cd brief
+          pdflatex -interaction=nonstopmode -halt-on-error decision-brief.tex
+          pdflatex -interaction=nonstopmode -halt-on-error decision-brief.tex
+      - uses: actions/upload-artifact@v7
+        with:
+          name: decision-brief
+          path: brief/decision-brief.pdf
+          if-no-files-found: error
       - name: Build documentation and distributions
         run: |
           poetry run mkdocs build --strict

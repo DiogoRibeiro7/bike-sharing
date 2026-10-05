@@ -1,6 +1,6 @@
 [project]
 name = "bike-sharing-forecast"
-version = "0.5.0"
+version = "1.0.0"
 description = "Reproducible aggregate bike-rental forecasting and evaluation."
 authors = [{name = "Diogo Ribeiro"}]
 readme = "README.md"
@@ -42,7 +42,7 @@ select = ["E", "F", "I", "B", "UP"]
 [tool.mypy]
 python_version = "3.12"
 strict = true
-files = ["src", "tests"]
+files = ["src", "tests", "scripts"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

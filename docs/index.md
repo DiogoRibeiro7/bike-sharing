@@ -4,7 +4,7 @@ This case study develops a reproducible workflow for forecasting aggregate
 hourly rentals and evaluating the decisions those forecasts might support.
 
 The maintained implementation compares four interpretable candidates using weekly
-expanding-window validation, while reserving a final temporal test. Data provenance,
+expanding-window validation, with a separately frozen final temporal test. Data provenance,
 per-fold errors, coefficient diagnostics and source identities are recorded.
 Empirical prediction intervals use only past out-of-sample errors for calibration,
 with coverage, width and interval-score diagnostics. An asymmetric-cost planning
@@ -30,7 +30,11 @@ documents the gap between proxy losses and operational evidence.
 The [API](api.md) documents the Python interfaces. The [legacy audit](legacy-audit.md) explains the original notebook's
 evaluation limitations.
 
+The [final assessment](final-results.md) reports increased point error, interval
+undercoverage and a planning advantage that does not persist at equal costs.
+Read the [decision brief](assets/decision-brief.pdf) for the stakeholder summary.
+
 The [six-issue roadmap](https://github.com/DiogoRibeiro7/bike-sharing/issues)
 ends with a small benchmark, uncertainty analysis, one planning study and a
-LaTeX decision brief. Hosted documentation is planned in issue #6; no live site
-is claimed yet.
+LaTeX decision brief. The final evidence and brief are complete. Pages and release
+publication are prepared in issue #6; see [publication status](reproduction.md).

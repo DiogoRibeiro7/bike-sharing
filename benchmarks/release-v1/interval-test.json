@@ -1,0 +1,1394 @@
+{
+  "absent_hours": 40,
+  "dataset": {
+    "sha256": "77b9643b9a646c229fe8fcd972ab8689885235b6d31eb3e469661f2b5523fd97",
+    "source_name": "bike.csv"
+  },
+  "environment": {
+    "dependencies": {
+      "numpy": "2.5.3",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "threadpoolctl": "3.7.0"
+    },
+    "python": "3.12.14"
+  },
+  "folds": [
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-10-01T00:00:00",
+      "calibration_start": "2012-09-03T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-09-30T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.946047368973435,
+            "0.9": 6.525726351030019,
+            "0.95": 8.806667739638039
+          }
+        }
+      },
+      "end_exclusive": "2012-10-08T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 12,
+            "below_lower": 29,
+            "empirical_coverage": 0.7559523809523809,
+            "mean_interval_score": 345.7619047619048,
+            "mean_width": 155.82142857142858,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 5,
+            "below_lower": 24,
+            "empirical_coverage": 0.8273809523809523,
+            "mean_interval_score": 452.9047619047619,
+            "mean_width": 204.45238095238096,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 1,
+            "below_lower": 16,
+            "empirical_coverage": 0.8988095238095238,
+            "mean_interval_score": 535.2440476190474,
+            "mean_width": 273.57738095238096,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-10-01T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15336,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-30T23:00:00",
+        "observations": 15211
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-10-08T00:00:00",
+      "calibration_start": "2012-09-10T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-10-07T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 4.928992573941583,
+            "0.9": 6.56185936650584,
+            "0.95": 8.740552428104408
+          }
+        }
+      },
+      "end_exclusive": "2012-10-15T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 13,
+            "below_lower": 15,
+            "empirical_coverage": 0.8333333333333334,
+            "mean_interval_score": 232.94642857142858,
+            "mean_width": 152.88690476190476,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 10,
+            "below_lower": 11,
+            "empirical_coverage": 0.875,
+            "mean_interval_score": 280.6309523809524,
+            "mean_width": 202.29761904761904,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 4,
+            "below_lower": 4,
+            "empirical_coverage": 0.9523809523809523,
+            "mean_interval_score": 309.66666666666663,
+            "mean_width": 267.2857142857143,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-10-08T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15504,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-10-07T23:00:00",
+        "observations": 15379
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-10-15T00:00:00",
+      "calibration_start": "2012-09-17T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-10-14T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 5.058217322770433,
+            "0.9": 6.803612873989645,
+            "0.95": 8.952582370896977
+          }
+        }
+      },
+      "end_exclusive": "2012-10-22T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 22,
+            "below_lower": 14,
+            "empirical_coverage": 0.7857142857142857,
+            "mean_interval_score": 270.4761904761905,
+            "mean_width": 154.58333333333334,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 8,
+            "below_lower": 8,
+            "empirical_coverage": 0.9047619047619048,
+            "mean_interval_score": 319.35714285714283,
+            "mean_width": 206.5,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 1,
+            "below_lower": 5,
+            "empirical_coverage": 0.9642857142857143,
+            "mean_interval_score": 401.5119047619047,
+            "mean_width": 269.60714285714283,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-10-15T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15672,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-10-14T23:00:00",
+        "observations": 15547
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-10-22T00:00:00",
+      "calibration_start": "2012-09-24T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-10-21T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 5.075028770539003,
+            "0.9": 6.852140187608754,
+            "0.95": 8.882158423145768
+          }
+        }
+      },
+      "end_exclusive": "2012-10-29T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 28,
+            "below_lower": 13,
+            "empirical_coverage": 0.7559523809523809,
+            "mean_interval_score": 271.82738095238096,
+            "mean_width": 152.83928571428572,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 11,
+            "below_lower": 11,
+            "empirical_coverage": 0.8690476190476191,
+            "mean_interval_score": 322.10714285714283,
+            "mean_width": 204.8452380952381,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 3,
+            "below_lower": 7,
+            "empirical_coverage": 0.9404761904761905,
+            "mean_interval_score": 346.2499999999999,
+            "mean_width": 263.6309523809524,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-10-22T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15840,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-10-21T23:00:00",
+        "observations": 15715
+      }
+    },
+    {
+      "absent_hours": 36,
+      "calibration_end_exclusive": "2012-10-29T00:00:00",
+      "calibration_start": "2012-10-01T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-10-28T23:00:00",
+          "observations": 672,
+          "quantiles": {
+            "0.8": 5.386397928477982,
+            "0.9": 7.292153338231673,
+            "0.95": 9.3832331136274
+          }
+        }
+      },
+      "end_exclusive": "2012-11-05T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 1,
+            "below_lower": 25,
+            "empirical_coverage": 0.803030303030303,
+            "mean_interval_score": 317.53787878787887,
+            "mean_width": 162.7651515151515,
+            "nominal_coverage": 0.8,
+            "observations": 132
+          },
+          "0.9": {
+            "above_upper": 1,
+            "below_lower": 15,
+            "empirical_coverage": 0.8787878787878788,
+            "mean_interval_score": 435.96212121212125,
+            "mean_width": 218.68939393939394,
+            "nominal_coverage": 0.9,
+            "observations": 132
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 7,
+            "empirical_coverage": 0.946969696969697,
+            "mean_interval_score": 587.6893939393938,
+            "mean_width": 279.50757575757575,
+            "nominal_coverage": 0.95,
+            "observations": 132
+          }
+        }
+      },
+      "observations": 132,
+      "origin": "2012-10-29T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 16008,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-10-28T23:00:00",
+        "observations": 15883
+      }
+    },
+    {
+      "absent_hours": 1,
+      "calibration_end_exclusive": "2012-11-05T00:00:00",
+      "calibration_start": "2012-10-08T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-11-04T23:00:00",
+          "observations": 636,
+          "quantiles": {
+            "0.8": 5.296784151585553,
+            "0.9": 7.102639067375975,
+            "0.95": 9.10493951613338
+          }
+        }
+      },
+      "end_exclusive": "2012-11-12T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 15,
+            "below_lower": 12,
+            "empirical_coverage": 0.8383233532934131,
+            "mean_interval_score": 213.47904191616766,
+            "mean_width": 153.23952095808383,
+            "nominal_coverage": 0.8,
+            "observations": 167
+          },
+          "0.9": {
+            "above_upper": 8,
+            "below_lower": 5,
+            "empirical_coverage": 0.9221556886227544,
+            "mean_interval_score": 265.5508982035928,
+            "mean_width": 203.75449101796409,
+            "nominal_coverage": 0.9,
+            "observations": 167
+          },
+          "0.95": {
+            "above_upper": 7,
+            "below_lower": 0,
+            "empirical_coverage": 0.9580838323353293,
+            "mean_interval_score": 314.6107784431137,
+            "mean_width": 259.2814371257485,
+            "nominal_coverage": 0.95,
+            "observations": 167
+          }
+        }
+      },
+      "observations": 167,
+      "origin": "2012-11-05T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 161,
+        "calendar_hours": 16176,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-11-04T23:00:00",
+        "observations": 16015
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-11-12T00:00:00",
+      "calibration_start": "2012-10-15T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-11-11T23:00:00",
+          "observations": 635,
+          "quantiles": {
+            "0.8": 5.330556818994078,
+            "0.9": 7.102639067375975,
+            "0.95": 9.10493951613338
+          }
+        }
+      },
+      "end_exclusive": "2012-11-19T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 9,
+            "below_lower": 11,
+            "empirical_coverage": 0.8809523809523809,
+            "mean_interval_score": 214.76190476190476,
+            "mean_width": 149.82142857142858,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 6,
+            "below_lower": 5,
+            "empirical_coverage": 0.9345238095238095,
+            "mean_interval_score": 281.2142857142857,
+            "mean_width": 198.0,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 4,
+            "below_lower": 3,
+            "empirical_coverage": 0.9583333333333334,
+            "mean_interval_score": 351.32738095238085,
+            "mean_width": 252.04166666666666,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-11-12T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 162,
+        "calendar_hours": 16344,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-11-11T23:00:00",
+        "observations": 16182
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-11-19T00:00:00",
+      "calibration_start": "2012-10-22T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-11-18T23:00:00",
+          "observations": 635,
+          "quantiles": {
+            "0.8": 4.995730636264979,
+            "0.9": 6.933351717112952,
+            "0.95": 9.199828321790086
+          }
+        }
+      },
+      "end_exclusive": "2012-11-26T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 13,
+            "below_lower": 66,
+            "empirical_coverage": 0.5297619047619048,
+            "mean_interval_score": 567.1904761904763,
+            "mean_width": 137.07142857142858,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 8,
+            "below_lower": 50,
+            "empirical_coverage": 0.6547619047619048,
+            "mean_interval_score": 770.1845238095239,
+            "mean_width": 188.39880952380952,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 5,
+            "below_lower": 33,
+            "empirical_coverage": 0.7738095238095238,
+            "mean_interval_score": 913.6726190476186,
+            "mean_width": 247.95833333333334,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-11-19T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 162,
+        "calendar_hours": 16512,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-11-18T23:00:00",
+        "observations": 16350
+      }
+    },
+    {
+      "absent_hours": 1,
+      "calibration_end_exclusive": "2012-11-26T00:00:00",
+      "calibration_start": "2012-10-29T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-11-25T23:00:00",
+          "observations": 635,
+          "quantiles": {
+            "0.8": 5.921112811053159,
+            "0.9": 8.971873762216033,
+            "0.95": 11.976333569926021
+          }
+        }
+      },
+      "end_exclusive": "2012-12-03T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 6,
+            "below_lower": 9,
+            "empirical_coverage": 0.9101796407185628,
+            "mean_interval_score": 184.16167664670658,
+            "mean_width": 156.49700598802394,
+            "nominal_coverage": 0.8,
+            "observations": 167
+          },
+          "0.9": {
+            "above_upper": 1,
+            "below_lower": 2,
+            "empirical_coverage": 0.9820359281437125,
+            "mean_interval_score": 240.125748502994,
+            "mean_width": 234.2574850299401,
+            "nominal_coverage": 0.9,
+            "observations": 167
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 0,
+            "empirical_coverage": 1.0,
+            "mean_interval_score": 307.6467065868263,
+            "mean_width": 307.6467065868263,
+            "nominal_coverage": 0.95,
+            "observations": 167
+          }
+        }
+      },
+      "observations": 167,
+      "origin": "2012-11-26T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 162,
+        "calendar_hours": 16680,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-11-25T23:00:00",
+        "observations": 16518
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-12-03T00:00:00",
+      "calibration_start": "2012-11-05T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-12-02T23:00:00",
+          "observations": 670,
+          "quantiles": {
+            "0.8": 5.700697233268938,
+            "0.9": 8.781170649637591,
+            "0.95": 11.05445137048654
+          }
+        }
+      },
+      "end_exclusive": "2012-12-10T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 26,
+            "below_lower": 5,
+            "empirical_coverage": 0.8154761904761905,
+            "mean_interval_score": 225.2202380952381,
+            "mean_width": 147.1845238095238,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 8,
+            "below_lower": 0,
+            "empirical_coverage": 0.9523809523809523,
+            "mean_interval_score": 262.4345238095238,
+            "mean_width": 223.74404761904762,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 4,
+            "below_lower": 0,
+            "empirical_coverage": 0.9761904761904762,
+            "mean_interval_score": 301.07738095238096,
+            "mean_width": 278.2202380952381,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-12-03T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 163,
+        "calendar_hours": 16848,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-12-02T23:00:00",
+        "observations": 16685
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-12-10T00:00:00",
+      "calibration_start": "2012-11-12T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-12-09T23:00:00",
+          "observations": 671,
+          "quantiles": {
+            "0.8": 5.799912723048384,
+            "0.9": 8.638113569213244,
+            "0.95": 11.165425951521437
+          }
+        }
+      },
+      "end_exclusive": "2012-12-17T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 13,
+            "below_lower": 3,
+            "empirical_coverage": 0.9047619047619048,
+            "mean_interval_score": 180.50595238095238,
+            "mean_width": 148.00595238095238,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 3,
+            "below_lower": 1,
+            "empirical_coverage": 0.9761904761904762,
+            "mean_interval_score": 235.74404761904762,
+            "mean_width": 217.76785714285714,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 1,
+            "below_lower": 0,
+            "empirical_coverage": 0.9940476190476191,
+            "mean_interval_score": 281.4166666666667,
+            "mean_width": 277.60714285714283,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-12-10T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 163,
+        "calendar_hours": 17016,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-12-09T23:00:00",
+        "observations": 16853
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-12-17T00:00:00",
+      "calibration_start": "2012-11-19T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-12-16T23:00:00",
+          "observations": 671,
+          "quantiles": {
+            "0.8": 5.799912723048384,
+            "0.9": 8.174496746541731,
+            "0.95": 10.618684254986329
+          }
+        }
+      },
+      "end_exclusive": "2012-12-24T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 6,
+            "below_lower": 44,
+            "empirical_coverage": 0.7023809523809523,
+            "mean_interval_score": 331.68452380952385,
+            "mean_width": 146.6845238095238,
+            "nominal_coverage": 0.8,
+            "observations": 168
+          },
+          "0.9": {
+            "above_upper": 3,
+            "below_lower": 33,
+            "empirical_coverage": 0.7857142857142857,
+            "mean_interval_score": 373.7916666666667,
+            "mean_width": 204.625,
+            "nominal_coverage": 0.9,
+            "observations": 168
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 16,
+            "empirical_coverage": 0.9047619047619048,
+            "mean_interval_score": 348.49404761904754,
+            "mean_width": 262.5416666666667,
+            "nominal_coverage": 0.95,
+            "observations": 168
+          }
+        }
+      },
+      "observations": 168,
+      "origin": "2012-12-17T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 163,
+        "calendar_hours": 17184,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-12-16T23:00:00",
+        "observations": 17021
+      }
+    },
+    {
+      "absent_hours": 2,
+      "calibration_end_exclusive": "2012-12-24T00:00:00",
+      "calibration_start": "2012-11-26T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-12-23T23:00:00",
+          "observations": 671,
+          "quantiles": {
+            "0.8": 5.3108149945066225,
+            "0.9": 7.576156820258755,
+            "0.95": 9.586983938330347
+          }
+        }
+      },
+      "end_exclusive": "2012-12-31T00:00:00",
+      "horizon_hours": 168,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 1,
+            "below_lower": 109,
+            "empirical_coverage": 0.3373493975903614,
+            "mean_interval_score": 763.9939759036146,
+            "mean_width": 133.69277108433735,
+            "nominal_coverage": 0.8,
+            "observations": 166
+          },
+          "0.9": {
+            "above_upper": 0,
+            "below_lower": 82,
+            "empirical_coverage": 0.5060240963855422,
+            "mean_interval_score": 1038.8915662650604,
+            "mean_width": 188.7710843373494,
+            "nominal_coverage": 0.9,
+            "observations": 166
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 63,
+            "empirical_coverage": 0.6204819277108433,
+            "mean_interval_score": 1342.3313253012038,
+            "mean_width": 236.789156626506,
+            "nominal_coverage": 0.95,
+            "observations": 166
+          }
+        }
+      },
+      "observations": 166,
+      "origin": "2012-12-24T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 163,
+        "calendar_hours": 17352,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-12-23T23:00:00",
+        "observations": 17189
+      }
+    },
+    {
+      "absent_hours": 0,
+      "calibration_end_exclusive": "2012-12-31T00:00:00",
+      "calibration_start": "2012-12-03T00:00:00",
+      "calibrators": {
+        "poisson_calendar": {
+          "last_residual_timestamp": "2012-12-30T23:00:00",
+          "observations": 670,
+          "quantiles": {
+            "0.8": 7.862008306759531,
+            "0.9": 11.14797067197656,
+            "0.95": 12.693810385892604
+          }
+        }
+      },
+      "end_exclusive": "2013-01-01T00:00:00",
+      "horizon_hours": 24,
+      "metrics": {
+        "poisson_calendar": {
+          "0.8": {
+            "above_upper": 1,
+            "below_lower": 6,
+            "empirical_coverage": 0.7083333333333333,
+            "mean_interval_score": 362.6666666666667,
+            "mean_width": 185.16666666666666,
+            "nominal_coverage": 0.8,
+            "observations": 24
+          },
+          "0.9": {
+            "above_upper": 0,
+            "below_lower": 2,
+            "empirical_coverage": 0.9166666666666666,
+            "mean_interval_score": 359.625,
+            "mean_width": 257.9583333333333,
+            "nominal_coverage": 0.9,
+            "observations": 24
+          },
+          "0.95": {
+            "above_upper": 0,
+            "below_lower": 2,
+            "empirical_coverage": 0.9166666666666666,
+            "mean_interval_score": 385.0416666666666,
+            "mean_width": 290.0416666666667,
+            "nominal_coverage": 0.95,
+            "observations": 24
+          }
+        }
+      },
+      "observations": 24,
+      "origin": "2012-12-31T00:00:00",
+      "status": "scored",
+      "training": {
+        "absent_calendar_hours": 165,
+        "calendar_hours": 17520,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-12-30T23:00:00",
+        "observations": 17355
+      }
+    }
+  ],
+  "interval_selection": {
+    "interval_sha256": "b7f74c0b69edffd62b608c0e373298426712358c66da92195d562bd154769d2b",
+    "interval_specification": {
+      "bounds": "floor(max(0,mean-radius)),ceil(mean+radius)",
+      "calibration_folds": 4,
+      "coverage_guarantee": false,
+      "lead_group_hours": 24,
+      "levels": [
+        0.8,
+        0.9,
+        0.95
+      ],
+      "method": "rolling_scaled_absolute_residual_v1",
+      "minimum_observations": 30,
+      "predicted_demand_thresholds": [
+        100,
+        300
+      ],
+      "quantile_rank": "ceil((n+1)*level)",
+      "scale": "sqrt(max(prediction, 1))",
+      "update": "after_complete_forecast_horizon"
+    },
+    "point_selection": {
+      "configuration_sha256": "58e445e924459e6c8fe5d896c272cf5fe0e304a49addb4871a3bcb6c2d7c2331",
+      "dataset_sha256": "77b9643b9a646c229fe8fcd972ab8689885235b6d31eb3e469661f2b5523fd97",
+      "horizon_hours": "168",
+      "model": "poisson_calendar",
+      "package_version": "1.0.0",
+      "protocol": "rolling_origin",
+      "schema_version": "2.0",
+      "selection_metric": "validation_mae",
+      "test_end": "2013-01-01T00:00:00",
+      "test_start": "2012-10-01T00:00:00",
+      "validation_start": "2012-07-01T00:00:00"
+    },
+    "schema_version": "1.0"
+  },
+  "metrics": {
+    "poisson_calendar": {
+      "by_lead_day": {
+        "1": {
+          "0.8": {
+            "above_upper": 25,
+            "below_lower": 47,
+            "empirical_coverage": 0.7692307692307692,
+            "mean_interval_score": 301.1314102564103,
+            "mean_width": 150.90705128205127,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 12,
+            "below_lower": 31,
+            "empirical_coverage": 0.8621794871794872,
+            "mean_interval_score": 376.87500000000006,
+            "mean_width": 209.11858974358975,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 6,
+            "below_lower": 18,
+            "empirical_coverage": 0.9230769230769231,
+            "mean_interval_score": 461.67307692307674,
+            "mean_width": 266.6730769230769,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "2": {
+          "0.8": {
+            "above_upper": 27,
+            "below_lower": 59,
+            "empirical_coverage": 0.7114093959731543,
+            "mean_interval_score": 378.8657718120806,
+            "mean_width": 151.8523489932886,
+            "nominal_coverage": 0.8,
+            "observations": 298
+          },
+          "0.9": {
+            "above_upper": 12,
+            "below_lower": 41,
+            "empirical_coverage": 0.8221476510067114,
+            "mean_interval_score": 504.7953020134228,
+            "mean_width": 210.03020134228188,
+            "nominal_coverage": 0.9,
+            "observations": 298
+          },
+          "0.95": {
+            "above_upper": 3,
+            "below_lower": 26,
+            "empirical_coverage": 0.9026845637583892,
+            "mean_interval_score": 659.161073825503,
+            "mean_width": 271.241610738255,
+            "nominal_coverage": 0.95,
+            "observations": 298
+          }
+        },
+        "3": {
+          "0.8": {
+            "above_upper": 32,
+            "below_lower": 39,
+            "empirical_coverage": 0.7724358974358975,
+            "mean_interval_score": 303.26602564102564,
+            "mean_width": 150.125,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 18,
+            "below_lower": 28,
+            "empirical_coverage": 0.8525641025641025,
+            "mean_interval_score": 384.13782051282055,
+            "mean_width": 207.40705128205127,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 6,
+            "below_lower": 18,
+            "empirical_coverage": 0.9230769230769231,
+            "mean_interval_score": 481.04166666666646,
+            "mean_width": 267.58012820512823,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "4": {
+          "0.8": {
+            "above_upper": 9,
+            "below_lower": 37,
+            "empirical_coverage": 0.8516129032258064,
+            "mean_interval_score": 275.9,
+            "mean_width": 152.6741935483871,
+            "nominal_coverage": 0.8,
+            "observations": 310
+          },
+          "0.9": {
+            "above_upper": 3,
+            "below_lower": 26,
+            "empirical_coverage": 0.9064516129032258,
+            "mean_interval_score": 372.5193548387097,
+            "mean_width": 211.03548387096774,
+            "nominal_coverage": 0.9,
+            "observations": 310
+          },
+          "0.95": {
+            "above_upper": 2,
+            "below_lower": 18,
+            "empirical_coverage": 0.935483870967742,
+            "mean_interval_score": 469.4774193548385,
+            "mean_width": 272.31612903225806,
+            "nominal_coverage": 0.95,
+            "observations": 310
+          }
+        },
+        "5": {
+          "0.8": {
+            "above_upper": 29,
+            "below_lower": 40,
+            "empirical_coverage": 0.7788461538461539,
+            "mean_interval_score": 299.40064102564105,
+            "mean_width": 151.48397435897436,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 11,
+            "below_lower": 26,
+            "empirical_coverage": 0.8814102564102564,
+            "mean_interval_score": 386.28525641025647,
+            "mean_width": 209.36217948717947,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 5,
+            "below_lower": 16,
+            "empirical_coverage": 0.9326923076923077,
+            "mean_interval_score": 452.70192307692287,
+            "mean_width": 270.1378205128205,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "6": {
+          "0.8": {
+            "above_upper": 30,
+            "below_lower": 53,
+            "empirical_coverage": 0.733974358974359,
+            "mean_interval_score": 319.83333333333337,
+            "mean_width": 150.21794871794873,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 8,
+            "below_lower": 35,
+            "empirical_coverage": 0.8621794871794872,
+            "mean_interval_score": 397.198717948718,
+            "mean_width": 207.64743589743588,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 4,
+            "below_lower": 28,
+            "empirical_coverage": 0.8974358974358975,
+            "mean_interval_score": 451.09294871794856,
+            "mean_width": 267.24679487179486,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        },
+        "7": {
+          "0.8": {
+            "above_upper": 14,
+            "below_lower": 86,
+            "empirical_coverage": 0.6794871794871795,
+            "mean_interval_score": 343.6762820512821,
+            "mean_width": 144.73397435897436,
+            "nominal_coverage": 0.8,
+            "observations": 312
+          },
+          "0.9": {
+            "above_upper": 8,
+            "below_lower": 62,
+            "empirical_coverage": 0.7756410256410257,
+            "mean_interval_score": 414.7916666666667,
+            "mean_width": 199.9198717948718,
+            "nominal_coverage": 0.9,
+            "observations": 312
+          },
+          "0.95": {
+            "above_upper": 4,
+            "below_lower": 32,
+            "empirical_coverage": 0.8846153846153846,
+            "mean_interval_score": 422.99999999999983,
+            "mean_width": 256.97435897435895,
+            "nominal_coverage": 0.95,
+            "observations": 312
+          }
+        }
+      },
+      "by_predicted_demand": {
+        "high": {
+          "0.8": {
+            "above_upper": 98,
+            "below_lower": 144,
+            "empirical_coverage": 0.6327769347496206,
+            "mean_interval_score": 593.928679817906,
+            "mean_width": 225.33990895295904,
+            "nominal_coverage": 0.8,
+            "observations": 659
+          },
+          "0.9": {
+            "above_upper": 42,
+            "below_lower": 124,
+            "empirical_coverage": 0.748103186646434,
+            "mean_interval_score": 783.9772382397573,
+            "mean_width": 311.443095599393,
+            "nominal_coverage": 0.9,
+            "observations": 659
+          },
+          "0.95": {
+            "above_upper": 14,
+            "below_lower": 103,
+            "empirical_coverage": 0.8224582701062215,
+            "mean_interval_score": 968.9757207890739,
+            "mean_width": 405.69802731411227,
+            "nominal_coverage": 0.95,
+            "observations": 659
+          }
+        },
+        "low": {
+          "0.8": {
+            "above_upper": 8,
+            "below_lower": 34,
+            "empirical_coverage": 0.9298831385642738,
+            "mean_interval_score": 73.56761268781302,
+            "mean_width": 63.40066777963272,
+            "nominal_coverage": 0.8,
+            "observations": 599
+          },
+          "0.9": {
+            "above_upper": 5,
+            "below_lower": 8,
+            "empirical_coverage": 0.9782971619365609,
+            "mean_interval_score": 87.01502504173622,
+            "mean_width": 83.6093489148581,
+            "nominal_coverage": 0.9,
+            "observations": 599
+          },
+          "0.95": {
+            "above_upper": 2,
+            "below_lower": 0,
+            "empirical_coverage": 0.996661101836394,
+            "mean_interval_score": 101.06844741235392,
+            "mean_width": 100.06677796327212,
+            "nominal_coverage": 0.95,
+            "observations": 599
+          }
+        },
+        "medium": {
+          "0.8": {
+            "above_upper": 60,
+            "below_lower": 183,
+            "empirical_coverage": 0.732967032967033,
+            "mean_interval_score": 276.8846153846154,
+            "mean_width": 153.0934065934066,
+            "nominal_coverage": 0.8,
+            "observations": 910
+          },
+          "0.9": {
+            "above_upper": 25,
+            "below_lower": 117,
+            "empirical_coverage": 0.843956043956044,
+            "mean_interval_score": 338.95054945054943,
+            "mean_width": 214.42307692307693,
+            "nominal_coverage": 0.9,
+            "observations": 910
+          },
+          "0.95": {
+            "above_upper": 14,
+            "below_lower": 53,
+            "empirical_coverage": 0.9263736263736264,
+            "mean_interval_score": 385.6703296703295,
+            "mean_width": 277.45054945054943,
+            "nominal_coverage": 0.95,
+            "observations": 910
+          }
+        }
+      },
+      "intervals": {
+        "0.8": {
+          "above_upper": 166,
+          "below_lower": 361,
+          "empirical_coverage": 0.7569188191881919,
+          "mean_interval_score": 317.08071955719555,
+          "mean_width": 150.27260147601476,
+          "nominal_coverage": 0.8,
+          "observations": 2168
+        },
+        "0.9": {
+          "above_upper": 72,
+          "below_lower": 249,
+          "empirical_coverage": 0.8519372693726938,
+          "mean_interval_score": 404.6162361623617,
+          "mean_width": 207.77121771217713,
+          "nominal_coverage": 0.9,
+          "observations": 2168
+        },
+        "0.95": {
+          "above_upper": 30,
+          "below_lower": 156,
+          "empirical_coverage": 0.9142066420664207,
+          "mean_interval_score": 484.34271217712154,
+          "mean_width": 267.4238929889299,
+          "nominal_coverage": 0.95,
+          "observations": 2168
+        }
+      },
+      "point": {
+        "mae": 61.37842283527848,
+        "mean_poisson_deviance": 36.066068719648506,
+        "rmse": 95.81144845473536
+      }
+    }
+  },
+  "observations": 2168,
+  "package_version": "1.0.0",
+  "protocol": {
+    "aggregation": "pooled_observed_hours",
+    "calibration_residuals": "out_of_sample_forecasts_only",
+    "calibration_updates": "only_after_complete_horizon",
+    "calibration_window_hours": 672,
+    "end_exclusive": "2013-01-01T00:00:00",
+    "horizon_hours": 168,
+    "initial_calibration_end_exclusive": "2012-10-01T00:00:00",
+    "initial_calibration_start": "2012-09-03T00:00:00",
+    "interval_specification": {
+      "bounds": "floor(max(0,mean-radius)),ceil(mean+radius)",
+      "calibration_folds": 4,
+      "coverage_guarantee": false,
+      "lead_group_hours": 24,
+      "levels": [
+        0.8,
+        0.9,
+        0.95
+      ],
+      "method": "rolling_scaled_absolute_residual_v1",
+      "minimum_observations": 30,
+      "predicted_demand_thresholds": [
+        100,
+        300
+      ],
+      "quantile_rank": "ceil((n+1)*level)",
+      "scale": "sqrt(max(prediction, 1))",
+      "update": "after_complete_forecast_horizon"
+    },
+    "missing_hours": "excluded_never_zero_filled",
+    "models_evaluated": [
+      "poisson_calendar"
+    ],
+    "name": "rolling_empirical_residual_intervals",
+    "point_configuration": {
+      "candidate_tie_order": [
+        "training_mean",
+        "hour_of_week_mean",
+        "seasonal_naive",
+        "poisson_calendar"
+      ],
+      "poisson_calendar": {
+        "all_zero_training": "constant_zero",
+        "alpha": 0.1,
+        "annual_period_days": 365.25,
+        "constant_positive_training": "analytic_intercept",
+        "encoding": "fixed_calendar_basis_v1",
+        "epoch": "2011-01-01T00:00:00",
+        "feature_names": [
+          "hour_01",
+          "hour_02",
+          "hour_03",
+          "hour_04",
+          "hour_05",
+          "hour_06",
+          "hour_07",
+          "hour_08",
+          "hour_09",
+          "hour_10",
+          "hour_11",
+          "hour_12",
+          "hour_13",
+          "hour_14",
+          "hour_15",
+          "hour_16",
+          "hour_17",
+          "hour_18",
+          "hour_19",
+          "hour_20",
+          "hour_21",
+          "hour_22",
+          "hour_23",
+          "weekday_1",
+          "weekday_2",
+          "weekday_3",
+          "weekday_4",
+          "weekday_5",
+          "weekday_6",
+          "weekend_hour_01",
+          "weekend_hour_02",
+          "weekend_hour_03",
+          "weekend_hour_04",
+          "weekend_hour_05",
+          "weekend_hour_06",
+          "weekend_hour_07",
+          "weekend_hour_08",
+          "weekend_hour_09",
+          "weekend_hour_10",
+          "weekend_hour_11",
+          "weekend_hour_12",
+          "weekend_hour_13",
+          "weekend_hour_14",
+          "weekend_hour_15",
+          "weekend_hour_16",
+          "weekend_hour_17",
+          "weekend_hour_18",
+          "weekend_hour_19",
+          "weekend_hour_20",
+          "weekend_hour_21",
+          "weekend_hour_22",
+          "weekend_hour_23",
+          "annual_sin_1",
+          "annual_cos_1",
+          "annual_sin_2",
+          "annual_cos_2",
+          "trend_years"
+        ],
+        "fit_intercept": true,
+        "max_iter": 300,
+        "scaling": "none",
+        "solver": "newton-cholesky",
+        "threads": 1,
+        "tol": 1e-08
+      },
+      "seasonal_naive": {
+        "missing_lag": "training_mean",
+        "period_hours": 168
+      }
+    },
+    "point_fit": "expanding_prefix_before_each_origin",
+    "start": "2012-10-01T00:00:00"
+  },
+  "schema_version": "1.0",
+  "selection_frozen": true,
+  "stage": "interval_test",
+  "warmup_folds": [
+    {
+      "absent_hours": 0,
+      "end_exclusive": "2012-09-10T00:00:00",
+      "observations": 168,
+      "origin": "2012-09-03T00:00:00",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 14664,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-02T23:00:00",
+        "observations": 14539
+      }
+    },
+    {
+      "absent_hours": 0,
+      "end_exclusive": "2012-09-17T00:00:00",
+      "observations": 168,
+      "origin": "2012-09-10T00:00:00",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 14832,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-09T23:00:00",
+        "observations": 14707
+      }
+    },
+    {
+      "absent_hours": 0,
+      "end_exclusive": "2012-09-24T00:00:00",
+      "observations": 168,
+      "origin": "2012-09-17T00:00:00",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15000,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-16T23:00:00",
+        "observations": 14875
+      }
+    },
+    {
+      "absent_hours": 0,
+      "end_exclusive": "2012-10-01T00:00:00",
+      "observations": 168,
+      "origin": "2012-09-24T00:00:00",
+      "training": {
+        "absent_calendar_hours": 125,
+        "calendar_hours": 15168,
+        "first_timestamp": "2011-01-01T00:00:00",
+        "last_timestamp": "2012-09-23T23:00:00",
+        "observations": 15043
+      }
+    }
+  ]
+}

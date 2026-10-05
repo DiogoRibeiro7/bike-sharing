@@ -1,4 +1,5 @@
 site_name: Bike Sharing Forecasting
+site_url: https://diogoribeiro7.github.io/bike-sharing/
 site_description: Reproducible statistical forecasting of aggregate hourly bike rentals.
 repo_url: https://github.com/DiogoRibeiro7/bike-sharing
 theme:
@@ -8,6 +9,8 @@ theme:
     - content.code.copy
 nav:
   - Overview: index.md
+  - Final assessment: final-results.md
+  - Reproduction and release: reproduction.md
   - Forecasting protocol: methodology.md
   - Interpretable models: models.md
   - Forecast intervals and calibration: intervals.md

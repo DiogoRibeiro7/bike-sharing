@@ -1,0 +1,79 @@
+name: Publish case study
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-case-study
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: >-
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
+      && github.event.workflow_run.event == 'push') ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      RELEASE_COMMIT: ${{ github.event.workflow_run.head_sha || github.sha }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ env.RELEASE_COMMIT }}
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install locked environment
+        run: |
+          python -m pip install poetry==2.5.1
+          poetry check --lock
+          poetry install --with dev,docs --no-interaction
+      - name: Reproduce frozen evidence and build distributions
+        run: |
+          poetry run ruff check .
+          poetry run mypy
+          poetry run pytest
+          poetry run python scripts/reproduce_release.py
+          poetry run python scripts/build_tables.py
+          git diff --exit-code -- brief/*-results.tex docs/assets/generated
+          poetry run mkdocs build --strict
+          poetry build
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+      - name: Deploy documentation
+        id: deployment
+        uses: actions/deploy-pages@v5
+      - name: Verify live documentation
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          curl --fail --retry 5 --retry-all-errors --retry-delay 5 "$PAGE_URL" -o /tmp/published-index.html
+          python -c 'from pathlib import Path; assert "Bike Sharing" in Path("/tmp/published-index.html").read_text()'
+      - name: Publish v1.0.0 once, after successful deployment and reproduction
+        run: |
+          if gh release view v1.0.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Release v1.0.0 already exists; leaving it unchanged."
+          else
+            gh release create v1.0.0 --repo "$GITHUB_REPOSITORY" \
+              --target "$RELEASE_COMMIT" --title "v1.0.0: forecasting and planning case study" \
+              --notes-file RELEASE_NOTES.md \
+              dist/* docs/assets/decision-brief.pdf
+          fi

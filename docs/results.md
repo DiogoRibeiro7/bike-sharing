@@ -5,7 +5,9 @@
 Package 0.3.0 compares four pre-specified candidates across July–September 2012:
 13 full 168-hour folds and a final 24-hour fold, covering all **2,208 observed
 hours** with no gaps. The first fit uses 13,003 observations before July;
-later fits also use earlier validation observations. October–December is unscored.
+later fits also use earlier validation observations. October–December was
+unscored during selection; see the subsequent
+[final assessment](final-results.md).
 
 | Model | MAE | RMSE | Mean Poisson deviance | Fit + predict seconds |
 | --- | ---: | ---: | ---: | ---: |
@@ -62,8 +64,8 @@ quantify uncertainty; the empirical interval extension below assesses forecast
 error without estimating lost rentals or establishing operational savings.
 
 The Poisson log-linear time term can extrapolate poorly, and the validation
-quarter covers only one part of the annual cycle. Model choice remains provisional until the
-uncertainty/planning work is frozen and one final test is run. The historical
+quarter covers only one part of the annual cycle. Model choice was frozen before the final
+assessment; the reported held-out evidence does not establish operational readiness. The historical
 notebook's full-data exploration also prevents a claim that nobody has ever
 looked at these outcomes.
 
@@ -139,8 +141,8 @@ poetry run bike-sharing-intervals --output results/interval-validation.json
 
 These are dependent, post-selection validation diagnostics from one quarter.
 No exchangeability, universal coverage or independent final-evidence claim is
-made. The real test quarter remains unscored; interval and planning choices must
-be frozen before its one final assessment. See the [method and limitations](intervals.md).
+made. Choices were frozen before the now-recorded [final assessment](final-results.md).
+See the [method and limitations](intervals.md).
 
 ## Asymmetric-cost planning
 
@@ -150,7 +152,8 @@ at every ratio. At equal costs, mean loss is 52.328 versus 53.268 for the point
 forecast; at ratio 9, it is 115.067 versus 215.418. Higher targets trade less
 underprediction for more excess. These are assumed proxy losses, not financial
 savings, and are selected on validation. The planning report preserves per-fold
-costs and all selected procedures; the real test period remains unscored.
+costs and all selected procedures; the separate [final assessment](final-results.md)
+is now recorded.
 
 ## Historical fixed-origin results
 
