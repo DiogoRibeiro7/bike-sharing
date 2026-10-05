@@ -1,7 +1,11 @@
 # Roadmap to v1.0
 
-Goal: one reproducible, statistically defensible case study that connects
+Completed on 5 October 2026: one reproducible statistical case study connecting
 aggregate rental forecasts to an explicit planning decision.
+
+- [Live documentation](https://diogoribeiro7.github.io/bike-sharing/)
+- [v1.0.0 release](https://github.com/DiogoRibeiro7/bike-sharing/releases/tag/v1.0.0)
+- [Verified publication run](https://github.com/DiogoRibeiro7/bike-sharing/actions/runs/37277134068)
 
 | Order | Issue | Deliverable | Status |
 | --- | --- | --- | --- |
@@ -10,7 +14,7 @@ aggregate rental forecasts to an explicit planning decision.
 | 3 | [#3](https://github.com/DiogoRibeiro7/bike-sharing/issues/3) | Interpretable models and rolling-origin comparisons | Completed: four candidates, weekly expanding folds, frozen protocol and per-fold evidence |
 | 4 | [#4](https://github.com/DiogoRibeiro7/bike-sharing/issues/4) | Forecast intervals and calibration assessment | Completed: temporal residual calibration, count intervals, coverage/width/score diagnostics and frozen-test procedure |
 | 5 | [#5](https://github.com/DiogoRibeiro7/bike-sharing/issues/5) | Asymmetric-cost planning study | Completed: explicit proxy loss, six cost scenarios, five policies, frozen selections and reproducible validation evidence |
-| 6 | [#6](https://github.com/DiogoRibeiro7/bike-sharing/issues/6) | Documentation site, LaTeX brief and verified v1.0 release | Final evidence and brief complete; Pages/release workflow prepared; publication pending merge and verification |
+| 6 | [#6](https://github.com/DiogoRibeiro7/bike-sharing/issues/6) | Documentation site, LaTeX brief and verified v1.0 release | Completed: live Pages site, LaTeX/PDF brief and verified v1.0.0 release |
 
 Each implementation is reviewed through a pull request. This repository's
 existing default branch is `master`; PRs currently target it. A branch rename
@@ -18,13 +22,15 @@ requires coordinating repository settings and is not part of the baseline.
 
 ## Completion boundary
 
-The release is finished when a clean checkout reproduces the documented
-benchmark and one decision study, all numerical claims have committed evidence,
-the data audit findings and unresolved qualifications are explicit, and the LaTeX brief explains conclusions and limits.
+The release met its completion boundary: a fresh environment reproduces the
+frozen final reports, numerical claims have committed evidence, the data audit's
+unresolved qualifications are explicit, and the brief explains findings and
+limits. CI, deployment, live-site checks and release publication passed.
 
-Live deployment, dashboards, station-level rebalancing, additional datasets and
-an expanding collection of algorithms are outside v1.0. The final quarter of
-2012 is reserved for final evaluation; development comparisons must precede it.
+Operational model deployment, dashboards, station-level rebalancing, additional
+datasets and an expanding collection of algorithms are outside v1.0. The final
+quarter of 2012 was used for the frozen final evaluation and is now consumed.
+New method development needs a separate evaluation design and new final evidence.
 
 ## Current limitations
 
@@ -41,7 +47,8 @@ five policies at six assumed cost ratios.
 The residual-adjusted Poisson policy is selected in every scenario, without
 claims of operational savings. The final assessment shows 85.19% coverage at the
 nominal 90% level and a loss of the planning advantage at equal costs. The brief
-reports these adverse findings. The remaining #6 step is to merge the prepared
-publication workflow, verify Pages and confirm the v1.0 release before closure.
+reports these adverse findings. The planned modernization is complete; these
+limitations are part of the published evidence, not an open-ended development
+backlog.
 Upstream lineage and unit uncertainties remain documented in the completed data
 audit (#2).

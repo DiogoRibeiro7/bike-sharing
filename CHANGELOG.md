@@ -1,6 +1,12 @@
 # Changelog
 
-## 1.0.0 — prepared 2026-10-05; publication pending merge
+## Unreleased
+
+- Record verified Pages and v1.0.0 publication, complete the roadmap and add
+  versioned citation metadata. Released artifacts and statistical evidence remain
+  unchanged.
+
+## [1.0.0](https://github.com/DiogoRibeiro7/bike-sharing/releases/tag/v1.0.0) — 2026-10-05
 
 - Freeze the completed development procedures and record the October–December
   held-out assessment, including adverse interval-coverage and planning findings.

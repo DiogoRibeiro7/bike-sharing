@@ -75,15 +75,23 @@ replaying final evidence.
 
 ## GitHub Pages and release status
 
-The publication workflow is prepared in this PR. **A workflow file is not proof
-of a live deployment or an existing release.** The intended site address is
-`https://diogoribeiro7.github.io/bike-sharing/`.
+The case study was published on **5 October 2026**:
 
-The repository owner must set **Settings → Pages → Build and deployment → Source
-→ GitHub Actions** if this is not already enabled. The connector used for this
-work has no repository administration permission, so that setting cannot be
-confirmed or changed here. GitHub's standard workflow token cannot enable Pages
-on a repository where it has not yet been enabled.
+- [Documentation site](https://diogoribeiro7.github.io/bike-sharing/)
+- [Final assessment](https://diogoribeiro7.github.io/bike-sharing/final-results/)
+- [v1.0.0 release and attached distributions](https://github.com/DiogoRibeiro7/bike-sharing/releases/tag/v1.0.0)
+- [Successful publication run](https://github.com/DiogoRibeiro7/bike-sharing/actions/runs/37277134068)
+
+The release targets reviewed commit `3543f54d04d9d74d34b5b1e1bea8eba4b482e3bc`
+and contains the Python wheel, source distribution and decision brief. The live
+homepage, final-results page and PDF returned HTTP 200 during verification. The
+published PDF matched the reviewed repository artifact byte for byte (SHA-256
+`2a10aec1e18eb620f0bb1231608315bb71b2054618b8453973366b38cc870ad3`).
+The six-item v1 roadmap is complete.
+
+For a fork, enable **Settings → Pages → Build and deployment → Source → GitHub
+Actions** before using the publication workflow. This repository is already
+configured and deployed. No local publication commands are needed.
 
 After a successful CI push run on reviewed `master`, **Publish case study**
 installs a fresh locked environment, replays evidence, builds the site and
@@ -92,6 +100,7 @@ with the distributions and brief attached. A manual rerun is available from the
 Actions UI on `master`; no local publication commands are required. An existing
 release is left unchanged. PR runs build and verify but do not publish.
 
-Issue #6 stays open until the merged workflow produces a verified live site and
-the release exists. Publication remains a post-merge step; it is not claimed as
-completed in this preparation branch.
+The published tag and assets are retained as the release record. Later
+metadata/documentation changes can update the live site without replacing
+v1.0.0 assets or rerunning model selection. New scientific work requires a
+separate scope and fresh assessment data.
