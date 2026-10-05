@@ -44,6 +44,10 @@ finite, explicitly floor-dependent penalties when a baseline predicts zero;
 MAE/RMSE use the original predictions. Selection uses MAE, not this auxiliary
 metric. Deviance does not assert that the observed process is Poisson.
 
+The [interval procedure](intervals.md) adds rolling calibration from past
+out-of-sample forecast errors. Its coverage, width and interval score are reported
+separately; they do not change the pooled-MAE point-model selection rule.
+
 Missing timestamps remain absent and are excluded from scoring, never filled
 with zero rentals. A completely empty fold is recorded as `no_observations`,
 with no fit or score; its entire horizon contributes to gap accounting. An

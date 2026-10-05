@@ -57,14 +57,90 @@ folds.
 Poisson's largest fold MAE occurs at the July 1 origin, where it underperforms
 seasonal-naive. This calendar model omits holiday effects, weather and disruptions;
 these are limitations, not established causes of a particular residual. Seasonal
-naive can also repeat an unusual previous week. Neither method produces calibrated
-intervals, estimates lost rentals or establishes operational savings.
+naive can also repeat an unusual previous week. Point forecasts alone do not
+quantify uncertainty; the empirical interval extension below assesses forecast
+error without estimating lost rentals or establishing operational savings.
 
 The Poisson log-linear time term can extrapolate poorly, and the validation
 quarter covers only one part of the annual cycle. Model choice remains provisional until the
 uncertainty/planning work is frozen and one final test is run. The historical
 notebook's full-data exploration also prevents a claim that nobody has ever
 looked at these outcomes.
+
+## Empirical forecast intervals
+
+Package 0.4.0 applies the pre-specified [residual-calibration rule](intervals.md)
+to the same 2,208 validation hours. Initial calibration uses June 3–July 1;
+each subsequent origin uses only the previous 672 hours of out-of-sample errors.
+All three levels and all four candidates are recorded. Point forecasts and MAE
+selection reproduce the 0.3.0 comparison; Poisson calendar remains selected.
+
+| Model | Nominal | Coverage | Mean width | Mean interval score |
+| --- | ---: | ---: | ---: | ---: |
+| Training mean | 80% | 79.48% | 480.522 | 832.551 |
+| Training mean | 90% | 89.45% | 622.478 | 906.011 |
+| Training mean | 95% | 94.52% | 740.717 | 935.065 |
+| Hour-of-week mean | 80% | 79.89% | 289.744 | 420.867 |
+| Hour-of-week mean | 90% | 89.31% | 340.162 | 455.380 |
+| Hour-of-week mean | 95% | 94.38% | 375.185 | 476.127 |
+| Seasonal-naive | 80% | 80.16% | 148.610 | 332.726 |
+| Seasonal-naive | 90% | 89.13% | 239.502 | 467.428 |
+| Seasonal-naive | 95% | 93.93% | 343.204 | 607.479 |
+| Poisson calendar | 80% | 81.25% | 147.343 | 262.818 |
+| Poisson calendar | 90% | 90.44% | 204.579 | 345.376 |
+| Poisson calendar | 95% | 94.75% | 273.525 | 438.924 |
+
+Widths are in hourly rental counts; lower interval scores are better. These
+figures include clipping at zero and outward integer rounding. Pooled coverage
+is close to the nominal levels, but it does not establish conditional calibration.
+At 90%, Poisson misses **161 observations below** the lower bound and **50 above**
+the upper bound: the misses are not balanced between tails.
+
+### Selected model by predicted demand
+
+The following Poisson summaries use the nominal 90% level. Groups use predictions
+known at forecast time, not realized rentals.
+
+| Predicted rentals/hour | Hours | Coverage | Mean width | Mean interval score |
+| --- | ---: | ---: | ---: | ---: |
+| Below 100 | 500 | 99.20% | 72.044 | 75.124 |
+| 100 to below 300 | 679 | 90.13% | 182.689 | 260.303 |
+| 300 or more | 1,029 | 86.39% | 283.424 | 532.831 |
+
+Low predicted demand is overcovered at 99.2%, while high predicted demand has
+only 86.4% coverage. The pooled square-root scaling leaves substantial variation
+across rental levels. No regime-specific recalibration was added after seeing
+these results.
+
+### Selected model by forecast lead
+
+| Lead day | Hours | Coverage at 90% | Mean width | Mean interval score |
+| --- | ---: | ---: | ---: | ---: |
+| 1 | 336 | 86.61% | 200.848 | 403.051 |
+| 2 | 312 | 90.71% | 201.487 | 338.218 |
+| 3 | 312 | 91.67% | 206.138 | 329.279 |
+| 4 | 312 | 89.42% | 203.038 | 375.218 |
+| 5 | 312 | 94.87% | 207.622 | 253.647 |
+| 6 | 312 | 94.55% | 207.442 | 295.647 |
+| 7 | 312 | 85.58% | 205.766 | 418.138 |
+
+Day 1 includes the short final fold. Because every full horizon starts on Sunday,
+lead day is confounded with weekday in this study; these figures cannot isolate
+a causal effect of forecast distance. Coverage ranges from 85.6% to 94.9% and
+does not decline monotonically with lead time.
+
+The [complete interval report](https://github.com/DiogoRibeiro7/bike-sharing/blob/master/benchmarks/interval-validation-2012-q3.json)
+contains every fold, calibration quantile and group at every level, together with
+the frozen procedure. Reproduce it with:
+
+```bash
+poetry run bike-sharing-intervals --output results/interval-validation.json
+```
+
+These are dependent, post-selection validation diagnostics from one quarter.
+No exchangeability, universal coverage or independent final-evidence claim is
+made. The real test quarter remains unscored; interval and planning choices must
+be frozen before its one final assessment. See the [method and limitations](intervals.md).
 
 ## Historical fixed-origin results
 

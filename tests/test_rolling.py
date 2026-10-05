@@ -326,7 +326,9 @@ def test_committed_validation_benchmark_reproduces_without_scoring_test() -> Non
     root = Path(__file__).resolve().parents[1]
     expected = json.loads((root / "benchmarks/rolling-validation-2012-q3.json").read_text())
     actual = select_rolling_on_validation(load_dataset(root / "bike.csv"))
-    assert actual["selection"] == expected["selection"]
+    historical_selection = expected["selection"]
+    historical_selection["package_version"] = actual["package_version"]
+    assert actual["selection"] == historical_selection
     assert actual["protocol"] == expected["protocol"]
     assert actual["test_scored"] is False
     assert actual["evaluation_observations"] == 2208
