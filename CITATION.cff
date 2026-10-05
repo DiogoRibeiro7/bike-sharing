@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite this software when using the maintained forecasting study. Cite the source dataset separately."
+type: software
+title: "Bike Sharing Forecasting: Temporal Evaluation and Asymmetric-Cost Planning"
+authors:
+  - family-names: Ribeiro
+    given-names: Diogo
+    orcid: "https://orcid.org/0009-0001-2022-7072"
+repository-code: "https://github.com/DiogoRibeiro7/bike-sharing"
+license: Apache-2.0
+abstract: >-
+  A reproducible statistical case study of aggregate hourly rentals, with
+  chronological model selection, empirical forecast intervals and an explicit
+  workload planning loss. Frozen final evaluation documents uncertainty
+  undercoverage and limits on operational interpretation.
+keywords:
+  - time series
+  - forecasting
+  - calibration
+  - decision analysis

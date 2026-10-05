@@ -60,11 +60,10 @@ protocol. Schema 1 historical selections can be read as fixed-origin selections,
 but their old package version prevents execution under the current package until
 revalidated.
 
-**The real October–December outcomes have not been scored in this modernization.**
-CI uses synthetic data for final-test checks. Once real test errors are inspected,
-do not use them for further tuning while still calling them untouched holdout
-results. The current report is provisional model selection, not final evidence
-for deployment.
+**The frozen October–December assessment is now recorded.** CI uses synthetic
+contract checks and replays the committed evidence. Do not tune to these errors
+while calling the quarter an untouched holdout. See [final results](final-results.md)
+for the coverage shortfall and limits on operational interpretation.
 
 ## Interval calibration within the three-way workflow
 
@@ -75,7 +74,8 @@ calibration counts can subsequently enter expanding point-model fits, but their
 stored errors always come from forecasts made before those counts were known.
 The [interval protocol](intervals.md) describes this distinction and its separate
 saved selection. Its explicit final-test command freezes the point model, refit
-cadence and calibration rule and is currently exercised only on synthetic data.
+cadence and calibration rule. Both synthetic checks and the frozen final
+assessment exercise that path.
 
 ## Custom studies
 

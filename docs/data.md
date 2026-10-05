@@ -137,8 +137,8 @@ every row and checks the source file's hash through comparison with the saved
 report. Row order is immaterial to matching; byte identity is separately
 recorded. No source downloads occur in CI or forecasting. To generate a fresh
 report, omit `--check` and redirect stdout to a new JSON file for review.
-The audit does not train a model, compute errors or select candidates; the real
-test period remains unscored.
+The audit does not train a model, compute errors or select candidates. The
+separate [frozen final assessment](final-results.md) is now recorded.
 
 ## Maintained forecasting loader
 

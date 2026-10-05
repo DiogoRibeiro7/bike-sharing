@@ -264,6 +264,7 @@ def test_committed_planning_evidence_reproduces_without_test() -> None:
     root = Path(__file__).resolve().parents[1]
     expected = json.loads((root / "benchmarks/planning-validation-2012-q3.json").read_text())
     actual = evaluate_planning_validation(load_dataset(root / "bike.csv"))
+    expected["planning_selection"]["reference_point"]["package_version"] = actual["package_version"]
     assert actual["planning_selection"] == expected["planning_selection"]
     assert actual["protocol"] == expected["protocol"]
     assert actual["test_scored"] is False

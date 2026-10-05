@@ -12,3 +12,7 @@ site/
 results/
 *.egg-info/
 .DS_Store
+brief/*.aux
+brief/*.log
+brief/*.out
+brief/*.pdf

@@ -23,3 +23,17 @@ terms are not inferred from this repository's Apache software license.
 Method changes need a documented forecast horizon and feature-availability
 contract. Report unfavourable results and do not tune against the final temporal
 holdout. No Prophet dependency is used in this project.
+
+## Frozen release evidence
+
+The October–December quarter is now consumed. Report later changes as a new
+exploratory study; do not retune on these outcomes and describe them as an
+untouched final test. Preserve `benchmarks/release-v1` and its source/selection
+hashes. Any replacement study needs separately named evidence and an explicit
+new evaluation design.
+
+Run `poetry run python scripts/reproduce_release.py` to check the frozen reports,
+and `poetry run python scripts/build_tables.py` before editing the brief. Compile
+LaTeX twice and visually check the PDF after substantive layout/text changes.
+Keep publication status accurate: a prepared workflow is not a verified live
+site or tag. Publication runs only from reviewed `master`, after CI succeeds.

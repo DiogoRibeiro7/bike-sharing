@@ -8,8 +8,30 @@ statistical case study. It provides a typed CSV loader, four interpretable
 forecasting candidates, a verified data audit and chronological model selection.
 Empirical forecast intervals include temporal calibration and coverage diagnostics.
 An asymmetric-cost study connects forecasts to an explicit workload decision.
-Hosted documentation, a decision brief and final assessment remain in the
-[roadmap](ROADMAP.md).
+The frozen final assessment and a LaTeX decision brief are complete. Publication
+of the documentation site and v1.0 release is prepared for reviewed `master`;
+see the [roadmap](ROADMAP.md) for the remaining publication check.
+
+## Final findings and reproduction
+
+The frozen October–December assessment covers **2,168 observed hours** and
+40 missing hours. Poisson MAE is **61.378 rentals/hour**. Nominal 90% interval
+coverage falls to **85.19% overall** and **74.81% at high predicted demand**.
+At equal planning costs, the adjusted policy's final loss is **62.766**, so its
+small validation advantage over the point forecast does not persist. These
+results do not establish operational readiness or financial savings.
+
+Read the [final assessment](docs/final-results.md) and
+[two-page decision brief](docs/assets/decision-brief.pdf).
+To verify the saved procedures after installing the locked environment:
+
+```bash
+poetry run python scripts/reproduce_release.py
+```
+
+The [reproduction guide](docs/reproduction.md) covers the source/selection hashes,
+LaTeX tables, documentation and release workflow. This test quarter is now
+consumed; a replay is a reproducibility check, not a fresh holdout.
 
 ## Run the validation study
 
@@ -58,9 +80,9 @@ poetry run bike-sharing --stage test --selection results/validation.json \
 ```
 
 That command requires matching data, package and configuration identities and
-rejects protocol, cadence and boundary overrides. **The real test period has not
-been scored in this modernization.**
-The final-test path is checked with synthetic data in CI. See the
+rejects protocol, cadence and boundary overrides. **The frozen final assessment
+is now recorded**, with no retuning after inspecting the test quarter. CI checks
+synthetic contracts and reproduces the recorded final evidence. See the
 [three-way workflow](docs/splits.md), [methods](docs/methodology.md) and
 [recorded validation results](docs/results.md).
 
@@ -86,7 +108,8 @@ group. Aggregate coverage hides meaningful weaknesses. These are empirical,
 post-selection diagnostics with no guaranteed coverage under temporal dependence
 or demand shifts. See the [interval method](docs/intervals.md) and
 [complete validation evidence](docs/results.md#empirical-forecast-intervals).
-This command also leaves the real test period unscored.
+This validation command does not score test outcomes; the separate frozen final
+assessment is now recorded.
 
 ## Compare planning policies
 
@@ -103,7 +126,7 @@ policy. These are scenario losses, not realised savings. Costs are assumed;
 aggregate rentals cannot substantiate staffing, inventory or station rebalancing
 recommendations. See the [planning method and sensitivity tables](docs/planning.md).
 Policy selection uses validation only, and each scenario's choice is saved for
-an explicit later final assessment.
+the explicit final assessment.
 
 ## Forecasting candidates
 

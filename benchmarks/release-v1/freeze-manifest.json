@@ -1,0 +1,31 @@
+{
+  "development_commit": "d79d57ad4c8062efe30fd98645a23e8a5f07d1f9",
+  "frozen_at_utc": "2026-10-05T06:29:01.380729+00:00",
+  "package_version": "1.0.0",
+  "schema_version": "1.0",
+  "selection_change": "package_version_only; all methods and selected policies unchanged",
+  "source_sha256": {
+    "src/bike_sharing/__init__.py": "361647353ad74aa9bb67e12259cd77aa7c231a103d3a023dd4a56dcd96affd17",
+    "src/bike_sharing/audit.py": "215a4e6c0788ea09460f1d2e833e1c1ce3d94bfa885c97f3bcee7b79ffce92a4",
+    "src/bike_sharing/calibration.py": "1c81f011ef65b9c78366c9e202581afbe0958d33d0d97ea12e95fea010473daf",
+    "src/bike_sharing/cli.py": "f3e9e29c3f7a3a2feec007c99c466a5a4c62f1984d831fe7d5de8f4ceeb32082",
+    "src/bike_sharing/data.py": "37363323af6286d9a6f73599f16d96b891f4c11616636af3177f9935e73ef91b",
+    "src/bike_sharing/forecasting.py": "cad8bac90793cffed8d8e05c39d4a190ed5503fc2cf79fa4e6ba1a21f43ed0eb",
+    "src/bike_sharing/interval_cli.py": "71a683369e9729f2bcc50aaaa5ccbea05fa46d0d533ce4affb513c83375d5eb0",
+    "src/bike_sharing/intervals.py": "27c09f925d64a26227aa70ed0072d1ba546247f48a4aa1575e62201e338dd8e0",
+    "src/bike_sharing/models.py": "6a742d4ce22cc5df8c683ed29cd9a36d778d820234cf2e9c649fe18f81850749",
+    "src/bike_sharing/planning.py": "eb6cd01e6b8bb413cb270aced3ab197c395316611d9fc383e86e58ba294a7f04",
+    "src/bike_sharing/planning_cli.py": "eb3d6490c7629e1ec90456a09e3c517b79263b43a42e60ee0e1c0da1b661a510",
+    "src/bike_sharing/rolling.py": "1a857fd7bb0c6fb8faaac8077896212b96669a8f245ed6afe621c2f98575fe39",
+    "src/bike_sharing/splits.py": "5fe8621de8df2d6926641515dbff4da8fa3fc0ccf97dd96219d5e2e7a6e40f7c",
+    "src/bike_sharing/study.py": "1901b2c7903dc3bc47b82a9f0194a110003f047b500a56f56fe35b10509061cf"
+  },
+  "status": "frozen_before_first_final_evaluation",
+  "test_period": "[2012-10-01,2013-01-01)",
+  "test_rule": "score only frozen selections; no retuning after inspection",
+  "validation_artifact_sha256": {
+    "interval-validation.json": "598c6da1e289f07071be8cca59151aed958271addec1c55815d1c9984c9a45bc",
+    "planning-validation.json": "f65d3b77cf8ec2e31ee9396eb673f1f2d05630d841e307bd6ffd8d1d6d99345d",
+    "point-validation.json": "f32a57657c4142bee2022c5736e5aedb805112c78c461d260b944226902016dd"
+  }
+}

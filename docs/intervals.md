@@ -143,8 +143,9 @@ not share the validation-origin grid. At subsequent test origins, earlier test
 counts may update fits and calibration on the saved schedule. No model or method
 is reselected. This is sequential testing of a frozen procedure.
 
-The real test quarter remains **unscored**. Only synthetic data exercises the
-final-test path. The version 0.3.0 point benchmark is retained unchanged; version
+The frozen real test assessment is now recorded in [final results](final-results.md),
+including interval undercoverage. Synthetic data still checks the final-test
+contract; replays verify the existing result without creating a new holdout. The version 0.3.0 point benchmark is retained unchanged; version
 0.4.0 reproduces its point metrics and protocol, with updated package metadata.
 Old selections need a fresh validation run under the current package before
 final testing.
