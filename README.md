@@ -3,14 +3,16 @@
 Reproducible forecasting of aggregate hourly bike rentals, with explicit
 forecast-time information and chronological evaluation.
 
-This project is being modernized from a 2020 exploratory notebook into a small
+This project modernizes a 2020 exploratory notebook into a reproducible
 statistical case study. It provides a typed CSV loader, four interpretable
 forecasting candidates, a verified data audit and chronological model selection.
 Empirical forecast intervals include temporal calibration and coverage diagnostics.
 An asymmetric-cost study connects forecasts to an explicit workload decision.
-The frozen final assessment and a LaTeX decision brief are complete. Publication
-of the documentation site and v1.0 release is prepared for reviewed `master`;
-see the [roadmap](ROADMAP.md) for the remaining publication check.
+The frozen final assessment and LaTeX decision brief are published in
+[v1.0.0](https://github.com/DiogoRibeiro7/bike-sharing/releases/tag/v1.0.0).
+Read the [live documentation](https://diogoribeiro7.github.io/bike-sharing/) or
+[decision brief](https://diogoribeiro7.github.io/bike-sharing/assets/decision-brief.pdf).
+The [six-item roadmap](ROADMAP.md) is complete.
 
 ## Final findings and reproduction
 

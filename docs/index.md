@@ -36,5 +36,6 @@ Read the [decision brief](assets/decision-brief.pdf) for the stakeholder summary
 
 The [six-issue roadmap](https://github.com/DiogoRibeiro7/bike-sharing/issues)
 ends with a small benchmark, uncertainty analysis, one planning study and a
-LaTeX decision brief. The final evidence and brief are complete. Pages and release
-publication are prepared in issue #6; see [publication status](reproduction.md).
+LaTeX decision brief. All six deliverables are complete. The documentation is
+live and [v1.0.0 is published](https://github.com/DiogoRibeiro7/bike-sharing/releases/tag/v1.0.0).
+See the [verified publication record](reproduction.md#github-pages-and-release-status).

@@ -1,6 +1,9 @@
 cff-version: 1.2.0
 message: "Please cite this software when using the maintained forecasting study. Cite the source dataset separately."
 type: software
+version: 1.0.0
+date-released: 2026-10-05
+url: "https://github.com/DiogoRibeiro7/bike-sharing/releases/tag/v1.0.0"
 title: "Bike Sharing Forecasting: Temporal Evaluation and Asymmetric-Cost Planning"
 authors:
   - family-names: Ribeiro
