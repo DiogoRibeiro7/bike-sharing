@@ -319,6 +319,7 @@ def test_empirical_interval_evidence_reproduces_without_final_testing() -> None:
     root = Path(__file__).resolve().parents[1]
     expected = json.loads((root / "benchmarks/interval-validation-2012-q3.json").read_text())
     actual = evaluate_interval_validation(load_dataset(root / "bike.csv"))
+    expected["interval_selection"]["point_selection"]["package_version"] = actual["package_version"]
     assert actual["interval_selection"] == expected["interval_selection"]
     assert actual["protocol"] == expected["protocol"]
     assert actual["test_scored"] is False

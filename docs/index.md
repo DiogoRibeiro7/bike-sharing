@@ -7,13 +7,15 @@ The maintained implementation compares four interpretable candidates using weekl
 expanding-window validation, while reserving a final temporal test. Data provenance,
 per-fold errors, coefficient diagnostics and source identities are recorded.
 Empirical prediction intervals use only past out-of-sample errors for calibration,
-with coverage, width and interval-score diagnostics.
+with coverage, width and interval-score diagnostics. An asymmetric-cost planning
+study compares workload policies across explicit assumed cost scenarios.
 Everything needed for the run is local after installation.
 
 ```bash
 poetry install --with dev,docs
 poetry run bike-sharing --output results/validation.json
 poetry run bike-sharing-intervals --output results/interval-validation.json
+poetry run bike-sharing-planning --output results/planning-validation.json
 poetry run mkdocs serve
 ```
 
@@ -23,6 +25,8 @@ properties, row-level UCI reconciliation and remaining provenance limitations.
 The [candidate specification](models.md) explains the statistical models.
 The [interval study](intervals.md) explains calibration, count bounds and why
 aggregate coverage does not imply reliable coverage in every demand regime.
+The [planning study](planning.md) connects forecast uncertainty to a decision and
+documents the gap between proxy losses and operational evidence.
 The [API](api.md) documents the Python interfaces. The [legacy audit](legacy-audit.md) explains the original notebook's
 evaluation limitations.
 

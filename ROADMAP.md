@@ -9,7 +9,7 @@ aggregate rental forecasts to an explicit planning decision.
 | 2 | [#2](https://github.com/DiogoRibeiro7/bike-sharing/issues/2) | Data lineage, units, license and calendar audit | Numeric reconciliation complete; remaining lineage and unit uncertainties documented |
 | 3 | [#3](https://github.com/DiogoRibeiro7/bike-sharing/issues/3) | Interpretable models and rolling-origin comparisons | Completed: four candidates, weekly expanding folds, frozen protocol and per-fold evidence |
 | 4 | [#4](https://github.com/DiogoRibeiro7/bike-sharing/issues/4) | Forecast intervals and calibration assessment | Completed: temporal residual calibration, count intervals, coverage/width/score diagnostics and frozen-test procedure |
-| 5 | [#5](https://github.com/DiogoRibeiro7/bike-sharing/issues/5) | Asymmetric-cost planning study | Planned |
+| 5 | [#5](https://github.com/DiogoRibeiro7/bike-sharing/issues/5) | Asymmetric-cost planning study | Completed: explicit proxy loss, six cost scenarios, five policies, frozen selections and reproducible validation evidence |
 | 6 | [#6](https://github.com/DiogoRibeiro7/bike-sharing/issues/6) | Documentation site, LaTeX brief and verified v1.0 release | Planned |
 
 Each implementation is reviewed through a pull request. This repository's
@@ -35,7 +35,10 @@ selected refit cadence are enforced. The real test period remains unscored.
 
 Empirical intervals now quantify recent forecast error. Poisson's nominal 90%
 bands cover 90.4% overall but 86.4% at high predicted demand; no universal or
-conditional coverage guarantee is claimed. The next step is the asymmetric-cost
-planning study (#5). Decision choices must be frozen before final testing, and
-current results do not establish operational savings. Upstream lineage and unit
-uncertainties remain documented in the completed data audit (#2).
+conditional coverage guarantee is claimed. The planning study (#5) now compares
+five policies at six assumed cost ratios.
+The residual-adjusted Poisson policy is selected in every scenario, without
+claims of operational savings. The next step is #6: hosted documentation, a
+LaTeX decision brief and final held-out assessment under frozen procedures.
+Upstream lineage and unit uncertainties remain documented in the completed data
+audit (#2).

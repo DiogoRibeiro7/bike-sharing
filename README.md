@@ -7,7 +7,9 @@ This project is being modernized from a 2020 exploratory notebook into a small
 statistical case study. It provides a typed CSV loader, four interpretable
 forecasting candidates, a verified data audit and chronological model selection.
 Empirical forecast intervals include temporal calibration and coverage diagnostics.
-Planning-cost evaluation is next in the [roadmap](ROADMAP.md).
+An asymmetric-cost study connects forecasts to an explicit workload decision.
+Hosted documentation, a decision brief and final assessment remain in the
+[roadmap](ROADMAP.md).
 
 ## Run the validation study
 
@@ -86,6 +88,23 @@ or demand shifts. See the [interval method](docs/intervals.md) and
 [complete validation evidence](docs/results.md#empirical-forecast-intervals).
 This command also leaves the real test period unscored.
 
+## Compare planning policies
+
+```bash
+poetry run bike-sharing-planning --output results/planning-validation.json
+```
+
+The decision is a continuous hourly workload target measured in rental-equivalent
+units. Six assumed under/overprediction cost ratios compare the four point
+policies with a Poisson policy adjusted by past signed residual quantiles.
+The latter has the lowest validation cost in all six scenarios: at ratio 9,
+mean normalized loss is **115.067**, versus **215.418** for the Poisson point
+policy. These are scenario losses, not realised savings. Costs are assumed;
+aggregate rentals cannot substantiate staffing, inventory or station rebalancing
+recommendations. See the [planning method and sensitivity tables](docs/planning.md).
+Policy selection uses validation only, and each scenario's choice is saved for
+an explicit later final assessment.
+
 ## Forecasting candidates
 
 | Model | Prediction and training information |
@@ -120,7 +139,7 @@ poetry run python -m bike_sharing.audit --check benchmarks/data-audit.json
 ```
 
 Observed rentals do not identify unconstrained demand, lost rentals or station
-inventory. Future planning studies will label cost assumptions explicitly.
+inventory. The planning study labels its cost assumptions and proxy decision explicitly.
 
 ## Development
 
