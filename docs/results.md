@@ -142,6 +142,16 @@ No exchangeability, universal coverage or independent final-evidence claim is
 made. The real test quarter remains unscored; interval and planning choices must
 be frozen before its one final assessment. See the [method and limitations](intervals.md).
 
+## Asymmetric-cost planning
+
+The [planning study](planning.md) reports five policies at six assumed cost ratios
+on the same validation quarter. The signed-residual Poisson policy is selected
+at every ratio. At equal costs, mean loss is 52.328 versus 53.268 for the point
+forecast; at ratio 9, it is 115.067 versus 215.418. Higher targets trade less
+underprediction for more excess. These are assumed proxy losses, not financial
+savings, and are selected on validation. The planning report preserves per-fold
+costs and all selected procedures; the real test period remains unscored.
+
 ## Historical fixed-origin results
 
 The following 0.2.0 result uses the same 2,208 validation observations but fits

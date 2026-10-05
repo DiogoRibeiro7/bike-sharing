@@ -39,6 +39,8 @@ jobs:
         run: poetry run bike-sharing --output results/validation.json
       - name: Assess empirical intervals on validation only
         run: poetry run bike-sharing-intervals --output results/interval-validation.json
+      - name: Compare planning policies on validation only
+        run: poetry run bike-sharing-planning --output results/planning-validation.json
       - name: Build documentation and distributions
         run: |
           poetry run mkdocs build --strict

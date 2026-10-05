@@ -165,6 +165,35 @@ reports cannot authorize interval testing. Data/output flags, input-overwrite
 protection and exit status 2 on errors follow the point CLI's contract. Use
 `bike-sharing-intervals --help` for all flags.
 
+## Planning API
+
+`bike_sharing.planning.evaluate_planning_validation(dataset, split=StudySplit(),
+*, horizon_hours=168)` compares the five fixed policies at all six fixed cost
+ratios. It returns per-fold and pooled cost components, calibration metadata and
+one selected policy per scenario. The output stage is `planning_validation` and
+`test_scored` is false. The default is the same weekly validation study.
+
+`cost_metrics(actual, actions, ratio)` returns mean normalized cost, separate
+mean underprediction/excess, mean action and underprediction frequency.
+`actual` contains nonnegative integer counts; `actions` contains finite nonnegative
+continuous targets. Inputs must have equal nonzero lengths and `ratio` must be
+positive and finite. `signed_quantile(scores, ratio)` and
+`workload_action(prediction, adjustment)` expose the empirical decision rule.
+Invalid support or values raise `ValueError`.
+
+`FrozenPlanningSelection(reference, policies)` binds a rolling Poisson reference
+identity to one valid policy for every fixed ratio, in `COST_RATIOS` order.
+`read_planning_selection(path)` reads only planning-validation reports and checks
+the configuration and hash. `evaluate_planning_test(dataset, selection)` verifies
+data/software/model identities and evaluates only the saved scenario policies.
+It refits and updates calibration on the saved schedule without reselecting.
+
+`bike-sharing-planning` writes validation JSON by default. `--data` and `--output`
+control paths. The explicit `--stage test --selection REPORT` path requires a
+saved planning report; cost and cadence overrides are not exposed. Output cannot
+overwrite data or the selection. Invalid inputs return status 2. See the
+[planning protocol](planning.md) for assumptions and the reserved real test.
+
 ## Data audit
 
 `bike_sharing.audit.audit_dataset(path, upstream=None)` validates the historical
